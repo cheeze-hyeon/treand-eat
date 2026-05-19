@@ -1,5 +1,4 @@
-import { getMapFloatingControlsBottom } from '../../data/mapLayout';
-import type { DrawerSnap, MapMetricMode } from '../../data/mapStores';
+import type { MapMetricMode } from '../../data/mapStores';
 import MapCurrentLocationButton from './MapCurrentLocationButton';
 import MapMetricToggle from './MapMetricToggle';
 
@@ -8,24 +7,17 @@ type MapFloatingControlsProps = {
   onMetricModeChange: (mode: MapMetricMode) => void;
   onCurrentLocation: () => void;
   locationPulse: boolean;
-  drawerSnap: DrawerSnap;
 };
 
-/** 탭바 바로 위에 고정되는 지표 토글 + 현재 위치 버튼 */
+/** 드로어 스택 안, 흰 시트 바로 위에 붙는 컨트롤 행 */
 export default function MapFloatingControls({
   metricMode,
   onMetricModeChange,
   onCurrentLocation,
   locationPulse,
-  drawerSnap,
 }: MapFloatingControlsProps) {
   return (
-    <div
-      className={`fixed inset-x-0 z-[55] mx-auto flex max-w-[393px] items-end justify-between px-[18px] pointer-events-none transition-[opacity] duration-200 ${
-        drawerSnap === 'expanded' ? 'opacity-0' : 'opacity-100'
-      }`}
-      style={{ bottom: getMapFloatingControlsBottom() }}
-    >
+    <div className="flex shrink-0 items-end justify-between pointer-events-auto gap-auto w-full">
       <MapMetricToggle mode={metricMode} onChange={onMetricModeChange} />
       <MapCurrentLocationButton onClick={onCurrentLocation} active={locationPulse} />
     </div>

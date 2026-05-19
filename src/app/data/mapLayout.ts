@@ -1,16 +1,10 @@
-/** BottomNavigation + Drawer.Content `bottom` offset */
+/** BottomNavigation 높이 */
 export const MAP_BOTTOM_NAV_HEIGHT = 69;
 
-/** Peek drawer content: handle (~20) + padding (16) + card (107) */
-export const MAP_DRAWER_PEEK_HEIGHT_PX = 148;
+/** 바텀시트 스냅 — 지도 영역(container) 높이 대비 비율 */
+export const MAP_SHEET_SNAP_LIST = 0.30;
+export const MAP_SHEET_SNAP_LIST_MAX = 0.58;
+export const MAP_SHEET_SNAP_DETAIL = 0.72;
 
-export const MAP_DRAWER_PEEK_SNAP = `${MAP_DRAWER_PEEK_HEIGHT_PX}px` as const;
-
-export const MAP_DRAWER_EXPANDED_SNAP = 0.88;
-
-export const MAP_FLOATING_CONTROLS_GAP = 8;
-
-/** 탭바 바로 위 */
-export function getMapFloatingControlsBottom(): string {
-  return `calc(${MAP_BOTTOM_NAV_HEIGHT}px + ${MAP_FLOATING_CONTROLS_GAP}px)`;
-}
+/** 컨트롤이 시트 상단에 겹치는 높이 */
+export const MAP_FLOATING_CONTROLS_OVERLAP = 60;

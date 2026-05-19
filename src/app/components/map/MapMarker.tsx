@@ -70,7 +70,7 @@ export default function MapMarker({ store, metricMode, isSelected, onSelect }: M
         <p className="text-[13px] text-left whitespace-nowrap" style={{ color: nameColor }}>
           {store.name}
         </p>
-        <p className="text-[13px] text-left text-[#9cb8b7] pt-px">{label}</p>
+        <p className="text-[13px] text-left text-[#9cb8b7] pt-px text-nowrap">{label}</p>
       </div>
       <MapTooltipPointer fill={bubbleBg} />
       <MapPinIcon />

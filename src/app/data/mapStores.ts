@@ -1,7 +1,5 @@
 export type MapMetricMode = 'preference' | 'trend';
 
-export type DrawerSnap = 'closed' | 'peek' | 'expanded';
-
 export type MapStore = {
   id: string;
   name: string;
@@ -49,7 +47,7 @@ export const MAP_STORES: MapStore[] = [
     name: '달콤제과',
     highlightMenu: '쑥인절미',
     categories: ['호박인절미'],
-    position: { xPercent: 62, yPercent: 50 },
+    position: { xPercent: 89, yPercent: 40 },
     preferenceMatch: 81,
     trendScore: 85,
     price: 2500,
