@@ -119,12 +119,14 @@ export type FoodStore = {
   storeId: string;
   rank: number;
   name: string;
+  listPrice?: string;
+  priceDiff?: string;
 };
 
 export const FOOD_STORES: Record<string, FoodStore[]> = {
   '1': [{ storeId: '1', rank: 1, name: '미엘 케이커리' }],
   '2': [
-    { storeId: '1', rank: 1, name: '미엘 케이커리' },
+    { storeId: '1', rank: 1, name: '미엘 케이커리', listPrice: '1500', priceDiff: '500' },
     { storeId: '2', rank: 2, name: '떡앤카페' },
   ],
   '3': [{ storeId: '3', rank: 1, name: '한떡' }],

@@ -114,7 +114,7 @@ export default function MapBottomSheet({
               </Drawer.Handle>
 
               <div
-                className="map-sheet-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain py-4"
+                className="map-sheet-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain"
                 data-vaul-no-drag=""
               >
                 {!isDetail ? (

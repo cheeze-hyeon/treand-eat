@@ -24,7 +24,7 @@ export default function MapStorePeekCard({
         aria-label={`${store.name} 상세 보기`}
       >
         <div
-          className="flex h-[107px] overflow-hidden rounded-[14px] bg-white border-2 border-[#335352]"
+          className="flex h-full overflow-hidden rounded-[14px] bg-white border-2 border-[#335352]"
           style={{ boxShadow: '0px 4px 4px 0 #9cb8b7' }}
         >
           <div className="w-[84px] h-full bg-[#f7f4f0] flex-shrink-0" />

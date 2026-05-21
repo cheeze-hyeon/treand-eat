@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
 import ReviewTargetSearch, {
@@ -6,6 +6,7 @@ import ReviewTargetSearch, {
   filterReviewTargets,
   type ReviewTarget,
 } from '../components/ReviewTargetSearch';
+import StoreSummaryHeader from '../components/StoreSummaryHeader';
 import { getFoodById, getFoodIdByMenuName } from '../data/foods';
 
 type StoreInfo = {
@@ -14,6 +15,7 @@ type StoreInfo = {
   location: string;
   price: string;
   priceUnit: string;
+  priceChange?: string;
   waitingTime: string;
   reviewCount: number;
 };
@@ -25,6 +27,7 @@ const STORES: Record<string, StoreInfo> = {
     location: '서울 마포구',
     price: '2000원',
     priceUnit: '(개당)',
+    priceChange: '500원',
     waitingTime: '15분',
     reviewCount: 404,
   },
@@ -107,6 +110,222 @@ function Chip({ selected, onClick, children, className = '' }: ChipProps) {
   );
 }
 
+const TOOLTIP_SHADOW =
+  '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)';
+
+function SatisfactionHelpButton() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative shrink-0">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label="만족도 안내"
+        aria-expanded={open}
+        className="flex items-center justify-center"
+      >
+        <svg
+          width={19}
+          height={19}
+          viewBox="0 0 19 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="size-[19px]"
+          aria-hidden
+        >
+          <path
+            d="M9.49992 17.4174C13.8722 17.4174 17.4166 13.873 17.4166 9.50065C17.4166 5.1284 13.8722 1.58398 9.49992 1.58398C5.12767 1.58398 1.58325 5.1284 1.58325 9.50065C1.58325 13.873 5.12767 17.4174 9.49992 17.4174Z"
+            stroke="#9E9794"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7.19629 7.12594C7.38241 6.59684 7.74979 6.15069 8.23334 5.8665C8.71689 5.58232 9.28542 5.47843 9.83822 5.57325C10.391 5.66807 10.8924 5.95548 11.2536 6.38457C11.6148 6.81365 11.8125 7.35673 11.8117 7.91761C11.8117 9.50094 9.43671 10.2926 9.43671 10.2926"
+            stroke="#9E9794"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9.5 13.459H9.50708"
+            stroke="#9E9794"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {open && (
+        <div
+          className="absolute left-0 top-full z-20 mt-2 flex h-10 w-[200px] items-center rounded-xl border-2 border-[#2e211c] bg-white pl-[9px] pr-2"
+          style={{ boxShadow: TOOLTIP_SHADOW }}
+          role="tooltip"
+        >
+          <p className="flex-1 text-xs text-[#2e211c]">
+            앱에서 트렌딧 지수를 계산하는 데 사용됩니다.
+          </p>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="안내 닫기"
+            className="flex size-4 shrink-0 items-center justify-center"
+          >
+            <svg
+              width={12}
+              height={12}
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-3"
+              aria-hidden
+            >
+              <g clipPath="url(#satisfaction-help-close)">
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12 1.10505L10.895 0L6 4.90272L1.10505 0L0 1.10505L4.90272 6L0 10.895L1.10505 12L6 7.09728L10.895 12L12 10.895L7.09728 6L12 1.10505Z"
+                  fill="#2E211C"
+                />
+              </g>
+              <defs>
+                <clipPath id="satisfaction-help-close">
+                  <rect width={12} height={12} fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CameraIcon() {
+  return (
+    <svg
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="size-6"
+      aria-hidden
+    >
+      <path
+        d="M14.4953 3.99805H9.49692L6.99774 6.99706H3.99873C3.46847 6.99706 2.95993 7.2077 2.58498 7.58265C2.21003 7.9576 1.99939 8.46614 1.99939 8.9964V17.9934C1.99939 18.5237 2.21003 19.0322 2.58498 19.4072C2.95993 19.7821 3.46847 19.9928 3.99873 19.9928H19.9935C20.5237 19.9928 21.0323 19.7821 21.4072 19.4072C21.7822 19.0322 21.9928 18.5237 21.9928 17.9934V8.9964C21.9928 8.46614 21.7822 7.9576 21.4072 7.58265C21.0323 7.2077 20.5237 6.99706 19.9935 6.99706H16.9945L14.4953 3.99805Z"
+        stroke="#9E9794"
+        strokeWidth={1.99934}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11.9961 15.9941C13.6524 15.9941 14.9951 14.6514 14.9951 12.9951C14.9951 11.3388 13.6524 9.99609 11.9961 9.99609C10.3398 9.99609 8.99707 11.3388 8.99707 12.9951C8.99707 14.6514 10.3398 15.9941 11.9961 15.9941Z"
+        stroke="#9E9794"
+        strokeWidth={1.99934}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ReviewStoreSummary({
+  store,
+  foodName,
+}: {
+  store: StoreInfo;
+  foodName: string;
+}) {
+  return (
+    <StoreSummaryHeader
+      name={store.name}
+      price={store.price}
+      priceUnit={store.priceUnit}
+      waitingTime={store.waitingTime}
+      reviewCount={store.reviewCount}
+      location={store.location}
+      menuName={foodName}
+      priceChange={store.priceChange}
+      showWriteReview={false}
+      className="py-4"
+    />
+  );
+}
+
+function WriteReviewPickerHeader({
+  onBack,
+  onBookmark,
+  onClose,
+}: {
+  onBack: () => void;
+  onBookmark: () => void;
+  onClose: () => void;
+}) {
+  return (
+    <header className="flex shrink-0 items-center justify-between px-6 py-[18px]">
+      <button
+        type="button"
+        onClick={onBack}
+        aria-label="뒤로 가기"
+        className="flex size-10 items-center justify-center rounded-full bg-white/50 pr-2.5"
+      >
+        <svg width={20} height={20} viewBox="0 0 20 20" fill="none" aria-hidden>
+          <path
+            d="M9.9925 15.8219L4.16357 9.99299L9.9925 4.16406"
+            stroke="#2E211C"
+            strokeWidth="1.67"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M15.8214 9.99219H4.16357"
+            stroke="#2E211C"
+            strokeWidth="1.67"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={onBookmark}
+          aria-label="저장 목록"
+          className="flex size-10 items-center justify-center"
+        >
+          <svg width={20} height={20} viewBox="0 0 20 20" fill="none" aria-hidden>
+            <path
+              d="M15.8214 17.4867L9.9925 14.1559L4.16357 17.4867V4.16346C4.16357 3.72176 4.33904 3.29816 4.65136 2.98583C4.96369 2.67351 5.38729 2.49805 5.82898 2.49805H14.156C14.5977 2.49805 15.0213 2.67351 15.3336 2.98583C15.646 3.29816 15.8214 3.72176 15.8214 4.16346V17.4867Z"
+              stroke="#2E211C"
+              strokeWidth="1.67"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="닫기"
+          className="flex size-10 items-center justify-center"
+        >
+          <svg width={20} height={20} viewBox="0 0 20 20" fill="none" aria-hidden>
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M16.425 4.75754L15.2416 3.57422L9.99995 8.82422L4.75827 3.57422L3.57495 4.75754L8.82495 9.99922L3.57495 15.2409L4.75827 16.4242L9.99995 11.1742L15.2416 16.4242L16.425 15.2409L11.175 9.99922L16.425 4.75754Z"
+              fill="#2E211C"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+  );
+}
+
 function targetFromParams(
   storeId: string | null,
   foodId: string | null,
@@ -141,6 +360,7 @@ export default function WriteReviewPage() {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const receiptInputRef = useRef<HTMLInputElement>(null);
 
   const showBack = (location.state as { showBack?: boolean } | null)?.showBack === true;
 
@@ -154,14 +374,28 @@ export default function WriteReviewPage() {
   );
   const [searchQuery, setSearchQuery] = useState('');
 
+  useEffect(() => {
+    const fromUrl = targetFromParams(
+      searchParams.get('storeId'),
+      searchParams.get('foodId'),
+    );
+    if (fromUrl) {
+      setSelectedTarget(fromUrl);
+    }
+  }, [searchParams]);
+
   const searchResults = useMemo(
-    () => filterReviewTargets(REVIEW_TARGETS, searchQuery),
-    [searchQuery],
+    () =>
+      filterReviewTargets(REVIEW_TARGETS, searchQuery, {
+        storeNameOnly: !selectedTarget,
+      }),
+    [searchQuery, selectedTarget],
   );
 
   const store = selectedTarget ? STORES[selectedTarget.storeId] : null;
   const food = selectedTarget ? getFoodById(selectedTarget.foodId) : null;
 
+  const [receiptVerified, setReceiptVerified] = useState(false);
   const [satisfied, setSatisfied] = useState<boolean | null>(null);
   const [waitTime, setWaitTime] = useState<string | null>(null);
   const [visitDay, setVisitDay] = useState<'weekday' | 'weekend' | null>(null);
@@ -185,6 +419,13 @@ export default function WriteReviewPage() {
     event.target.value = '';
   };
 
+  const handleReceiptChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files?.length) {
+      setReceiptVerified(true);
+    }
+    event.target.value = '';
+  };
+
   const handleSelectTarget = (target: ReviewTarget) => {
     setSelectedTarget(target);
     setSearchQuery('');
@@ -193,6 +434,9 @@ export default function WriteReviewPage() {
   const handleClearTarget = () => {
     setSelectedTarget(null);
     setSearchQuery('');
+    if (searchParams.get('storeId') || searchParams.get('foodId')) {
+      navigate('/write-review', { replace: true });
+    }
   };
 
   const handleSubmit = () => {
@@ -200,133 +444,150 @@ export default function WriteReviewPage() {
     navigate('/my-reviews');
   };
 
-  return (
-    <div className="bg-white h-full w-full min-h-0 flex flex-col overflow-hidden">
-      <header className="shrink-0 flex items-center justify-between px-6 py-3 border-b border-[#ebebeb]">
-        {showBack ? (
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
-            aria-label="뒤로 가기"
-            className="flex size-10 items-center justify-center rounded-full bg-[#f7f4f0]"
-          >
-            <svg width={20} height={20} viewBox="0 0 20 20" fill="none" aria-hidden>
-              <path
-                d="M9.9925 15.8209L4.16357 9.99202L9.9925 4.16309"
-                stroke="#2E211C"
-                strokeWidth="1.67"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15.8214 9.99219H4.16357"
-                stroke="#2E211C"
-                strokeWidth="1.67"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        ) : (
-          <div className="size-10" aria-hidden />
-        )}
-        <p className="font-bold text-[#2e211c] text-base">리뷰 작성</p>
-        <div className="size-10" aria-hidden />
-      </header>
+  const satisfactionBtnClass = (active: boolean) =>
+    `min-w-[60px] rounded-[14px] px-2 py-1.5 text-[13px] text-center transition-colors ${
+      active
+        ? 'bg-[#2e211c] text-white'
+        : 'bg-neutral-200 text-[#2e211c]'
+    }`;
 
-      <div className="flex-1 min-h-0 overflow-y-auto">
-        <ReviewTargetSearch
-          query={searchQuery}
-          onQueryChange={setSearchQuery}
-          results={searchResults}
-          selected={selectedTarget}
-          onSelect={handleSelectTarget}
-          onClearSelection={handleClearTarget}
+  const handleFormBack = () => {
+    if (showBack) {
+      navigate(-1);
+      return;
+    }
+    handleClearTarget();
+  };
+
+  if (!selectedTarget) {
+    return (
+      <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
+        <WriteReviewPickerHeader
+          onBack={() => navigate('/home')}
+          onBookmark={() =>
+            navigate('/saved-items', { state: { pickForReview: true } })
+          }
+          onClose={() => navigate('/home')}
         />
 
+        <div className="flex min-h-0 flex-1 flex-col items-center overflow-y-auto px-[29px] pt-10 pb-6">
+          <h1 className="mb-8 w-full max-w-[342px] text-center text-2xl text-[#2e211c]">
+            어떤 음식을 리뷰할까요?
+          </h1>
+
+          <ReviewTargetSearch
+            variant="picker"
+            query={searchQuery}
+            onQueryChange={setSearchQuery}
+            results={searchResults}
+            selected={null}
+            onSelect={handleSelectTarget}
+            onClearSelection={handleClearTarget}
+          />
+
+          <p className="mt-8 w-full max-w-[342px] text-center text-base text-[#665a55]">
+            또는
+          </p>
+
+          <button
+            type="button"
+            onClick={() =>
+              navigate('/saved-items', { state: { pickForReview: true } })
+            }
+            className="mt-4 flex h-8 items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5"
+          >
+            <span className="text-base text-[#2e211c]">
+              저장된 목록에서 불러오기
+            </span>
+          </button>
+        </div>
+
+        <BottomNavigation activeTab="write" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
+      <WriteReviewPickerHeader
+        onBack={handleFormBack}
+        onBookmark={() =>
+          navigate('/saved-items', { state: { pickForReview: true } })
+        }
+        onClose={() => navigate('/home')}
+      />
+
+      <div className="min-h-0 flex-1 overflow-y-auto">
         {store && food ? (
-          <>
-            <section className="px-6 py-4 border-b border-[#ebebeb]">
-              <div className="flex items-start justify-between gap-3 mb-2">
-                <p className="font-bold text-[#2e211c] text-xl">{store.name}</p>
-                <div className="flex items-baseline gap-1 shrink-0">
-                  <p className="font-bold text-[#2e211c] text-xl">{store.price}</p>
-                  <p className=" text-[#9e9794] text-[13px]">{store.priceUnit}</p>
-                </div>
-              </div>
+          <div className="mx-auto flex w-full max-w-[395px] flex-col items-center">
+            <ReviewStoreSummary store={store} foodName={food.name} />
 
-              <div className="inline-block bg-[#2e211c] rounded-lg px-2.5 py-1 mb-2">
-                <p className="font-bold text-white text-[13px]">{food.name}</p>
-              </div>
-
-              <div className="flex items-center gap-2 text-[#665a55] text-[13px] mb-2">
-                <span>평균 웨이팅 {store.waitingTime}</span>
-                <span className="size-0.5 rounded-full bg-[#404040]" />
-                <span>리뷰 {store.reviewCount}</span>
-              </div>
-
-              <div className="flex items-center gap-1">
-                <svg width={15} height={14} viewBox="0 0 15 14" fill="none" aria-hidden>
-                  <path
-                    d="M12.5 5.83366C12.5 8.74624 9.03812 11.7796 7.87562 12.7164C7.76733 12.7924 7.6355 12.8335 7.5 12.8335C7.3645 12.8335 7.23267 12.7924 7.12438 12.7164C5.96188 11.7796 2.5 8.74624 2.5 5.83366C2.5 4.59598 3.02678 3.409 3.96447 2.53383C4.90215 1.65866 6.17392 1.16699 7.5 1.16699C8.82608 1.16699 10.0979 1.65866 11.0355 2.53383C11.9732 3.409 12.5 4.59598 12.5 5.83366Z"
-                    stroke="#C06226"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7.5 7.58301C8.53553 7.58301 9.375 6.79951 9.375 5.83301C9.375 4.86651 8.53553 4.08301 7.5 4.08301C6.46447 4.08301 5.625 4.86651 5.625 5.83301C5.625 6.79951 6.46447 7.58301 7.5 7.58301Z"
-                    stroke="#C06226"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <p className=" text-[#c06226] text-[13px]">{store.location}</p>
+            {/* 영수증 인증 */}
+            <section className="w-full p-2.5">
+              <div className="flex flex-col gap-1.5 p-2.5">
+                <p className="text-xl text-[#2e211c]">
+                  영수증으로 인증하시겠습니까?
+                </p>
+                <p className="text-[13px] text-[#9e9794]">
+                  영수증 인증을 완료하면 리뷰 옆에 인증 마크가 표시돼요.
+                </p>
+                <input
+                  ref={receiptInputRef}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="hidden"
+                  onChange={handleReceiptChange}
+                />
+                <button
+                  type="button"
+                  onClick={() => receiptInputRef.current?.click()}
+                  className="mt-1 flex h-7 w-[107px] items-center justify-center rounded-[10px] bg-[#c06226] px-[13px] pt-1"
+                >
+                  <span className="text-xs text-white">
+                    {receiptVerified ? '인증 완료' : '영수증 촬영하기'}
+                  </span>
+                </button>
               </div>
             </section>
 
-            <div className="px-6 py-5 flex flex-col gap-5 pb-28">
-              <div>
-                <p className="font-bold text-[#2e211c] text-xl mb-1">
+            <div className="flex w-full flex-col gap-[13px] p-2.5 pb-28">
+              <div className="flex flex-col gap-0.5 px-2.5">
+                <p className="text-xl text-[#2e211c]">
                   이 {food.name}, 어땠나요?
                 </p>
-                <p className=" text-[#9e9794] text-[13px]">
+                <p className="text-[13px] text-[#9e9794]">
                   만족 여부를 선택하면 다른 유저들의 선택에도 도움이 돼요.
                 </p>
               </div>
 
-              <section className="rounded-2xl border-2 border-[#2e211c] p-4 flex flex-col gap-5">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="font-bold text-lg text-[#2e211c]">트렌딜리셔스</p>
+              {/* 만족도 · 방문 정보 */}
+              <section className="rounded-2xl border-2 border-[#2e211c] bg-white p-[22px]">
+                <div className="mb-5 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <p className="text-lg text-neutral-900">만족하셨나요?</p>
+                    <SatisfactionHelpButton />
+                  </div>
                   <div className="flex gap-2">
                     <button
                       type="button"
                       onClick={() => setSatisfied(true)}
-                      className={`min-w-[60px] rounded-[14px] px-2 py-1.5 text-[13px] text-center transition-colors ${
-                        satisfied === true
-                          ? 'bg-[#335352] text-white'
-                          : 'bg-neutral-200 text-black'
-                      }`}
+                      className={satisfactionBtnClass(satisfied === true)}
                     >
-                      만족
+                      만족 🙂
                     </button>
                     <button
                       type="button"
                       onClick={() => setSatisfied(false)}
-                      className={`min-w-[60px] rounded-[14px] px-2 py-1.5 text-[13px] text-center transition-colors ${
-                        satisfied === false
-                          ? 'bg-[#335352] text-white'
-                          : 'bg-neutral-200 text-black'
-                      }`}
+                      className={satisfactionBtnClass(satisfied === false)}
                     >
-                      불만족
+                      불만족 ☹️
                     </button>
                   </div>
                 </div>
 
-                <div>
-                  <p className="font-bold text-base text-[#2e211c] mb-3">
+                <div className="mb-5 flex flex-col gap-3">
+                  <p className="text-base text-neutral-900">
                     대기 시간은 어땠나요?
                   </p>
                   <div className="grid grid-cols-3 gap-2">
@@ -343,8 +604,8 @@ export default function WriteReviewPage() {
                   </div>
                 </div>
 
-                <div>
-                  <p className="font-bold text-base text-[#2e211c] mb-3">
+                <div className="mb-5 flex flex-col gap-3">
+                  <p className="text-base text-neutral-900">
                     방문하신 요일을 알려주세요
                   </p>
                   <div className="grid grid-cols-2 gap-2">
@@ -363,8 +624,8 @@ export default function WriteReviewPage() {
                   </div>
                 </div>
 
-                <div>
-                  <p className="font-bold text-base text-[#2e211c] mb-3">
+                <div className="flex flex-col gap-3">
+                  <p className="text-base text-neutral-900">
                     어느 시간대에 방문하셨나요?
                   </p>
                   <div className="grid grid-cols-4 gap-2">
@@ -382,22 +643,27 @@ export default function WriteReviewPage() {
                 </div>
               </section>
 
-              <section className="rounded-2xl border-2 border-[#2e211c] p-4">
-                <p className="font-bold text-lg text-[#2e211c] mb-3">텍스트 리뷰</p>
+              {/* 텍스트 리뷰 */}
+              <section className="rounded-2xl border-2 border-[#2e211c] bg-white p-[22px]">
+                <p className="mb-3 text-lg text-[#2e211c]">텍스트 리뷰</p>
                 <textarea
                   value={text}
                   onChange={(e) => setText(e.target.value.slice(0, 500))}
-                  placeholder="맛, 식감, 웨이팅, 재구매 의사 등을 자유롭게 적어주세요."
-                  className="w-full h-32 resize-none rounded-[14px] border-2 border-[#2e211c] p-3 text-[13px] text-[#2e211c] placeholder:text-[#9e9794] focus:outline-none"
+                  placeholder={
+                    '맛, 식감, 웨이팅, 재구매 의사 등을 자유롭게\n적어주세요.'
+                  }
+                  rows={5}
+                  className="h-32 w-full resize-none rounded-[14px] border-2 border-[#2e211c] p-3 text-[13px] text-[#2e211c] placeholder:text-[#9e9794] focus:outline-none"
                 />
-                <p className="mt-2 text-xs text-right text-[#665a55]">
+                <p className="mt-2 text-right text-xs text-[#665a55]">
                   {text.length}/500
                 </p>
               </section>
 
-              <section className="rounded-2xl border-2 border-[#2e211c] p-4">
-                <p className="font-bold text-lg text-[#2e211c] mb-1">사진 업로드</p>
-                <p className=" text-[#9e9794] text-[13px] mb-3">
+              {/* 사진 업로드 */}
+              <section className="rounded-2xl border-2 border-[#2e211c] bg-white p-[22px]">
+                <p className="text-lg text-[#2e211c]">사진 업로드</p>
+                <p className="mt-1 text-[13px] text-[#9e9794]">
                   상품 사진이나 매장 사진을 함께 남겨보세요.
                 </p>
                 <input
@@ -408,11 +674,11 @@ export default function WriteReviewPage() {
                   className="hidden"
                   onChange={handlePhotoChange}
                 />
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {photos.map((url, index) => (
                     <div
                       key={url}
-                      className="relative size-20 rounded-[14px] overflow-hidden border border-[#9e9794]"
+                      className="relative size-20 overflow-hidden rounded-[14px] border border-[#9e9794]"
                     >
                       <img src={url} alt="" className="size-full object-cover" />
                       <button
@@ -420,7 +686,7 @@ export default function WriteReviewPage() {
                         onClick={() =>
                           setPhotos((prev) => prev.filter((_, i) => i !== index))
                         }
-                        className="absolute top-1 right-1 size-5 rounded-full bg-black/60 text-white text-xs"
+                        className="absolute top-1 right-1 flex size-5 items-center justify-center rounded-full bg-black/60 text-xs text-white"
                         aria-label="사진 삭제"
                       >
                         ×
@@ -431,29 +697,25 @@ export default function WriteReviewPage() {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="flex size-20 flex-col items-center justify-center gap-1 rounded-[14px] border-2 border-dashed border-[#9e9794] text-[#9e9794]"
+                      className="flex size-20 flex-col items-center justify-center gap-1 rounded-[14px] border border-dashed border-[#9e9794] text-[#9e9794]"
                     >
-                      <span className="text-xl leading-none">+</span>
+                      <CameraIcon />
                       <span className="text-xs font-medium">추가</span>
                     </button>
                   )}
                 </div>
               </section>
             </div>
-          </>
-        ) : (
-          <p className="px-6 py-10 text-center text-[#9e9794] text-[14px]">
-            검색해서 리뷰할 가게와 상품을 먼저 선택해주세요.
-          </p>
-        )}
+          </div>
+        ) : null}
       </div>
 
-      <div className="shrink-0 px-6 pt-2 pb-3 bg-gradient-to-t from-white via-white/95 to-transparent">
+      <div className="shrink-0 bg-gradient-to-t from-white via-white/95 to-transparent px-6 pt-2 pb-3">
         <button
           type="button"
           onClick={handleSubmit}
           disabled={!canSubmit}
-          className="w-full h-[46px] rounded-2xl bg-[#2e211c] text-white text-base font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
+          className="h-[46px] w-full rounded-2xl bg-[#2e211c] text-base font-bold text-white shadow-md disabled:cursor-not-allowed disabled:opacity-40"
         >
           리뷰 등록하기
         </button>

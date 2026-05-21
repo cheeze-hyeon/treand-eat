@@ -1,10 +1,13 @@
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import svgPaths from "../../imports/마이페이지본인이보는/svg-efmvaixmp8";
 import BottomNavigation from '../components/BottomNavigation';
 import { getFoodIdByMenuName } from '../data/foods';
 
 export default function SavedItemsPage() {
  const navigate = useNavigate();
+ const location = useLocation();
+ const pickForReview =
+   (location.state as { pickForReview?: boolean } | null)?.pickForReview === true;
 
  // Mock data for saved items (stores + menu)
  const savedItems = [
@@ -86,12 +89,17 @@ export default function SavedItemsPage() {
  <div className="bg-white h-full w-full min-h-0 overflow-y-auto">
  {/* Header */}
  <div className="bg-white flex items-center justify-between px-[20px] h-[79px] sticky top-0 z-10">
- <button onClick={() => navigate('/mypage')} className="h-[24px] w-[12px] rotate-180">
+ <button
+ onClick={() => navigate(pickForReview ? '/write-review' : '/mypage')}
+ className="h-[24px] w-[12px] rotate-180"
+ >
  <svg className="size-full" fill="none" viewBox="0 0 7.36379 12.728">
  <path clipRule="evenodd" d={svgPaths.p1ad99240} fill="black" fillRule="evenodd" />
  </svg>
  </button>
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px]">저장</p>
+ <p className="font-bold leading-[36px] text-[#2e211c] text-[30px]">
+ {pickForReview ? '저장된 목록' : '저장'}
+ </p>
  <div className="w-[12px]" /> {/* Spacer for alignment */}
  </div>
 
@@ -108,7 +116,11 @@ export default function SavedItemsPage() {
  {savedItems.map((item) => (
  <button
  key={item.id}
- onClick={() => navigate(`/store/${item.id}`)}
+ onClick={() =>
+ pickForReview
+ ? navigate(`/write-review?storeId=${item.id}`)
+ : navigate(`/store/${item.id}`)
+ }
  className="bg-white border-2 border-[#2e211c] rounded-[16px] p-[16px] relative text-left hover:bg-[#f9f9f9] transition-colors"
  >
  {/* Bookmark Icon - Top Right */}

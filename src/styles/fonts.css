@@ -1,15 +1,17 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@font-face {
+  font-family: 'SeoulNamsan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+    format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
 
 :root {
-  --font-pretendard:
-    'Pretendard Variable',
-    Pretendard,
+  --font-seoulnamsan:
+    'SeoulNamsan',
     -apple-system,
     BlinkMacSystemFont,
     system-ui,
-    Roboto,
-    'Helvetica Neue',
-    'Segoe UI',
     'Apple SD Gothic Neo',
     'Noto Sans KR',
     'Malgun Gothic',
@@ -17,5 +19,5 @@
 }
 
 html {
-  font-family: var(--font-pretendard);
+  font-family: var(--font-seoulnamsan);
 }
