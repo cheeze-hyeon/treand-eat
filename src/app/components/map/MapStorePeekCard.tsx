@@ -1,4 +1,6 @@
-import type { MapStore } from '../../data/mapStores';
+import PriceDiffBadge from '../PriceDiffBadge';
+import { getMapStorePriceDiff, type MapStore } from '../../data/mapStores';
+import { formatPriceDiffAmount } from '../../utils/priceDiff';
 
 type MapStorePeekCardProps = {
   store: MapStore;
@@ -14,6 +16,7 @@ export default function MapStorePeekCard({
   onExpand,
 }: MapStorePeekCardProps) {
   const title = `${store.name} ${store.highlightMenu}`;
+  const priceDiff = getMapStorePriceDiff(store);
 
   return (
     <div className="relative w-full px-[23px]">
@@ -37,17 +40,13 @@ export default function MapStorePeekCard({
                   <span className="w-[2px] h-[2px] rounded-full bg-[#665A55]" aria-hidden />
                   <span>리뷰 {store.reviewCount}</span>
                   <span>{store.price.toLocaleString()}원</span>
-                  {store.priceDrop != null && (
-                    <span className="flex items-center gap-1 rounded bg-[#3a7bd5]/[0.12] px-1">
-                      <svg width={12} height={11} viewBox="0 0 12 11" fill="none" aria-hidden>
-                        <path
-                          d="M6.63067 9.75C6.24577 10.4167 5.28352 10.4167 4.89862 9.75L0.135483 1.5C-0.249417 0.833333 0.231708 0 1.00151 0L10.5278 0C11.2976 0 11.7787 0.833333 11.3938 1.5L6.63067 9.75Z"
-                          fill="#3A7BD5"
-                        />
-                      </svg>
-                      <span>{store.priceDrop.toLocaleString()}원</span>
-                    </span>
-                  )}
+                  {priceDiff ? (
+                    <PriceDiffBadge
+                      as="span"
+                      direction={priceDiff.direction}
+                      amount={formatPriceDiffAmount(priceDiff.amount)}
+                    />
+                  ) : null}
                 </div>
               </div>
               <div className="flex justify-end pt-[3px]">

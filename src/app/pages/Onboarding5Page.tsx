@@ -40,11 +40,11 @@ export default function Onboarding5Page() {
 
  {/* Title */}
  <div className="text-center mb-[32px]">
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px]">
+ <p className="font-black leading-[30px] text-[#2e211c] text-[26px] mb-[8px]">
  {isAnalyzing ? 'AI가 당신의 취향을' : '분석이 완료되었습니다!'}
  </p>
  {isAnalyzing && (
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px]">
+ <p className="font-black leading-[30px] text-[#2e211c] text-[26px] mb-[8px]">
  분석중입니다
  </p>
  )}
@@ -61,7 +61,7 @@ export default function Onboarding5Page() {
 
  {/* Description */}
  <div className={`text-center text-[#665a55] text-[16px] ${!isAnalyzing ? 'mt-[64px]' : ''}`}>
- <p className="leading-[20px]">선택하신 정보를 바탕으로</p>
+ <p className="leading-[20px]">남겨주신 리뷰와 취향 정보를 바탕으로</p>
  <p className="leading-[20px]">최적의 유행음식을 추천해드릴게요</p>
  </div>
  </div>

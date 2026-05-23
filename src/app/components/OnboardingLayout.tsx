@@ -59,7 +59,7 @@ export default function OnboardingLayout({
  </div>
 
  {/* Progress bar */}
- <div className="h-[81px] px-[24px]">
+ <div className="h-[40px] px-[24px]">
  <div className="bg-[rgba(255,255,255,0.5)] h-[8px] rounded-[22369600px] relative">
  <div
  className="bg-[#2e211c] h-[8px] rounded-[22369600px]"

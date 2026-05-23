@@ -10,7 +10,7 @@ export default function MyPage() {
  <div className="bg-white h-full w-full min-h-0 overflow-y-auto">
  {/* Header */}
  <div className="bg-white flex gap-[180px] h-[79px] items-center justify-center py-[17px] sticky top-0 z-10">
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px] whitespace-nowrap">마이페이지</p>
+ <p className="font-black leading-[30px] text-[#ffffff] text-[26px] whitespace-nowrap">마이페이지</p>
  <div className="flex gap-[18px] items-center">
  <div className="h-[19.996px] w-[18px]">
  <div>

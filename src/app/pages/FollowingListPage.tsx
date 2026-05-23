@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 
 const followingUsers = [
  { id: 1, name: '한맛집', username: '@hanmatzip__', followerCount: 1234, bio: '맛집 탐방이 취미인 평범한 직장인입니다 🍜', matchRate: 91 },
@@ -10,6 +11,7 @@ const followingUsers = [
 
 export default function FollowingListPage() {
  const navigate = useNavigate();
+ const { showPersonalizedMetrics } = usePersonalizedMetrics();
 
  return (
  <div className="bg-white h-full w-full min-h-0 flex flex-col overflow-hidden">
@@ -58,11 +60,12 @@ export default function FollowingListPage() {
  </p>
  </div>
 
- {/* Match Rate */}
+ {showPersonalizedMetrics && (
  <div className="shrink-0 flex flex-col items-center justify-center ml-[8px]">
  <p className=" text-[11px] text-[#9e9794] mb-[2px]">트렌딧 지수</p>
  <p className="font-bold text-[18px] text-[#335352]">{user.matchRate}%</p>
  </div>
+ )}
  </button>
  ))}
  </div>

@@ -3,10 +3,10 @@ import OnboardingLayout from '../components/OnboardingLayout';
 import { useOnboarding } from '../contexts/OnboardingContext';
 
 const flavors = [
- '달콤한', '매콤한', '고소한', '매운',
- '시큼한', '쌉싸름한', '짭짜름한', '담백한',
- '진한', '가벼운', '상큼한', '느끼한',
- '슴슴한', '자극적인'
+ '달콤한', '고소한', '짭짤한', '새콤한',
+ '상큼한', '매운', '알싸한', '쌉싸름한',
+ '담백한', '깔끔한', '진한', '버터리한',
+ '은은한', '향긋한',
 ];
 
 export default function Onboarding3Page() {
@@ -22,7 +22,7 @@ export default function Onboarding3Page() {
  };
 
  const handleNext = () => {
- navigate('/onboarding4');
+ navigate('/write-review', { state: { fromOnboarding: true } });
  };
 
  const handleBack = () => {
@@ -40,7 +40,7 @@ export default function Onboarding3Page() {
  <div className="px-[24px] flex flex-col h-full">
  {/* Heading */}
  <div className="text-center mb-[24px]">
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px] mb-[8px]">
+ <p className="font-black leading-[30px] text-[#2e211c] text-[26px] mb-[8px]">
  끌리는 맛을 골라주세요
  </p>
  <div className=" text-[#665a55] text-[16px]">

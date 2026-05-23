@@ -3,10 +3,10 @@ import OnboardingLayout from '../components/OnboardingLayout';
 import { useOnboarding } from '../contexts/OnboardingContext';
 
 const textures = [
- '쫀득한', '바삭한', '부드러운', '꾸덕한',
- '푹신한', '쫄깃한', '찐득한', '아삭한',
- '촉촉한', '포슬포슬한', '입에서 녹는', '크리미한',
- '묵직한', '부서지는'
+ '쫀득한', '바삭한', '아삭한', '꾸덕한',
+ '부드러운', '크리미한', '폭신한', '촉촉한',
+ '포슬포슬한', '사르르 녹는', '묵직한', '가벼운',
+ '오독오독한', '부스러지는',
 ];
 
 export default function Onboarding2Page() {
@@ -40,7 +40,7 @@ export default function Onboarding2Page() {
  <div className="px-[24px] flex flex-col h-full overflow-hidden">
  {/* Heading */}
  <div className="text-center mb-[24px]">
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px] mb-[8px]">
+    <p className="font-black leading-[30px] text-[#2e211c] text-[26px] mb-[8px]">
  어떤 식감을 좋아하세요?
  </p>
  <div className=" text-[#665a55] text-[16px]">

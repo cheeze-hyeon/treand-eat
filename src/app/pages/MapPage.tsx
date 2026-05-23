@@ -13,10 +13,13 @@ import {
   type MapMetricMode,
 } from '../data/mapStores';
 import mapScreenshot from '../../asset/map.png';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 
 export default function MapPage() {
+  const { showPersonalizedMetrics } = usePersonalizedMetrics();
   const [mapContainer, setMapContainer] = useState<HTMLDivElement | null>(null);
   const [metricMode, setMetricMode] = useState<MapMetricMode>('preference');
+  const effectiveMetricMode = showPersonalizedMetrics ? metricMode : 'trend';
   const [category, setCategory] = useState('전체');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStoreId, setSelectedStoreId] = useState<string | null>(null);
@@ -65,7 +68,7 @@ export default function MapPage() {
 
         <MapMarkerLayer
           stores={filteredStores}
-          metricMode={metricMode}
+          metricMode={effectiveMetricMode}
           selectedStoreId={selectedStoreId}
           onSelectStore={handleSelectStore}
         />
@@ -88,7 +91,7 @@ export default function MapPage() {
           container={mapContainer}
           stores={filteredStores}
           selectedStore={selectedStore}
-          metricMode={metricMode}
+          metricMode={effectiveMetricMode}
           onSelectStore={handleSelectStore}
           onBackToList={handleBackToList}
           onSnapBlockHeightChange={setSnapBlockHeightPx}
@@ -104,6 +107,7 @@ export default function MapPage() {
               onMetricModeChange={setMetricMode}
               onCurrentLocation={handleCurrentLocation}
               locationPulse={locationPulse}
+              showMetricToggle={showPersonalizedMetrics}
             />
           </div>
         ) : null}

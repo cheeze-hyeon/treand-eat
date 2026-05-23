@@ -7,6 +7,7 @@ type MapFloatingControlsProps = {
   onMetricModeChange: (mode: MapMetricMode) => void;
   onCurrentLocation: () => void;
   locationPulse: boolean;
+  showMetricToggle?: boolean;
 };
 
 /** 드로어 스택 안, 흰 시트 바로 위에 붙는 컨트롤 행 */
@@ -15,10 +16,15 @@ export default function MapFloatingControls({
   onMetricModeChange,
   onCurrentLocation,
   locationPulse,
+  showMetricToggle = true,
 }: MapFloatingControlsProps) {
   return (
     <div className="flex shrink-0 items-end justify-between pointer-events-auto gap-auto w-full">
-      <MapMetricToggle mode={metricMode} onChange={onMetricModeChange} />
+      {showMetricToggle ? (
+        <MapMetricToggle mode={metricMode} onChange={onMetricModeChange} />
+      ) : (
+        <div />
+      )}
       <MapCurrentLocationButton onClick={onCurrentLocation} active={locationPulse} />
     </div>
   );

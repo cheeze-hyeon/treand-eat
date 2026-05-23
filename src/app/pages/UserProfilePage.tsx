@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { useState } from 'react';
 import svgPaths from "../../imports/마이페이지타인이보는-1/svg-6dgla2jtwy";
 import BottomNavigation from '../components/BottomNavigation';
@@ -119,6 +120,7 @@ const userProfiles = {
 export default function UserProfilePage() {
  const navigate = useNavigate();
  const { userId } = useParams();
+ const { showPersonalizedMetrics } = usePersonalizedMetrics();
  const [likedReviews, setLikedReviews] = useState<Set<number>>(new Set());
 
  const profile = userProfiles[userId as keyof typeof userProfiles] || userProfiles['1'];
@@ -196,10 +198,11 @@ export default function UserProfilePage() {
  {profile.bio}
  </p>
 
- {/* Compatibility Score */}
+ {showPersonalizedMetrics && (
  <p className="absolute left-px top-[150px] font-extrabold text-[16px] text-[#171717]">
  나와의 취향 일치율: <span className="font-bold text-[#335352]">{profile.matchRate}%</span>
  </p>
+ )}
 
  {/* Following Button */}
  <button className="absolute left-[267px] top-[28px] bg-white border-2 border-[#335352] rounded-[15px] px-[20px] py-[6px] flex items-center justify-center">

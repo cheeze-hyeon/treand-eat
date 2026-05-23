@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router';
 import svgPaths from '../../imports/매장별페이지-1/svg-rwqfjwbxb';
 import { getFoodIdByMenuName } from '../data/foods';
+import PriceDiffBadge from './PriceDiffBadge';
+import type { PriceDiffDirection } from '../utils/priceDiff';
 
 type StoreSummaryHeaderProps = {
   name: string;
@@ -10,25 +12,14 @@ type StoreSummaryHeaderProps = {
   reviewCount: number;
   location: string;
   menuName: string;
-  priceChange?: string;
+  priceDiff?: {
+    direction: PriceDiffDirection;
+    amount: string;
+  };
   showWriteReview?: boolean;
   storeId?: string;
   className?: string;
 };
-
-function PriceChangeBadge({ amount }: { amount: string }) {
-  return (
-    <div className="flex shrink-0 items-center gap-1 rounded bg-[#3a7bd5]/[0.12] px-1">
-      <svg width={12} height={11} viewBox="0 0 12 11" fill="none" className="shrink-0" aria-hidden>
-        <path
-          d="M6.63067 9.75C6.24577 10.4167 5.28352 10.4167 4.89862 9.75L0.135483 1.5C-0.249417 0.833333 0.231708 0 1.00151 0L10.5278 0C11.2976 0 11.7787 0.833333 11.3938 1.5L6.63067 9.75Z"
-          fill="#3A7BD5"
-        />
-      </svg>
-      <p className="text-[13px] text-[#665a55]">{amount}</p>
-    </div>
-  );
-}
 
 export default function StoreSummaryHeader({
   name,
@@ -38,7 +29,7 @@ export default function StoreSummaryHeader({
   reviewCount,
   location,
   menuName,
-  priceChange,
+  priceDiff,
   showWriteReview = true,
   storeId,
   className = '',
@@ -74,7 +65,12 @@ export default function StoreSummaryHeader({
         <p className="text-[13px] text-[#665a55]">평균 웨이팅 {waitingTime}</p>
         <div className="size-[2px] shrink-0 rounded-full bg-[#404040]" />
         <p className="text-[13px] text-[#665a55]">리뷰 {reviewCount}</p>
-        {priceChange ? <PriceChangeBadge amount={priceChange} /> : null}
+        {priceDiff ? (
+          <PriceDiffBadge
+            direction={priceDiff.direction}
+            amount={priceDiff.amount}
+          />
+        ) : null}
       </div>
 
       <div className="flex items-center justify-between">

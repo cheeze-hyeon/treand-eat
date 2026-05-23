@@ -1,3 +1,5 @@
+import { MACAO_CRACK_COOKIE_FOOD_STORES } from './macaoCrackCookie.generated';
+
 export type Food = {
   id: string;
   name: string;
@@ -83,9 +85,21 @@ export const FOODS: Food[] = [
     description:
       '쫀득한 베이글에 크림치즈와 신선한 재료를 넣어 만든 브런치 인기 메뉴',
   },
+  {
+    id: '7',
+    name: '마카오 크랙쿠키',
+    category: '디저트',
+    price: '평균 4,660원 (개당)',
+    matchRate: '77%',
+    trendScore: 79,
+    reviewCount: 180,
+    storeCount: 5,
+    description:
+      '마카오 에그타르트를 쿠키로 재해석한 바이럴 디저트. 겉은 바삭한 크랙 코팅, 속은 진한 커스터드가 들어 있어 반갈샷·크랙 소리가 SNS에서 화제가 된 메뉴입니다.',
+  },
 ];
 
-export const TRENDING_FOOD_IDS = ['1', '2', '3'] as const;
+export const TRENDING_FOOD_IDS = ['7', '1', '2', '3'] as const;
 
 const MENU_TO_FOOD_ID: Record<string, string> = {
   '두바이 쫀득 쿠키': '1',
@@ -96,6 +110,8 @@ const MENU_TO_FOOD_ID: Record<string, string> = {
   '마라떡볶이': '4',
   '쫀득빵': '5',
   '베이글샌드': '6',
+  '마카오 크랙쿠키': '7',
+  '마카오크랙쿠키': '7',
 };
 
 export function getFoodById(id: string | undefined): Food {
@@ -133,4 +149,5 @@ export const FOOD_STORES: Record<string, FoodStore[]> = {
   '4': [{ storeId: '4', rank: 1, name: '매운맛집' }],
   '5': [{ storeId: '5', rank: 1, name: '쫀득베이커리' }],
   '6': [{ storeId: '6', rank: 1, name: '베이글 스토리' }],
+  '7': [...MACAO_CRACK_COOKIE_FOOD_STORES],
 };

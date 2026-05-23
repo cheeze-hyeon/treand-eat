@@ -21,11 +21,8 @@ const TABS: { id: BottomNavTab; label: string; iconPath: string }[] = [
 
 export function getActiveTabFromPath(pathname: string): BottomNavTab | null {
  if (pathname === '/home') return 'home';
- if (
- pathname === '/foods' ||
- pathname.startsWith('/food/') ||
- pathname.startsWith('/store/')
- ) {
+ if (pathname.startsWith('/food/')) return 'home';
+ if (pathname === '/foods' || pathname.startsWith('/store/')) {
  return 'explore';
  }
  if (pathname === '/map') return 'map';
@@ -71,7 +68,7 @@ export default function BottomNavigation({ activeTab }: BottomNavigationProps) {
  </svg>
  </div>
  <p
- className="font-bold text-[11.355px]"
+ className="font-bold text-[10px]"
  style={{ color }}
  >
  {tab.label}

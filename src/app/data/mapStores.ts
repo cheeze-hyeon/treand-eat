@@ -1,3 +1,9 @@
+import {
+  getFoodAveragePriceAmount,
+  getPriceDiffFromAverage,
+} from '../utils/priceDiff';
+import { MACAO_CRACK_COOKIE_MAP_STORES } from './macaoCrackCookie.generated';
+
 export type MapMetricMode = 'preference' | 'trend';
 
 export type MapStore = {
@@ -23,6 +29,7 @@ export const MAP_CATEGORIES = [
   '호박인절미',
   '소금빵',
   '티라미수',
+  '마카오크랙쿠키',
 ] as const;
 
 export type MapCategory = (typeof MAP_CATEGORIES)[number];
@@ -68,7 +75,19 @@ export const MAP_STORES: MapStore[] = [
     reviewCount: 198,
     district: '서울 성수동',
   },
+  ...MACAO_CRACK_COOKIE_MAP_STORES,
 ];
+
+export function getMapStorePriceDiff(store: MapStore) {
+  const avgPrice = getFoodAveragePriceAmount(store.highlightMenu);
+  if (avgPrice != null) {
+    return getPriceDiffFromAverage(store.price, avgPrice);
+  }
+  if (store.priceDrop != null) {
+    return { direction: 'below' as const, amount: store.priceDrop };
+  }
+  return null;
+}
 
 export function formatMarkerLabel(store: MapStore, mode: MapMetricMode): string {
   return mode === 'preference'

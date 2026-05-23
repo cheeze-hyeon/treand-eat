@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { FOODS, TRENDING_FOOD_IDS } from '../data/foods';
 
 type ChartSortMode = 'match' | 'trend' | 'reviews';
@@ -27,17 +28,18 @@ const SORT_OPTIONS: { value: ChartSortMode; label: string }[] = [
 ];
 
 const REVIEW_RANKING: ReviewRankingItem[] = [
-  { rank: 1, label: '미엘케이커리 버터떡', change: { type: 'up', value: 2 }, reviewCount: 128, foodId: '2' },
-  { rank: 2, label: '나나제과 두쫀쿠', change: { type: 'down', value: 1 }, reviewCount: 116, foodId: '1' },
-  { rank: 3, label: '팔레트디저트 두쫀쿠', change: { type: 'up', value: 1 }, reviewCount: 102, foodId: '1' },
-  { rank: 4, label: '현대떡집 호박인절미', change: { type: 'new' }, reviewCount: 89, foodId: '3' },
-  { rank: 5, label: '라플랑드 버터떡', change: { type: 'down', value: 2 }, reviewCount: 74, foodId: '2' },
+  { rank: 1, label: '오븐스테이 성수 마카오 크랙쿠키', change: { type: 'new' }, reviewCount: 52, foodId: '7' },
+  { rank: 2, label: '미엘케이커리 버터떡', change: { type: 'up', value: 2 }, reviewCount: 128, foodId: '2' },
+  { rank: 3, label: '나나제과 두쫀쿠', change: { type: 'down', value: 1 }, reviewCount: 116, foodId: '1' },
+  { rank: 4, label: '팔레트디저트 두쫀쿠', change: { type: 'up', value: 1 }, reviewCount: 102, foodId: '1' },
+  { rank: 5, label: '현대떡집 호박인절미', change: { type: 'new' }, reviewCount: 89, foodId: '3' },
 ];
 
 const FIRST_INTRODUCED: Record<string, string> = {
   '1': '2026.05.12',
   '2': '2026.05.10',
   '3': '2026.05.08',
+  '7': '2026.05.20',
 };
 
 function parseMatchRate(matchRate: string) {
@@ -218,6 +220,7 @@ type TrendChartCardProps = {
   firstIntroduced: string;
   description: string;
   showTrendChart?: boolean;
+  showMatchRate?: boolean;
 };
 
 function TrendChartCard({
@@ -229,6 +232,7 @@ function TrendChartCard({
   firstIntroduced,
   description,
   showTrendChart = false,
+  showMatchRate = true,
 }: TrendChartCardProps) {
   const navigate = useNavigate();
 
@@ -247,9 +251,11 @@ function TrendChartCard({
           <p className="truncate text-base text-[#2e211c]">{name}</p>
           <p className="text-[10px] text-[#9e9794]">{price}</p>
         </div>
-        <div className="flex h-[31px] shrink-0 items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5">
-          <p className="whitespace-nowrap text-[13px] text-[#2e211c]">만족할 확률 {matchRate}</p>
-        </div>
+        {showMatchRate && (
+          <div className="flex h-[31px] shrink-0 items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5">
+            <p className="whitespace-nowrap text-[13px] text-[#2e211c]">만족할 확률 {matchRate}</p>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-3 bg-[#f7f4f0] px-[13px] py-3">
@@ -275,8 +281,23 @@ function TrendChartCard({
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { showPersonalizedMetrics } = usePersonalizedMetrics();
   const [sortMode, setSortMode] = useState<ChartSortMode>('match');
   const [isSortOpen, setIsSortOpen] = useState(false);
+
+  const sortOptions = useMemo(
+    () =>
+      showPersonalizedMetrics
+        ? SORT_OPTIONS
+        : SORT_OPTIONS.filter((option) => option.value !== 'match'),
+    [showPersonalizedMetrics],
+  );
+
+  useEffect(() => {
+    if (!showPersonalizedMetrics && sortMode === 'match') {
+      setSortMode('reviews');
+    }
+  }, [showPersonalizedMetrics, sortMode]);
 
   const chartItems = useMemo(() => {
     return sortTrendingFoodIds(sortMode).map((foodId, index) => {
@@ -295,7 +316,7 @@ export default function HomePage() {
   }, [sortMode]);
 
   const currentSortLabel =
-    SORT_OPTIONS.find((option) => option.value === sortMode)?.label ?? '취향 일치순';
+    sortOptions.find((option) => option.value === sortMode)?.label ?? '리뷰 많은순';
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
@@ -324,7 +345,11 @@ export default function HomePage() {
 
         <section className="flex flex-col gap-3 px-4 pb-4 pt-3">
           <div className="flex items-center justify-between">
-            <p className="text-base text-[#2e211c]">{USER_NAME} 님을 위한 트렌딧 차트</p>
+            <p className="text-base text-[#2e211c]">
+              {showPersonalizedMetrics
+                ? `${USER_NAME} 님을 위한 트렌딧 차트`
+                : '트렌딧 차트'}
+            </p>
             <div className="relative">
               <button
                 type="button"
@@ -354,7 +379,7 @@ export default function HomePage() {
                   role="listbox"
                   className="absolute right-0 top-full z-10 mt-1 min-w-[180px] overflow-hidden rounded-lg border border-[#e5e2de] bg-white py-1 shadow-[0px_4px_12px_#00000014]"
                 >
-                  {SORT_OPTIONS.map((option) => (
+                  {sortOptions.map((option) => (
                     <li key={option.value} role="option" aria-selected={sortMode === option.value}>
                       <button
                         type="button"
@@ -387,6 +412,7 @@ export default function HomePage() {
                 firstIntroduced={item.firstIntroduced}
                 description={item.description}
                 showTrendChart={index === 0}
+                showMatchRate={showPersonalizedMetrics}
               />
             ))}
           </div>

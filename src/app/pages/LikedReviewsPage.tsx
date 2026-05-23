@@ -2,10 +2,12 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import svgPaths from "../../imports/마이페이지본인이보는/svg-efmvaixmp8";
 import BottomNavigation from '../components/BottomNavigation';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { getFoodIdByMenuName } from '../data/foods';
 
 export default function LikedReviewsPage() {
  const navigate = useNavigate();
+ const { showPersonalizedMetrics } = usePersonalizedMetrics();
  const [likedReviews, setLikedReviews] = useState<Set<number>>(new Set([0, 1, 2, 3, 4])); // All liked by default
 
  const toggleLike = (reviewIndex: number) => {
@@ -159,11 +161,13 @@ export default function LikedReviewsPage() {
  </div>
  </div>
  <div className="flex items-center gap-[4px]">
+ {showPersonalizedMetrics && (
  <div className="bg-[#9cb8b7] rounded-[8px] px-[8px] py-[3px]">
  <p className=" text-[#2e211c] text-[11px]">
  취향 일치율 {review.matchRate}%
  </p>
  </div>
+ )}
  <div className="text-[28px]">{review.satisfied ? '🙂' : '🙁'}</div>
  </div>
  </div>

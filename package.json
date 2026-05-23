@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "generate:macao": "node scripts/generate-macao-data.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

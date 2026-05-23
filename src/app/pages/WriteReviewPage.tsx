@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
+import OnboardingSkipReviewDialog from '../components/onboarding/OnboardingSkipReviewDialog';
+import OnboardingStepHeader from '../components/OnboardingStepHeader';
+import { useUserPreferences } from '../contexts/UserPreferencesContext';
 import ReviewTargetSearch, {
   buildReviewTargets,
   filterReviewTargets,
@@ -8,6 +11,12 @@ import ReviewTargetSearch, {
 } from '../components/ReviewTargetSearch';
 import StoreSummaryHeader from '../components/StoreSummaryHeader';
 import { getFoodById, getFoodIdByMenuName } from '../data/foods';
+import { MACAO_CRACK_COOKIE_STORES } from '../data/macaoCrackCookie.generated';
+import {
+  formatPriceDiffAmount,
+  getFoodAveragePriceAmount,
+  getPriceDiffFromAverage,
+} from '../utils/priceDiff';
 
 type StoreInfo = {
   name: string;
@@ -15,7 +24,6 @@ type StoreInfo = {
   location: string;
   price: string;
   priceUnit: string;
-  priceChange?: string;
   waitingTime: string;
   reviewCount: number;
 };
@@ -27,7 +35,6 @@ const STORES: Record<string, StoreInfo> = {
     location: '서울 마포구',
     price: '2000원',
     priceUnit: '(개당)',
-    priceChange: '500원',
     waitingTime: '15분',
     reviewCount: 404,
   },
@@ -76,6 +83,20 @@ const STORES: Record<string, StoreInfo> = {
     waitingTime: '8분',
     reviewCount: 256,
   },
+  ...Object.fromEntries(
+    Object.entries(MACAO_CRACK_COOKIE_STORES).map(([id, store]) => [
+      id,
+      {
+        name: store.name,
+        menuName: store.menuName,
+        location: store.location,
+        price: store.price,
+        priceUnit: store.priceUnit,
+        waitingTime: store.waitingTime,
+        reviewCount: store.reviewCount,
+      },
+    ]),
+  ),
 };
 
 const REVIEW_TARGETS = buildReviewTargets(
@@ -239,6 +260,17 @@ function ReviewStoreSummary({
   store: StoreInfo;
   foodName: string;
 }) {
+  const avgPrice =
+    getFoodAveragePriceAmount(foodName) ?? getFoodAveragePriceAmount(store.menuName);
+  const diff =
+    avgPrice != null ? getPriceDiffFromAverage(store.price, avgPrice) : null;
+  const priceDiff = diff
+    ? {
+        direction: diff.direction,
+        amount: formatPriceDiffAmount(diff.amount),
+      }
+    : undefined;
+
   return (
     <StoreSummaryHeader
       name={store.name}
@@ -248,7 +280,7 @@ function ReviewStoreSummary({
       reviewCount={store.reviewCount}
       location={store.location}
       menuName={foodName}
-      priceChange={store.priceChange}
+      priceDiff={priceDiff}
       showWriteReview={false}
       className="py-4"
     />
@@ -361,8 +393,15 @@ export default function WriteReviewPage() {
   const [searchParams] = useSearchParams();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const receiptInputRef = useRef<HTMLInputElement>(null);
+  const { skipOnboardingReview, unlockTasteProfile } = useUserPreferences();
+  const [skipDialogOpen, setSkipDialogOpen] = useState(false);
 
-  const showBack = (location.state as { showBack?: boolean } | null)?.showBack === true;
+  const locationState = location.state as {
+    showBack?: boolean;
+    fromOnboarding?: boolean;
+  } | null;
+  const showBack = locationState?.showBack === true;
+  const fromOnboarding = locationState?.fromOnboarding === true;
 
   const initialTarget = targetFromParams(
     searchParams.get('storeId'),
@@ -405,10 +444,7 @@ export default function WriteReviewPage() {
 
   const canSubmit =
     selectedTarget !== null &&
-    satisfied !== null &&
-    waitTime !== null &&
-    visitDay !== null &&
-    visitTime !== null;
+    satisfied !== null
 
   const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -435,14 +471,41 @@ export default function WriteReviewPage() {
     setSelectedTarget(null);
     setSearchQuery('');
     if (searchParams.get('storeId') || searchParams.get('foodId')) {
-      navigate('/write-review', { replace: true });
+      navigate('/write-review', {
+        replace: true,
+        state: fromOnboarding ? { fromOnboarding: true } : undefined,
+      });
     }
   };
 
   const handleSubmit = () => {
     if (!canSubmit) return;
-    navigate('/my-reviews');
+    unlockTasteProfile();
+    navigate(fromOnboarding ? '/onboarding5' : '/my-reviews');
   };
+
+  const handleConfirmSkip = () => {
+    skipOnboardingReview();
+    setSkipDialogOpen(false);
+    navigate('/onboarding5');
+  };
+
+  const onboardingSkipButton = fromOnboarding ? (
+  <>
+    <button
+      type="button"
+      onClick={() => setSkipDialogOpen(true)}
+      className="mt-6 text-[14px] text-[#9e9794] underline underline-offset-2"
+    >
+      건너뛰기
+    </button>
+    <OnboardingSkipReviewDialog
+      open={skipDialogOpen}
+      onOpenChange={setSkipDialogOpen}
+      onConfirmSkip={handleConfirmSkip}
+    />
+  </>
+  ) : null;
 
   const satisfactionBtnClass = (active: boolean) =>
     `min-w-[60px] rounded-[14px] px-2 py-1.5 text-[13px] text-center transition-colors ${
@@ -459,20 +522,36 @@ export default function WriteReviewPage() {
     handleClearTarget();
   };
 
+  const handlePickerBack = () => {
+    if (fromOnboarding) {
+      navigate('/onboarding3');
+      return;
+    }
+    navigate('/home');
+  };
+
+  const pickerHeader = fromOnboarding ? (
+    <OnboardingStepHeader step={4} totalSteps={4} onBack={handlePickerBack} />
+  ) : (
+    <WriteReviewPickerHeader
+      onBack={handlePickerBack}
+      onBookmark={() =>
+        navigate('/saved-items', { state: { pickForReview: true } })
+      }
+      onClose={() => navigate('/home')}
+    />
+  );
+
   if (!selectedTarget) {
     return (
       <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
-        <WriteReviewPickerHeader
-          onBack={() => navigate('/home')}
-          onBookmark={() =>
-            navigate('/saved-items', { state: { pickForReview: true } })
-          }
-          onClose={() => navigate('/home')}
-        />
+        {pickerHeader}
 
         <div className="flex min-h-0 flex-1 flex-col items-center overflow-y-auto px-[29px] pt-10 pb-6">
           <h1 className="mb-8 w-full max-w-[342px] text-center text-2xl text-[#2e211c]">
-            어떤 음식을 리뷰할까요?
+            {fromOnboarding
+              ? '첫 리뷰를 남겨볼까요?'
+              : '어떤 음식을 리뷰할까요?'}
           </h1>
 
           <ReviewTargetSearch
@@ -485,37 +564,52 @@ export default function WriteReviewPage() {
             onClearSelection={handleClearTarget}
           />
 
-          <p className="mt-8 w-full max-w-[342px] text-center text-base text-[#665a55]">
-            또는
-          </p>
+          {!fromOnboarding && (
+            <>
+              <p className="mt-8 w-full max-w-[342px] text-center text-base text-[#665a55]">
+                또는
+              </p>
 
-          <button
-            type="button"
-            onClick={() =>
-              navigate('/saved-items', { state: { pickForReview: true } })
-            }
-            className="mt-4 flex h-8 items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5"
-          >
-            <span className="text-base text-[#2e211c]">
-              저장된 목록에서 불러오기
-            </span>
-          </button>
+              <button
+                type="button"
+                onClick={() =>
+                  navigate('/saved-items', { state: { pickForReview: true } })
+                }
+                className="mt-4 flex h-8 items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5"
+              >
+                <span className="text-base text-[#2e211c]">
+                  저장된 목록에서 불러오기
+                </span>
+              </button>
+            </>
+          )}
+          {onboardingSkipButton}
         </div>
 
-        <BottomNavigation activeTab="write" />
+        {!fromOnboarding && <BottomNavigation activeTab="write" />}
       </div>
     );
   }
 
+  const formHeader = fromOnboarding ? (
+    <OnboardingStepHeader
+      step={4}
+      totalSteps={4}
+      onBack={handleFormBack}
+    />
+  ) : (
+    <WriteReviewPickerHeader
+      onBack={handleFormBack}
+      onBookmark={() =>
+        navigate('/saved-items', { state: { pickForReview: true } })
+      }
+      onClose={() => navigate('/home')}
+    />
+  );
+
   return (
     <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
-      <WriteReviewPickerHeader
-        onBack={handleFormBack}
-        onBookmark={() =>
-          navigate('/saved-items', { state: { pickForReview: true } })
-        }
-        onClose={() => navigate('/home')}
-      />
+      {formHeader}
 
       <div className="min-h-0 flex-1 overflow-y-auto">
         {store && food ? (
@@ -717,11 +811,14 @@ export default function WriteReviewPage() {
           disabled={!canSubmit}
           className="h-[46px] w-full rounded-2xl bg-[#2e211c] text-base font-bold text-white shadow-md disabled:cursor-not-allowed disabled:opacity-40"
         >
-          리뷰 등록하기
+          {fromOnboarding ? '리뷰 작성 완료' : '리뷰 등록하기'}
         </button>
+        {onboardingSkipButton && (
+          <div className="flex justify-center pb-1">{onboardingSkipButton}</div>
+        )}
       </div>
 
-      <BottomNavigation activeTab="write" />
+      {!fromOnboarding && <BottomNavigation activeTab="write" />}
     </div>
   );
 }

@@ -69,7 +69,7 @@ export default function OnboardingPage() {
  <div className="shrink-0">
  {/* Heading */}
  <div className="text-center mb-[20px]">
- <p className="font-bold leading-[36px] text-[#2e211c] text-[30px]">
+ <p className="font-black leading-[30px] text-[#2e211c] text-[26px] mb-[8px]">
  자주 가는 동네를 알려주세요
  </p>
  <p className=" leading-[26px] text-[#665a55] text-[16px]">

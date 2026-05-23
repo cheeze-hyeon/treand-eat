@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import type { MapMetricMode, MapStore } from '../../data/mapStores';
+import PriceDiffBadge from '../PriceDiffBadge';
+import {
+  getMapStorePriceDiff,
+  type MapMetricMode,
+  type MapStore,
+} from '../../data/mapStores';
+import { formatPriceDiffAmount } from '../../utils/priceDiff';
 
 type MapStoreListItemProps = {
   store: MapStore;
@@ -23,20 +29,6 @@ function BookmarkIcon({ filled }: { filled?: boolean }) {
   );
 }
 
-function PriceDropBadge({ amount }: { amount: number }) {
-  return (
-    <span className="inline-flex items-center gap-1 rounded bg-[#3a7bd5]/[0.12] px-1">
-      <svg width={12} height={11} viewBox="0 0 12 11" fill="none" aria-hidden>
-        <path
-          d="M6.63067 9.75C6.24577 10.4167 5.28352 10.4167 4.89862 9.75L0.135483 1.5C-0.249417 0.833333 0.231708 0 1.00151 0L10.5278 0C11.2976 0 11.7787 0.833333 11.3938 1.5L6.63067 9.75Z"
-          fill="#3A7BD5"
-        />
-      </svg>
-      <span className="text-[13px] text-[#665a55]">{amount.toLocaleString()}원</span>
-    </span>
-  );
-}
-
 export default function MapStoreListItem({
   store,
   metricMode,
@@ -49,6 +41,7 @@ export default function MapStoreListItem({
     metricMode === 'preference'
       ? `취향 일치도 ${store.preferenceMatch}%`
       : `트렌딜리셔스 ${store.trendScore}점`;
+  const priceDiff = getMapStorePriceDiff(store);
 
   return (
     <div className="relative w-full">
@@ -91,7 +84,13 @@ export default function MapStoreListItem({
                 </div>
                 <div className="flex items-center gap-2 text-[13px] text-[#665a55]">
                   <span className="whitespace-nowrap">{store.price.toLocaleString()}원</span>
-                  {store.priceDrop != null && <PriceDropBadge amount={store.priceDrop} />}
+                  {priceDiff ? (
+                    <PriceDiffBadge
+                      as="span"
+                      direction={priceDiff.direction}
+                      amount={formatPriceDiffAmount(priceDiff.amount)}
+                    />
+                  ) : null}
                 </div>
               </div>
               <div className="flex justify-end pt-[3px]">

@@ -14,11 +14,13 @@ import FoodsPage from "./pages/FoodsPage";
 import MapPage from "./pages/MapPage";
 import WriteReviewPage from "./pages/WriteReviewPage";
 import FoodDetailPage from "./pages/FoodDetailPage";
+import FoodTrendingReviewsPage from "./pages/FoodTrendingReviewsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import MyReviewsPage from "./pages/MyReviewsPage";
 import LikedReviewsPage from "./pages/LikedReviewsPage";
 import SavedItemsPage from "./pages/SavedItemsPage";
 import StoreDetailPage from "./pages/StoreDetailPage";
+import StoreReviewsPage from "./pages/StoreReviewsPage";
 
 export const router = createBrowserRouter([
  {
@@ -37,12 +39,14 @@ export const router = createBrowserRouter([
  { path: "liked-reviews", Component: LikedReviewsPage },
  { path: "saved-items", Component: SavedItemsPage },
  { path: "store/:storeId", Component: StoreDetailPage },
+ { path: "store/:storeId/reviews", Component: StoreReviewsPage },
  { path: "following-list", Component: FollowingListPage },
  { path: "profile/:userId", Component: UserProfilePage },
  { path: "foods", Component: FoodsPage },
  { path: "map", Component: MapPage },
  { path: "write-review", Component: WriteReviewPage },
  { path: "food/:id", Component: FoodDetailPage },
+ { path: "food/:id/reviews", Component: FoodTrendingReviewsPage },
  { path: "*", Component: NotFoundPage },
  ],
  },

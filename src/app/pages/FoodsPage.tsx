@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
+import {
+  MACAO_CRACK_COOKIE_FOOD_STORES,
+  MACAO_CRACK_COOKIE_STORES,
+  MACAO_CRACK_COOKIE_TRENDING_REVIEWS,
+} from '../data/macaoCrackCookie.generated';
 
 const TREND_TAGS = [
+  { id: 'macao', label: '마카오 크랙쿠키' },
   { id: 'dubai', label: '두바이쫀득쿠키' },
   { id: 'butter-rice', label: '버터떡' },
   { id: 'chewy-bread', label: '쫀득빵' },
@@ -12,65 +19,467 @@ const TREND_TAGS = [
 
 type TrendTagId = (typeof TREND_TAGS)[number]['id'];
 
-const NEW_OPEN_STORES = [
-  {
-    storeId: '7',
-    name: '달콤제과',
-    location: '성수1가 · 도보 8분',
-    price: '6,000원 (1박스)',
-    tag: '두쫀쿠',
-    bookmarked: true,
-  },
-  {
-    storeId: '8',
-    name: '무드케이크',
-    location: '성수1가 · 도보 12분',
-    price: '5,000원 (2개)',
-    tag: '버터떡',
-    bookmarked: true,
-  },
-  {
-    storeId: '1',
-    name: '버터하우스',
-    location: '성수2가 · 도보 6분',
-    price: '5,000원 / 2개',
-    tag: '쫀득쿠키',
-    bookmarked: true,
-  },
-];
+const TREND_TAG_TO_FOOD_ID: Record<TrendTagId, string> = {
+  macao: '7',
+  dubai: '1',
+  'butter-rice': '2',
+  'chewy-bread': '5',
+  pumpkin: '3',
+  mala: '4',
+};
 
-const EXPLORE_REVIEWS = [
-  {
-    storeId: '4',
-    storeName: '매운맛집',
-    menuName: '마라떡볶이',
-    authorInitial: '멥',
-    author: '맵찔이',
-    time: '1시간 전',
-    matchRate: 30,
-    satisfied: true,
-    visitInfo: '저녁에 방문 | 주말에 방문 | 웨이팅 20분',
-    text: '마라 향이 진하면서도 떡이 쫄깃해서 정말 맛있어요! 매운 걸 좋아하신다면 꼭 드세요 🌶️',
-    imageCount: 3,
-    verified: true,
-    liked: true,
+type NewOpenStore = {
+  storeId: string;
+  name: string;
+  location: string;
+  price: string;
+  tag: string;
+  bookmarked: boolean;
+};
+
+type ExploreReview = {
+  storeId: string;
+  storeName: string;
+  menuName: string;
+  authorInitial: string;
+  author: string;
+  time: string;
+  matchRate: number;
+  satisfied: boolean;
+  visitInfo: string;
+  text: string;
+  imageCount: number;
+  verified: boolean;
+  liked: boolean;
+};
+
+type TrendContent = {
+  newOpenStores: NewOpenStore[];
+  reviews: ExploreReview[];
+};
+
+const MACAO_NEW_OPEN: NewOpenStore[] = MACAO_CRACK_COOKIE_FOOD_STORES.slice(0, 3).map(
+  ({ storeId, name }) => {
+    const store = MACAO_CRACK_COOKIE_STORES[storeId];
+    return {
+      storeId,
+      name,
+      location: `${store.location} · 도보 8분`,
+      price: `${store.price} ${store.priceUnit}`,
+      tag: '마카오크랙',
+      bookmarked: false,
+    };
   },
-  {
-    storeId: '1',
-    storeName: '미엘 케이커리',
-    menuName: '두쫀쿠',
-    authorInitial: '디',
-    author: '디저트러버',
-    time: '1시간 전',
-    matchRate: 72,
-    satisfied: true,
-    visitInfo: '저녁에 방문 | 평일에 방문 | 웨이팅 15분',
-    text: '겉은 쫀득하고 속은 바삭해서 독특한 식감이 정말 좋았어요. 두쫀쿠 특유의 반전 식감이 매력적입니다!',
-    imageCount: 4,
-    verified: false,
-    liked: false,
+);
+
+const MACAO_EXPLORE_STORE_IDS = ['macao_cookie_01', 'macao_cookie_04', 'macao_cookie_05'] as const;
+
+const MACAO_EXPLORE_REVIEWS: ExploreReview[] = MACAO_CRACK_COOKIE_TRENDING_REVIEWS.slice(0, 3).map(
+  (review, index) => {
+    const store = MACAO_CRACK_COOKIE_STORES[MACAO_EXPLORE_STORE_IDS[index]];
+    return {
+      storeId: store.id,
+      storeName: store.name,
+      menuName: '마카오 크랙쿠키',
+      authorInitial: review.authorInitial,
+      author: review.author,
+      time: review.time,
+      matchRate: review.matchRate,
+      satisfied: review.satisfied,
+      visitInfo: review.visitInfo,
+      text: review.text,
+      imageCount: review.imageCount,
+      verified: index === 0,
+      liked: false,
+    };
   },
-];
+);
+
+const TREND_CONTENT: Record<TrendTagId, TrendContent> = {
+  macao: {
+    newOpenStores: MACAO_NEW_OPEN,
+    reviews: MACAO_EXPLORE_REVIEWS,
+  },
+  dubai: {
+    newOpenStores: [
+      {
+        storeId: '7',
+        name: '달콤제과',
+        location: '성수1가 · 도보 8분',
+        price: '6,000원 (1박스)',
+        tag: '두쫀쿠',
+        bookmarked: false,
+      },
+      {
+        storeId: '8',
+        name: '무드케이크',
+        location: '성수1가 · 도보 12분',
+        price: '5,000원 (2개)',
+        tag: '두쫀쿠',
+        bookmarked: false,
+      },
+      {
+        storeId: '1',
+        name: '미엘 케이커리',
+        location: '성수2가 · 도보 6분',
+        price: '5,000원 / 2개',
+        tag: '두쫀쿠',
+        bookmarked: true,
+      },
+    ],
+    reviews: [
+      {
+        storeId: '1',
+        storeName: '미엘 케이커리',
+        menuName: '두쫀쿠',
+        authorInitial: '디',
+        author: '디저트러버',
+        time: '1시간 전',
+        matchRate: 72,
+        satisfied: true,
+        visitInfo: '저녁에 방문 | 평일에 방문 | 웨이팅 15분',
+        text: '겉은 쫀득하고 속은 바삭해서 독특한 식감이 정말 좋았어요. 두쫀쿠 특유의 반전 식감이 매력적입니다!',
+        imageCount: 4,
+        verified: false,
+        liked: false,
+      },
+      {
+        storeId: '7',
+        storeName: '달콤제과',
+        menuName: '두바이 쫀득 쿠키',
+        authorInitial: '쫀',
+        author: '쫀득파',
+        time: '3시간 전',
+        matchRate: 88,
+        satisfied: true,
+        visitInfo: '오후에 방문 | 주말에 방문 | 웨이팅 25분',
+        text: '피스타치오 스프레드가 고소하고 카다이프 바삭함이 살아 있어요. 한입 크기라 나눠 먹기도 좋아요.',
+        imageCount: 3,
+        verified: true,
+        liked: true,
+      },
+      {
+        storeId: '8',
+        storeName: '무드케이크',
+        menuName: '두쫀쿠',
+        authorInitial: '단',
+        author: '단짠러버',
+        time: '5시간 전',
+        matchRate: 65,
+        satisfied: true,
+        visitInfo: '점심에 방문 | 평일에 방문 | 웨이팅 10분',
+        text: '달기만 한 게 아니라 고소함이 확실해서 커피랑 같이 먹으면 딱이에요.',
+        imageCount: 2,
+        verified: false,
+        liked: false,
+      },
+    ],
+  },
+  'butter-rice': {
+    newOpenStores: [
+      {
+        storeId: '1',
+        name: '미엘 케이커리',
+        location: '마포 · 도보 5분',
+        price: '2,000원 (개당)',
+        tag: '버터떡',
+        bookmarked: false,
+      },
+      {
+        storeId: '2',
+        name: '떡앤카페',
+        location: '관악 · 도보 10분',
+        price: '3,000원 (개당)',
+        tag: '버터떡',
+        bookmarked: false,
+      },
+      {
+        storeId: '8',
+        name: '무드케이크',
+        location: '성수1가 · 도보 12분',
+        price: '5,000원 (2개)',
+        tag: '버터떡',
+        bookmarked: false,
+      },
+    ],
+    reviews: [
+      {
+        storeId: '1',
+        storeName: '미엘 케이커리',
+        menuName: '버터떡',
+        authorInitial: '쫀',
+        author: '쫀득파',
+        time: '방금 전',
+        matchRate: 68,
+        satisfied: true,
+        visitInfo: '저녁에 방문 | 평일에 방문 | 웨이팅 15분',
+        text: '진짜 쫀득하고 버터향이 강해서 멀리서 와도 먹을 만해요. 겉은 쫀득하고 안은 바삭해서 식감이 독특해요.',
+        imageCount: 4,
+        verified: true,
+        liked: false,
+      },
+      {
+        storeId: '2',
+        storeName: '떡앤카페',
+        menuName: '버터떡',
+        authorInitial: '떡',
+        author: '떡러버',
+        time: '1시간 전',
+        matchRate: 75,
+        satisfied: true,
+        visitInfo: '점심에 방문 | 주말에 방문 | 웨이팅 10분',
+        text: '버터 향이 진하고 떡이 쫀득해요. 고소한 맛이 일품입니다. 커피랑 환상 조합!',
+        imageCount: 3,
+        verified: false,
+        liked: true,
+      },
+      {
+        storeId: '1',
+        storeName: '미엘 케이커리',
+        menuName: '버터떡',
+        authorInitial: '버',
+        author: '버터덕후',
+        time: '어제',
+        matchRate: 82,
+        satisfied: true,
+        visitInfo: '아침에 방문 | 평일에 방문 | 웨이팅 없음',
+        text: '오픈런으로 가니 바로 샀어요. 갓 나온 떡이라 따뜻하고 촉촉했고, 냉장고에 하루 넣었다가 먹어도 맛이 유지됐어요.',
+        imageCount: 4,
+        verified: true,
+        liked: false,
+      },
+    ],
+  },
+  'chewy-bread': {
+    newOpenStores: [
+      {
+        storeId: '5',
+        name: '쫀득베이커리',
+        location: '마포 · 도보 7분',
+        price: '3,500원 (개당)',
+        tag: '쫀득빵',
+        bookmarked: true,
+      },
+      {
+        storeId: '6',
+        name: '베이글 스토리',
+        location: '용산 · 도보 9분',
+        price: '4,200원 (개당)',
+        tag: '쫀득빵',
+        bookmarked: false,
+      },
+      {
+        storeId: '1',
+        name: '버터하우스',
+        location: '성수2가 · 도보 6분',
+        price: '4,800원 (개당)',
+        tag: '쫀득빵',
+        bookmarked: false,
+      },
+    ],
+    reviews: [
+      {
+        storeId: '5',
+        storeName: '쫀득베이커리',
+        menuName: '쫀득빵',
+        authorInitial: '빵',
+        author: '빵순이',
+        time: '2시간 전',
+        matchRate: 88,
+        satisfied: true,
+        visitInfo: '아침에 방문 | 주말에 방문 | 웨이팅 12분',
+        text: '쫀득빵 이름 그대로 진짜 쫀득해요! 한 입 베어물면 쫄깃한 식감이 최고예요.',
+        imageCount: 3,
+        verified: true,
+        liked: false,
+      },
+      {
+        storeId: '5',
+        storeName: '쫀득베이커리',
+        menuName: '쫀득빵',
+        authorInitial: '우',
+        author: '우유향',
+        time: '4시간 전',
+        matchRate: 79,
+        satisfied: true,
+        visitInfo: '오전에 방문 | 평일에 방문 | 웨이팅 5분',
+        text: '버터와 우유 향이 진하고 겉바속쫀 식감이 확실해요. 따뜻할 때 먹는 게 제일 맛있습니다.',
+        imageCount: 2,
+        verified: false,
+        liked: false,
+      },
+      {
+        storeId: '6',
+        storeName: '베이글 스토리',
+        menuName: '쫀득빵',
+        authorInitial: '브',
+        author: '브런치족',
+        time: '어제',
+        matchRate: 71,
+        satisfied: false,
+        visitInfo: '점심에 방문 | 주말에 방문 | 웨이팅 20분',
+        text: '쫀득함은 있는데 버터 향이 조금 약했어요. 그래도 식감은 만족스러웠습니다.',
+        imageCount: 3,
+        verified: false,
+        liked: true,
+      },
+    ],
+  },
+  pumpkin: {
+    newOpenStores: [
+      {
+        storeId: '3',
+        name: '한떡',
+        location: '서초 · 도보 4분',
+        price: '2,500원 (개당)',
+        tag: '호박인절미',
+        bookmarked: false,
+      },
+      {
+        storeId: '7',
+        name: '달콤제과',
+        location: '성수1가 · 도보 8분',
+        price: '6,000원 (1박스)',
+        tag: '호박인절미',
+        bookmarked: false,
+      },
+      {
+        storeId: '8',
+        name: '무드케이크',
+        location: '성수1가 · 도보 12분',
+        price: '5,500원 (팩당)',
+        tag: '호박인절미',
+        bookmarked: false,
+      },
+    ],
+    reviews: [
+      {
+        storeId: '3',
+        storeName: '한떡',
+        menuName: '호박인절미',
+        authorInitial: '전',
+        author: '전통맛',
+        time: '30분 전',
+        matchRate: 82,
+        satisfied: true,
+        visitInfo: '오후에 방문 | 평일에 방문 | 웨이팅 5분',
+        text: '호박인절미가 정말 고소하고 쫀득해요. 전통 맛이 살아있어서 좋았습니다.',
+        imageCount: 2,
+        verified: true,
+        liked: false,
+      },
+      {
+        storeId: '3',
+        storeName: '한떡',
+        menuName: '호박인절미',
+        authorInitial: '호',
+        author: '호박사랑',
+        time: '2시간 전',
+        matchRate: 90,
+        satisfied: true,
+        visitInfo: '아침에 방문 | 주말에 방문 | 웨이팅 없음',
+        text: '호박 향이 은은하고 콩가루 고소함이 잘 어울려요. 달지 않아서 부담 없이 먹기 좋아요.',
+        imageCount: 3,
+        verified: false,
+        liked: true,
+      },
+      {
+        storeId: '7',
+        storeName: '달콤제과',
+        menuName: '호박인절미',
+        authorInitial: '떡',
+        author: '떡순이',
+        time: '5시간 전',
+        matchRate: 58,
+        satisfied: false,
+        visitInfo: '오후에 방문 | 주말에 방문 | 웨이팅 15분',
+        text: '맛은 괜찮은데 가격 대비 양이 아쉬워요. 호박 향은 좋았습니다.',
+        imageCount: 1,
+        verified: false,
+        liked: false,
+      },
+    ],
+  },
+  mala: {
+    newOpenStores: [
+      {
+        storeId: '4',
+        name: '매운맛집',
+        location: '강남 · 도보 6분',
+        price: '5,000원 (1인분)',
+        tag: '마라떡볶이',
+        bookmarked: false,
+      },
+      {
+        storeId: '8',
+        name: '무드케이크',
+        location: '성수1가 · 도보 12분',
+        price: '6,500원 (1인분)',
+        tag: '마라떡볶이',
+        bookmarked: false,
+      },
+      {
+        storeId: '7',
+        name: '달콤제과',
+        location: '성수1가 · 도보 8분',
+        price: '5,500원 (1인분)',
+        tag: '마라떡볶이',
+        bookmarked: true,
+      },
+    ],
+    reviews: [
+      {
+        storeId: '4',
+        storeName: '매운맛집',
+        menuName: '마라떡볶이',
+        authorInitial: '멥',
+        author: '맵찔이',
+        time: '1시간 전',
+        matchRate: 30,
+        satisfied: true,
+        visitInfo: '저녁에 방문 | 주말에 방문 | 웨이팅 20분',
+        text: '마라 향이 진하면서도 떡이 쫄깃해서 정말 맛있어요! 매운 걸 좋아하신다면 꼭 드세요 🌶️',
+        imageCount: 3,
+        verified: true,
+        liked: true,
+      },
+      {
+        storeId: '4',
+        storeName: '매운맛집',
+        menuName: '마라떡볶이',
+        authorInitial: '마',
+        author: '마라킹',
+        time: '10분 전',
+        matchRate: 71,
+        satisfied: true,
+        visitInfo: '저녁에 방문 | 평일에 방문 | 웨이팅 20분',
+        text: '마라 향이 진하면서도 떡이 쫄깃해요. 매운 걸 좋아한다면 강추합니다!',
+        imageCount: 5,
+        verified: true,
+        liked: false,
+      },
+      {
+        storeId: '4',
+        storeName: '매운맛집',
+        menuName: '마라떡볶이',
+        authorInitial: '불',
+        author: '불닭러버',
+        time: '3시간 전',
+        matchRate: 85,
+        satisfied: false,
+        visitInfo: '점심에 방문 | 평일에 방문 | 웨이팅 10분',
+        text: '향은 좋은데 저한테는 너무 매웠어요. 마라 입문자는 1단계부터 추천해요.',
+        imageCount: 2,
+        verified: false,
+        liked: false,
+      },
+    ],
+  },
+};
+
+function reviewKey(tagId: TrendTagId, review: ExploreReview) {
+  return `${tagId}:${review.storeId}:${review.author}`;
+}
 
 function SearchIcon() {
   return (
@@ -132,7 +541,7 @@ function NewOpenCard({
   store,
   onNavigate,
 }: {
-  store: (typeof NEW_OPEN_STORES)[number];
+  store: NewOpenStore;
   onNavigate: () => void;
 }) {
   return (
@@ -170,11 +579,13 @@ function ExploreReviewCard({
   liked,
   onToggleLike,
   onNavigate,
+  showMatchRate = true,
 }: {
-  review: (typeof EXPLORE_REVIEWS)[number];
+  review: ExploreReview;
   liked: boolean;
   onToggleLike: () => void;
   onNavigate: () => void;
+  showMatchRate?: boolean;
 }) {
   return (
     <button
@@ -200,9 +611,11 @@ function ExploreReviewCard({
           </div>
         </div>
         <div className="flex shrink-0 items-center gap-1">
-          <span className="rounded-lg bg-[#9cb8b7] px-2 pt-[3px] text-[11px] text-[#2e211c]">
-            취향 일치율 {review.matchRate}%
-          </span>
+          {showMatchRate && (
+            <span className="rounded-lg bg-[#9cb8b7] px-2 pt-[3px] text-[11px] text-[#2e211c]">
+              취향 일치율 {review.matchRate}%
+            </span>
+          )}
           <span className="text-[28px] leading-none">{review.satisfied ? '🙂' : '🙁'}</span>
         </div>
       </div>
@@ -271,18 +684,30 @@ function ExploreReviewCard({
 
 export default function FoodsPage() {
   const navigate = useNavigate();
-  const [activeTag, setActiveTag] = useState<TrendTagId>('dubai');
-  const [likedReviews, setLikedReviews] = useState<Set<number>>(
-    () => new Set(EXPLORE_REVIEWS.map((r, i) => (r.liked ? i : -1)).filter((i) => i >= 0)),
+  const { showPersonalizedMetrics } = usePersonalizedMetrics();
+  const [activeTag, setActiveTag] = useState<TrendTagId>('macao');
+  const [likedReviews, setLikedReviews] = useState<Set<string>>(() => {
+    const initial = new Set<string>();
+    for (const review of TREND_CONTENT.macao.reviews) {
+      if (review.liked) {
+        initial.add(reviewKey('macao', review));
+      }
+    }
+    return initial;
+  });
+
+  const { newOpenStores, reviews } = useMemo(
+    () => TREND_CONTENT[activeTag],
+    [activeTag],
   );
 
-  const toggleLike = (index: number) => {
+  const toggleLike = (key: string) => {
     setLikedReviews((prev) => {
       const next = new Set(prev);
-      if (next.has(index)) {
-        next.delete(index);
+      if (next.has(key)) {
+        next.delete(key);
       } else {
-        next.add(index);
+        next.add(key);
       }
       return next;
     });
@@ -331,9 +756,9 @@ export default function FoodsPage() {
           </div>
           <div className="-mx-[18px] overflow-x-auto px-[18px] pb-1">
             <div className="flex gap-[11px]">
-              {NEW_OPEN_STORES.map((store) => (
+              {newOpenStores.map((store) => (
                 <NewOpenCard
-                  key={store.storeId + store.name}
+                  key={`${activeTag}-${store.storeId}`}
                   store={store}
                   onNavigate={() => navigate(`/store/${store.storeId}`)}
                 />
@@ -345,20 +770,28 @@ export default function FoodsPage() {
         <section className="flex flex-col gap-2.5 px-[18px] pt-6 pb-5">
           <div className="flex items-center justify-between">
             <p className="text-[15px] text-[#1c1c1e]">지금 올라온 리뷰</p>
-            <button type="button" className="text-xs text-[#8a8a8e]">
+            <button
+              type="button"
+              onClick={() => navigate(`/food/${TREND_TAG_TO_FOOD_ID[activeTag]}/reviews`)}
+              className="text-xs text-[#8a8a8e]"
+            >
               더보기 ›
             </button>
           </div>
           <div className="flex flex-col gap-3">
-            {EXPLORE_REVIEWS.map((review, idx) => (
-              <ExploreReviewCard
-                key={idx}
-                review={review}
-                liked={likedReviews.has(idx)}
-                onToggleLike={() => toggleLike(idx)}
-                onNavigate={() => navigate(`/store/${review.storeId}`)}
-              />
-            ))}
+            {reviews.map((review) => {
+              const key = reviewKey(activeTag, review);
+              return (
+                <ExploreReviewCard
+                  key={key}
+                  review={review}
+                  liked={likedReviews.has(key)}
+                  onToggleLike={() => toggleLike(key)}
+                  onNavigate={() => navigate(`/store/${review.storeId}`)}
+                  showMatchRate={showPersonalizedMetrics}
+                />
+              );
+            })}
           </div>
         </section>
       </div>

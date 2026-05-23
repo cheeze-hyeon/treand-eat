@@ -1,11 +1,13 @@
 import { useLocation, useNavigate } from 'react-router';
 import svgPaths from "../../imports/마이페이지본인이보는/svg-efmvaixmp8";
 import BottomNavigation from '../components/BottomNavigation';
+import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { getFoodIdByMenuName } from '../data/foods';
 
 export default function SavedItemsPage() {
  const navigate = useNavigate();
  const location = useLocation();
+ const { showPersonalizedMetrics } = usePersonalizedMetrics();
  const pickForReview =
    (location.state as { pickForReview?: boolean } | null)?.pickForReview === true;
 
@@ -177,7 +179,7 @@ export default function SavedItemsPage() {
  </div>
  </div>
 
- {/* Match Rate - Right Side */}
+ {showPersonalizedMetrics && (
  <div className="flex flex-col items-center justify-center bg-[#f5f5f5] rounded-[12px] px-[16px] py-[12px] min-w-[85px]">
  <p className=" text-[#525252] text-[10px] mb-[6px] whitespace-nowrap">
  트렌딧 지수
@@ -187,6 +189,7 @@ export default function SavedItemsPage() {
  <span className="text-[20px]">%</span>
  </p>
  </div>
+ )}
  </div>
  </button>
  ))}

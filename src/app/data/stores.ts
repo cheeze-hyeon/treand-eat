@@ -1,3 +1,5 @@
+import { MACAO_CRACK_COOKIE_STORES } from './macaoCrackCookie.generated';
+
 export type StoreReview = {
   author: string;
   authorInitial: string;
@@ -234,6 +236,7 @@ export const STORES: Record<string, Store> = {
       },
     ],
   },
+  ...MACAO_CRACK_COOKIE_STORES,
 };
 
 export function getStoreById(id: string | undefined): Store {
