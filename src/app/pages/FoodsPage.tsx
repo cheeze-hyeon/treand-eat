@@ -126,7 +126,7 @@ function buildExploreReviews(config: TrendFoodConfig): ExploreReview[] {
 
 function buildTrendContent(config: TrendFoodConfig): TrendContent {
   return {
-    newOpenStores: buildNewOpenStores(config.foodStores, config.stores, config.shortTag, 3),
+    newOpenStores: buildNewOpenStores(config.foodStores, config.stores, config.shortTag),
     reviews: buildExploreReviews(config),
   };
 }

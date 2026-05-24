@@ -10,7 +10,7 @@ import ReviewTargetSearch, {
   type ReviewTarget,
 } from '../components/ReviewTargetSearch';
 import StoreSummaryHeader from '../components/StoreSummaryHeader';
-import { getFoodById, getFoodIdByMenuName } from '../data/foods';
+import { FOODS, getFoodById, getFoodIdByMenuName } from '../data/foods';
 import { BANGKOK_ROTI_FRY_STORES } from '../data/bangkokRotiFry.generated';
 import { LA_CROTACO_STORES } from '../data/laCrotaco.generated';
 import { MACAO_CRACK_COOKIE_STORES } from '../data/macaoCrackCookie.generated';
@@ -362,6 +362,7 @@ export default function WriteReviewPage() {
     initialTarget,
   );
   const [searchQuery, setSearchQuery] = useState('');
+  const [pendingCustomName, setPendingCustomName] = useState<string | null>(null);
 
   useEffect(() => {
     const fromUrl = targetFromParams(
@@ -381,7 +382,17 @@ export default function WriteReviewPage() {
     [searchQuery, selectedTarget],
   );
 
-  const store = selectedTarget ? STORES[selectedTarget.storeId] : null;
+  const store = selectedTarget
+    ? (STORES[selectedTarget.storeId] ?? {
+        name: selectedTarget.storeName,
+        menuName: selectedTarget.menuName,
+        location: selectedTarget.location,
+        price: '-',
+        priceUnit: '',
+        waitingTime: '-',
+        reviewCount: 0,
+      })
+    : null;
   const food = selectedTarget ? getFoodById(selectedTarget.foodId) : null;
 
   const [receiptVerified, setReceiptVerified] = useState(false);
@@ -415,6 +426,25 @@ export default function WriteReviewPage() {
   const handleSelectTarget = (target: ReviewTarget) => {
     setSelectedTarget(target);
     setSearchQuery('');
+  };
+
+  const handleFreeInput = (query: string) => {
+    setPendingCustomName(query.trim());
+  };
+
+  const handleCustomFoodSelect = (foodId: string) => {
+    if (!pendingCustomName) return;
+    const food = getFoodById(foodId);
+    const customTarget: ReviewTarget = {
+      storeId: `custom_${Date.now()}`,
+      storeName: pendingCustomName,
+      menuName: food.name,
+      location: '',
+      foodId,
+      foodName: food.name,
+    };
+    setPendingCustomName(null);
+    handleSelectTarget(customTarget);
   };
 
   const handleClearTarget = () => {
@@ -493,6 +523,43 @@ export default function WriteReviewPage() {
   );
 
   if (!selectedTarget) {
+    if (pendingCustomName) {
+      return (
+        <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
+          {pickerHeader}
+          <div className="flex min-h-0 flex-1 flex-col items-center overflow-y-auto px-[29px] pt-10 pb-6">
+            <h1 className="mb-2 w-full max-w-[342px] text-center text-2xl text-[#2e211c]">
+              어떤 메뉴를 드셨나요?
+            </h1>
+            <p className="mb-8 text-center text-[13px] text-[#9e9794]">
+              &lsquo;{pendingCustomName}&rsquo;에서 드신 유행 음식을 선택해주세요
+            </p>
+            <div className="flex w-full max-w-[342px] flex-col gap-3">
+              {FOODS.map((food) => (
+                <button
+                  key={food.id}
+                  type="button"
+                  onClick={() => handleCustomFoodSelect(food.id)}
+                  className="w-full rounded-xl border-2 border-[#2e211c] bg-white px-4 py-3.5 text-left transition-colors hover:bg-[#f7f4f0]"
+                >
+                  <p className="text-[15px] font-bold text-[#2e211c]">{food.name}</p>
+                  <p className="mt-0.5 text-[12px] text-[#9e9794]">{food.category} · {food.price}</p>
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setPendingCustomName(null)}
+              className="mt-6 text-[13px] text-[#9e9794] underline underline-offset-2"
+            >
+              다시 검색하기
+            </button>
+          </div>
+          {!fromOnboarding && <BottomNavigation activeTab="write" />}
+        </div>
+      );
+    }
+
     return (
       <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
         {pickerHeader}
@@ -512,6 +579,7 @@ export default function WriteReviewPage() {
             selected={null}
             onSelect={handleSelectTarget}
             onClearSelection={handleClearTarget}
+            onFreeInput={fromOnboarding ? handleFreeInput : undefined}
           />
 
           {!fromOnboarding && (

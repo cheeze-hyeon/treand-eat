@@ -411,7 +411,7 @@ export default function HomePage() {
                 matchRate={item.matchRate}
                 firstIntroduced={item.firstIntroduced}
                 description={item.description}
-                showTrendChart={index === 0}
+                showTrendChart={true}
                 showMatchRate={showPersonalizedMetrics}
               />
             ))}

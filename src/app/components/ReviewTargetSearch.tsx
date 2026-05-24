@@ -16,6 +16,7 @@ type ReviewTargetSearchProps = {
   selected: ReviewTarget | null;
   onSelect: (target: ReviewTarget) => void;
   onClearSelection: () => void;
+  onFreeInput?: (query: string) => void;
   variant?: 'default' | 'picker';
 };
 
@@ -70,6 +71,7 @@ export default function ReviewTargetSearch({
   selected,
   onSelect,
   onClearSelection,
+  onFreeInput,
   variant = 'default',
 }: ReviewTargetSearchProps) {
   const showResults = query.trim().length > 0 && !selected;
@@ -134,9 +136,24 @@ export default function ReviewTargetSearch({
         )}
 
         {showResults && results.length === 0 && (
-          <p className="mt-3 text-center text-[13px] text-[#9e9794]">
-            검색 결과가 없어요. 다른 매장명으로 검색해보세요.
-          </p>
+          onFreeInput ? (
+            <div className="mt-3 flex flex-col items-center gap-2">
+              <p className="text-center text-[13px] text-[#9e9794]">
+                검색 결과가 없어요.
+              </p>
+              <button
+                type="button"
+                onClick={() => onFreeInput(query)}
+                className="rounded-xl border-2 border-[#2e211c] bg-white px-4 py-2.5 text-[13px] text-[#2e211c] transition-colors hover:bg-[#f7f4f0]"
+              >
+                &lsquo;{query}&rsquo; 매장으로 계속하기
+              </button>
+            </div>
+          ) : (
+            <p className="mt-3 text-center text-[13px] text-[#9e9794]">
+              검색 결과가 없어요. 다른 매장명으로 검색해보세요.
+            </p>
+          )
         )}
       </div>
     );
