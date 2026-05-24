@@ -40,7 +40,7 @@ export default function MapStoreListItem({
   const metricLabel =
     metricMode === 'preference'
       ? `취향 일치도 ${store.preferenceMatch}%`
-      : `트렌딜리셔스 ${store.trendScore}점`;
+      : `트렌딧 ${store.trendScore}점`;
   const priceDiff = getMapStorePriceDiff(store);
 
   return (

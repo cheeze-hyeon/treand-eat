@@ -11,10 +11,12 @@ import MyPage from "./pages/MyPage";
 import FollowingListPage from "./pages/FollowingListPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import FoodsPage from "./pages/FoodsPage";
-import MapPage from "./pages/MapPage";
+// import MapPage from "./pages/MapPage";
 import WriteReviewPage from "./pages/WriteReviewPage";
 import FoodDetailPage from "./pages/FoodDetailPage";
 import FoodTrendingReviewsPage from "./pages/FoodTrendingReviewsPage";
+import FoodStoresPage from "./pages/FoodStoresPage";
+import FoodNewOpenPage from "./pages/FoodNewOpenPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import MyReviewsPage from "./pages/MyReviewsPage";
 import LikedReviewsPage from "./pages/LikedReviewsPage";
@@ -43,9 +45,11 @@ export const router = createBrowserRouter([
  { path: "following-list", Component: FollowingListPage },
  { path: "profile/:userId", Component: UserProfilePage },
  { path: "foods", Component: FoodsPage },
- { path: "map", Component: MapPage },
+ { path: "foods/new-open/:tagId", Component: FoodNewOpenPage },
+ // { path: "map", Component: MapPage },
  { path: "write-review", Component: WriteReviewPage },
  { path: "food/:id", Component: FoodDetailPage },
+ { path: "food/:id/stores", Component: FoodStoresPage },
  { path: "food/:id/reviews", Component: FoodTrendingReviewsPage },
  { path: "*", Component: NotFoundPage },
  ],

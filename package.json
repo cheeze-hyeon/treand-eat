@@ -6,7 +6,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "generate:macao": "node scripts/generate-macao-data.mjs"
+    "generate:foods": "node scripts/generate-virtual-food-data.mjs",
+    "generate:macao": "node scripts/generate-virtual-food-data.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

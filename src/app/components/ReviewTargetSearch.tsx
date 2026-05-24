@@ -28,7 +28,7 @@ export function buildReviewTargets(
   getFoodId: (menuName: string) => string | undefined,
 ): ReviewTarget[] {
   return Object.entries(stores).map(([storeId, store]) => {
-    const foodId = getFoodId(store.menuName) ?? '2';
+    const foodId = getFoodId(store.menuName) ?? '1';
     const food = getFood(foodId);
     return {
       storeId,
@@ -238,7 +238,7 @@ export default function ReviewTargetSearch({
 
           {!query.trim() && (
             <p className="mt-3 text-center text-[#9e9794] text-[13px]">
-              예: 미엘, 버터떡, 마포구
+              예: 오븐스테이, 로띠스팟, 성수동
             </p>
           )}
         </>

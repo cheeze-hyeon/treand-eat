@@ -11,6 +11,8 @@ import ReviewTargetSearch, {
 } from '../components/ReviewTargetSearch';
 import StoreSummaryHeader from '../components/StoreSummaryHeader';
 import { getFoodById, getFoodIdByMenuName } from '../data/foods';
+import { BANGKOK_ROTI_FRY_STORES } from '../data/bangkokRotiFry.generated';
+import { LA_CROTACO_STORES } from '../data/laCrotaco.generated';
 import { MACAO_CRACK_COOKIE_STORES } from '../data/macaoCrackCookie.generated';
 import {
   formatPriceDiffAmount,
@@ -28,76 +30,24 @@ type StoreInfo = {
   reviewCount: number;
 };
 
-const STORES: Record<string, StoreInfo> = {
-  '1': {
-    name: '미엘 케이커리',
-    menuName: '두쫀쿠',
-    location: '서울 마포구',
-    price: '2000원',
-    priceUnit: '(개당)',
-    waitingTime: '15분',
-    reviewCount: 404,
-  },
-  '2': {
-    name: '떡앤카페',
-    menuName: '버터떡',
-    location: '서울 관악구',
-    price: '3000원',
-    priceUnit: '(개당)',
-    waitingTime: '10분',
-    reviewCount: 289,
-  },
-  '3': {
-    name: '한떡',
-    menuName: '호박인절미',
-    location: '서울 서초구',
-    price: '2500원',
-    priceUnit: '(개당)',
-    waitingTime: '5분',
-    reviewCount: 312,
-  },
-  '4': {
-    name: '매운맛집',
-    menuName: '마라떡볶이',
-    location: '서울 강남구',
-    price: '5000원',
-    priceUnit: '(1인분)',
-    waitingTime: '20분',
-    reviewCount: 567,
-  },
-  '5': {
-    name: '쫀득베이커리',
-    menuName: '쫀득빵',
-    location: '서울 마포구',
-    price: '3500원',
-    priceUnit: '(개당)',
-    waitingTime: '12분',
-    reviewCount: 423,
-  },
-  '6': {
-    name: '베이글 스토리',
-    menuName: '베이글샌드',
-    location: '서울 용산구',
-    price: '6500원',
-    priceUnit: '(개당)',
-    waitingTime: '8분',
-    reviewCount: 256,
-  },
-  ...Object.fromEntries(
-    Object.entries(MACAO_CRACK_COOKIE_STORES).map(([id, store]) => [
-      id,
-      {
-        name: store.name,
-        menuName: store.menuName,
-        location: store.location,
-        price: store.price,
-        priceUnit: store.priceUnit,
-        waitingTime: store.waitingTime,
-        reviewCount: store.reviewCount,
-      },
-    ]),
-  ),
-};
+const STORES: Record<string, StoreInfo> = Object.fromEntries(
+  Object.entries({
+    ...MACAO_CRACK_COOKIE_STORES,
+    ...BANGKOK_ROTI_FRY_STORES,
+    ...LA_CROTACO_STORES,
+  }).map(([id, store]) => [
+    id,
+    {
+      name: store.name,
+      menuName: store.menuName,
+      location: store.location,
+      price: store.price,
+      priceUnit: store.priceUnit,
+      waitingTime: store.waitingTime,
+      reviewCount: store.reviewCount,
+    },
+  ]),
+);
 
 const REVIEW_TARGETS = buildReviewTargets(
   STORES,
@@ -373,9 +323,9 @@ function targetFromParams(
     const match = REVIEW_TARGETS.find((target) => target.foodId === foodId);
     if (match) return match;
 
-    const store = STORES['1'];
+    const store = STORES['macao_cookie_01'];
     return {
-      storeId: '1',
+      storeId: 'macao_cookie_01',
       storeName: store.name,
       menuName: store.menuName,
       location: store.location,

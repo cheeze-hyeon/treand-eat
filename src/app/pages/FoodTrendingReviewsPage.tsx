@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import TrendingReviewCard from '../components/TrendingReviewCard';
+import ExploreReviewCard from '../components/ExploreReviewCard';
 import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { getFoodById } from '../data/foods';
-import { getTrendingReviewsForFood } from '../data/trendingReviews';
+import { getExploreReviewsForFood } from '../data/trendingReviews';
 
 export default function FoodTrendingReviewsPage() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ export default function FoodTrendingReviewsPage() {
   const [likedReviews, setLikedReviews] = useState<Set<number>>(new Set());
 
   const food = getFoodById(id);
-  const trendingReviews = getTrendingReviewsForFood(food.id);
+  const exploreReviews = getExploreReviewsForFood(food.id);
 
   const toggleLike = (reviewIndex: number) => {
     setLikedReviews((prev) => {
@@ -56,17 +56,28 @@ export default function FoodTrendingReviewsPage() {
           <p className="truncate text-base font-semibold text-[#1c1c1e]">지금 뜨는 리뷰</p>
           <p className="truncate text-xs text-[#9e9794]">{food.name}</p>
         </div>
-        <p className="shrink-0 text-xs text-[#9e9794]">{trendingReviews.length}개</p>
+        <p className="shrink-0 text-xs text-[#9e9794]">{exploreReviews.length}개</p>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-[18px] py-4">
         <div className="flex flex-col gap-3">
-          {trendingReviews.map((review, idx) => (
-            <TrendingReviewCard
-              key={idx}
-              review={review}
+          {exploreReviews.map((review, idx) => (
+            <ExploreReviewCard
+              key={`${review.storeId}-${review.author}-${idx}`}
+              storeName={review.storeName}
+              menuName={review.menuName}
+              authorInitial={review.authorInitial}
+              author={review.author}
+              time={review.time}
+              matchRate={review.matchRate}
+              satisfied={review.satisfied}
+              visitInfo={review.visitInfo}
+              text={review.text}
+              imageCount={review.imageCount}
+              verified={review.verified}
               liked={likedReviews.has(idx)}
               onToggleLike={() => toggleLike(idx)}
+              onNavigate={() => navigate(`/store/${review.storeId}`)}
               showMatchRate={showPersonalizedMetrics}
             />
           ))}

@@ -1,0 +1,177 @@
+﻿review_id,store_item_id,store_name,user_id,taste_match_rate,is_similar_user,satisfaction,has_text,review_text,has_photo,photo_count,receipt_verified,visit_day_type,visit_time,reported_wait_min,tone_type,mentioned_keywords
+bangkok_review_0001,bangkok_roti_01,로띠스팟 성수,바나나로띠러버,64,FALSE,만족,TRUE,달콤한 튀김 디저트 땡길 때 딱. 시나몬 향도 은은해서 부담 없었음.,TRUE,3,TRUE,주말,점심,40,반말 후기형,시나몬; 단맛
+bangkok_review_0002,bangkok_roti_01,로띠스팟 성수,튀김소리수집가,55,FALSE,만족,TRUE,이름만 듣고 궁금했는데 실제로 먹어보니 이해됨. 바삭한 로띠를 디저트화한 느낌.,TRUE,1,TRUE,주말,아침,45,불만 토로형,바삭함
+bangkok_review_0003,bangkok_roti_01,로띠스팟 성수,성수간식러,75,TRUE,만족,TRUE,갓 튀긴 로띠튀김은 인정. 식감이 살아있어서 웨이팅에 대한 분노가 조금 사라짐 ㅎㅎ,FALSE,0,TRUE,주말,점심,45,불만 토로형+표현강함,웨이팅
+bangkok_review_0004,bangkok_roti_01,로띠스팟 성수,연유는못참지,82,TRUE,만족,TRUE,튀김옷이 생각보다 얇고 바삭했다. 바나나가 물컹하게만 느껴질까 봐 걱정했는데 카라멜이랑 잘 어울림.,TRUE,1,TRUE,평일,아침,60,음슴체,바삭함; 바나나; 카라멜
+bangkok_review_0005,bangkok_roti_01,로띠스팟 성수,겉바속촉파,66,FALSE,만족,TRUE,친구가 여행 다녀온 맛 난다고 좋아함. 나는 그냥 달고 바삭해서 좋았다.,TRUE,2,TRUE,주말,점심,55,불만 토로형,바삭함; 단맛; 원조 느낌
+bangkok_review_0006,bangkok_roti_01,로띠스팟 성수,웨이팅싫어,40,FALSE,만족,TRUE,연유 드리즐이 많아서 달긴 한데 그게 또 로띠 느낌이라 좋았다. 방콕 여행 생각남ㅠㅠ,TRUE,2,TRUE,주말,아침,40,불만 토로형+표현강함,연유; 단맛; 소스; 원조 느낌
+bangkok_review_0007,bangkok_roti_01,로띠스팟 성수,방콕그리움,44,FALSE,만족,TRUE,바삭한 튀김옷 안에 부드러운 바나나 필링이 들어 있어서 식감 대비가 좋음.,TRUE,1,TRUE,주말,오후,40,반말 후기형,바삭함; 바나나
+bangkok_review_0008,bangkok_roti_01,로띠스팟 성수,맛있으면우는개구리,59,FALSE,만족,TRUE,로띠 좋아하는 사람은 한번 먹어볼 만함. 연유 소스가 많아서 여행지 야식 느낌 난다.,TRUE,2,TRUE,주말,오전,55,장문 후기형,연유; 소스; 원조 느낌
+bangkok_review_0009,bangkok_roti_01,로띠스팟 성수,반갈샷중독,54,FALSE,만족,TRUE,비주얼 때문에 갔는데 맛도 평균 이상. 성수에서 유행템 체험하고 싶으면 여기가 제일 무난해 보임.,TRUE,2,FALSE,주말,아침,60,조건부 추천형,비주얼; 무난함
+bangkok_review_0010,bangkok_roti_01,로띠스팟 성수,바삭하면합격,65,FALSE,만족,TRUE,성수 유행템으로 보기엔 설득력 있음. 맛도 쉽고 비주얼도 좋음.,TRUE,1,TRUE,주말,오전,60,존댓말 정보형,비주얼
+bangkok_review_0011,bangkok_roti_01,로띠스팟 성수,버터향찾는중,76,TRUE,만족,FALSE,,FALSE,0,TRUE,평일,오전,55,텍스트 없음,
+bangkok_review_0012,bangkok_roti_01,로띠스팟 성수,먹짱고라니,38,FALSE,불만족,TRUE,시나몬 향이 은근 강해서 나는 별로였음. 바나나랑 연유 맛만 기대했는데 향이 튐.,FALSE,0,FALSE,평일,오후,60,불만 장문형,바나나; 연유; 시나몬
+bangkok_review_0013,bangkok_roti_01,로띠스팟 성수,후식배따로,77,TRUE,만족,TRUE,로띠 원본보다 먹기 편함. 손에 들고 먹기 좋고 안쪽 필링도 새지 않아서 좋았다.,TRUE,2,FALSE,평일,아침,60,밈 섞인 리뷰형,
+bangkok_review_0014,bangkok_roti_01,로띠스팟 성수,로띠처돌이,94,TRUE,만족,TRUE,겉바속촉이라는 말이 딱 맞음. 튀김옷이 바삭하게 부서지고 안쪽은 달콤하게 촉촉함.,TRUE,2,FALSE,평일,오전,55,장문 후기형,바삭함; 단맛
+bangkok_review_0015,bangkok_roti_01,로띠스팟 성수,달달구리수집,89,TRUE,만족,TRUE,성수에서 줄 서는 메뉴들 중엔 꽤 성공한 편. 먹는 순간 왜 떴는지 이해됨.,TRUE,1,TRUE,주말,점심,60,존댓말 정보형,웨이팅
+bangkok_review_0016,bangkok_roti_01,로띠스팟 성수,간식연구원,94,TRUE,만족,TRUE,웨이팅만 아니면 또 갈 듯. 맛 자체는 직관적으로 맛있는 단짠달달 튀김 디저트.,TRUE,1,TRUE,평일,아침,55,짧은 현실형,웨이팅; 단맛
+bangkok_review_0017,bangkok_roti_01,로띠스팟 성수,맛있으면우는개구리,49,FALSE,만족,TRUE,기다린 보람은 있었음. 특히 갓 튀긴 상태라 튀김 소리랑 식감이 좋았다. 식으면 어떨지는 모르겠음.,FALSE,0,TRUE,평일,점심,50,조건부 추천형,바삭함; 눅눅함
+bangkok_review_0018,bangkok_roti_01,로띠스팟 성수,성수출근러,91,TRUE,만족,TRUE,맛있는데 강함. 피곤한 날 당충전용으로 먹으면 행복할 맛이다.,TRUE,1,TRUE,평일,저녁,45,밈 섞인 리뷰형,
+bangkok_review_0019,bangkok_roti_01,로띠스팟 성수,디저트취향확고,73,TRUE,불만족,TRUE,포장해서 먹었더니 눅눅해져서 별로였다. 바로 먹어야 하는 메뉴인 듯.,TRUE,2,TRUE,주말,점심,40,조건부 추천형,눅눅함
+bangkok_review_0020,bangkok_roti_01,로띠스팟 성수,기름지면탈락,36,FALSE,만족,TRUE,웨이팅 45분 보고 살짝 현타 왔는데 갓 나온 거 먹으니까 좀 풀림ㅋㅋ 겉이 바삭하고 속이 달콤해서 여행지 간식 느낌 제대로.,TRUE,2,TRUE,주말,아침,50,장문 후기형+표현강함,바삭함; 웨이팅; 단맛; 원조 느낌
+bangkok_review_0021,bangkok_roti_01,로띠스팟 성수,시나몬가능,39,FALSE,만족,TRUE,소스가 많아서 지저분하게 먹을 줄 알았는데 생각보다 깔끔했다. 포장 패키지도 괜찮음.,TRUE,2,TRUE,평일,오전,50,반말 후기형,웨이팅; 비주얼; 소스
+bangkok_review_0022,bangkok_roti_01,로띠스팟 성수,바나나괜찮음,62,FALSE,만족,TRUE,전체적으로 기대 이상. 단맛과 기름짐을 감수할 수 있으면 꽤 만족스러움.,TRUE,2,TRUE,주말,저녁,40,불만 토로형,단맛; 기름짐
+bangkok_review_0023,bangkok_roti_01,로띠스팟 성수,달면다좋아,40,FALSE,만족,FALSE,,TRUE,4,TRUE,주말,오전,55,텍스트 없음,
+bangkok_review_0024,bangkok_roti_01,로띠스팟 성수,커피필수,48,FALSE,만족,TRUE,바나나+카라멜+연유 조합이라 단 거 싫어하면 힘들 수 있음. 나는 달달한 거 좋아해서 만족 😋,TRUE,1,TRUE,평일,점심,30,장문 후기형+표현강함,바나나; 연유; 카라멜; 단맛
+bangkok_review_0025,bangkok_roti_01,로띠스팟 성수,오늘도당충전,38,FALSE,만족,TRUE,따뜻할 때 바로 먹어야 됨!! 포장해서 식으면 이 맛 안 날 것 같아.,TRUE,2,TRUE,주말,오후,40,음슴체,눅눅함
+bangkok_review_0026,bangkok_roti_01,로띠스팟 성수,사진부터찍음,86,TRUE,만족,TRUE,튀김옷이 바삭해서 좋고 안쪽 필링이 넉넉함. 가격은 좀 있지만 유행템 값이라고 생각하면 납득.,FALSE,0,TRUE,주말,오후,45,짧은 현실형,바삭함; 가격
+bangkok_review_0027,bangkok_roti_01,로띠스팟 성수,맛보다식감,63,FALSE,만족,TRUE,주말이라 줄 길었는데 회전은 생각보다 빨랐다. 맛은 확실히 대중적으로 좋아할 맛.,TRUE,4,FALSE,주말,저녁,50,장문 후기형,웨이팅
+bangkok_review_0028,bangkok_roti_01,로띠스팟 성수,재방문고민중,60,FALSE,만족,TRUE,반갈했을 때 필링이 너무 예쁘게 보여서 사진 찍기 좋았음. 맛도 사진값은 한다.,TRUE,1,TRUE,평일,오후,35,장문 후기형,비주얼
+bangkok_review_0029,bangkok_roti_01,로띠스팟 성수,찐후기씀,68,FALSE,만족,TRUE,연유랑 카라멜 때문에 달콤한 향이 확 남. 디저트 먹은 느낌 확실하다.,TRUE,4,TRUE,평일,오전,60,조건부 추천형,연유; 카라멜; 단맛
+bangkok_review_0030,bangkok_roti_01,로띠스팟 성수,먹어보고말함,47,FALSE,만족,TRUE,바삭한 소리 때문에 괜히 영상 찍게 됨. 나 이런 거 안 찍는데 찍었다ㅋㅋ,FALSE,0,TRUE,평일,아침,45,반말 후기형+표현강함,바삭함
+bangkok_review_0031,bangkok_roti_01,로띠스팟 성수,주말성수러,90,TRUE,불만족,TRUE,단맛이 너무 세고 소스가 많아서 손이 끈적거림. 먹는 재미보다 불편함이 컸다.,TRUE,2,FALSE,주말,오전,50,불만 토로형,단맛; 소스
+bangkok_review_0032,bangkok_roti_01,로띠스팟 성수,평일방문러,40,FALSE,만족,TRUE,바나나 필링이 진하고 연유맛도 확실함. 그냥 유행 따라 만든 메뉴치고는 완성도 괜찮았다.,FALSE,0,TRUE,주말,아침,60,밈 섞인 리뷰형,바나나; 연유
+bangkok_review_0033,bangkok_roti_01,로띠스팟 성수,카페메모장,92,TRUE,만족,TRUE,유명한 곳이라 기대했는데 기대만큼은 함. 대신 아주 섬세한 맛은 아니고 강한 맛으로 밀어붙임.,TRUE,3,TRUE,평일,아침,50,반말 후기형,
+bangkok_review_0034,bangkok_roti_01,로띠스팟 성수,빵에진심,94,TRUE,불만족,FALSE,,TRUE,2,FALSE,주말,점심,50,텍스트 없음,
+bangkok_review_0035,bangkok_roti_01,로띠스팟 성수,로띠입문자,54,FALSE,만족,TRUE,바나나가 너무 인공적이지 않아서 좋았음. 진짜 구운 바나나맛이 나고 달콤함.,TRUE,2,TRUE,평일,아침,55,존댓말 정보형,바나나; 단맛
+bangkok_review_0036,bangkok_roti_01,로띠스팟 성수,기대컨실패,83,TRUE,만족,FALSE,,TRUE,2,TRUE,주말,저녁,40,텍스트 없음,
+bangkok_review_0037,bangkok_roti_01,로띠스팟 성수,디저트유목민,67,FALSE,만족,TRUE,릴스에서 보던 반갈샷 그 자체. 가르면 바나나 필링이랑 연유가 보여서 사진 찍는 재미가 있음 📸 맛은 진짜 달고 진한 편이라 아아 필수.,TRUE,1,TRUE,주말,저녁,35,밈 섞인 리뷰형+표현강함,바나나; 연유; 단맛; 비주얼
+bangkok_review_0038,bangkok_roti_01,로띠스팟 성수,성수산책러,66,FALSE,만족,TRUE,이건 진짜 SNS용으로 강함. 반 갈랐을 때 노란 필링 보이고 연유 드리즐까지 있어서 저장 많이 될 만해 ✨,TRUE,2,TRUE,평일,오후,45,흥분 극찬형+표현강함,연유; 소스
+bangkok_review_0039,bangkok_roti_01,로띠스팟 성수,카페투어중,38,FALSE,만족,TRUE,"방콕에서 먹던 로띠랑 완전 같진 않은데, 카페 디저트로 재해석한 느낌은 잘 남. 재밌고 맛있다.",TRUE,1,TRUE,평일,저녁,30,불만 토로형,원조 느낌
+bangkok_review_0040,bangkok_roti_01,로띠스팟 성수,바삭주의보,76,TRUE,불만족,TRUE,맛은 있는데 40분 기다릴 정도는 아니었음. 갓 튀긴 첫입은 좋은데 뒤로 갈수록 기름지고 달다.,FALSE,0,TRUE,주말,오후,40,조건부 추천형,단맛; 기름짐
+bangkok_review_0041,bangkok_roti_01,로띠스팟 성수,당충전필수,64,FALSE,만족,TRUE,바삭 소리 듣고 싶어서 갔는데 성공. 영상으로 남기기 좋은 디저트임.,TRUE,2,TRUE,주말,오후,30,조건부 추천형,바삭함
+bangkok_review_0042,bangkok_roti_01,로띠스팟 성수,먹킷리스트,68,FALSE,만족,TRUE,웨이팅 길어서 한 번만 먹자 했는데 맛있긴 맛있다… 또 갈지는 사람 적을 때 생각해볼 듯.,TRUE,1,FALSE,주말,점심,60,장문 후기형,웨이팅
+bangkok_review_0043,bangkok_roti_01,로띠스팟 성수,후회없는간식,38,FALSE,만족,FALSE,,TRUE,2,FALSE,주말,오전,50,텍스트 없음,
+bangkok_review_0044,bangkok_roti_01,로띠스팟 성수,포장해감,85,TRUE,만족,TRUE,단맛 강한 디저트 좋아하면 로띠스팟 만족할 듯. 나는 반 개까진 극락이고 하나 다 먹으니 살짝 물림.,FALSE,0,TRUE,주말,아침,35,반말 후기형,단맛
+bangkok_review_0045,bangkok_roti_01,로띠스팟 성수,디저트맵핑,90,TRUE,불만족,TRUE,튀김옷이 생각보다 두껍고 기름졌다. 바삭하긴 한데 깔끔한 디저트 느낌은 아님.,FALSE,0,TRUE,평일,저녁,60,담담 평가형,바삭함; 기름짐
+bangkok_review_0046,bangkok_roti_01,로띠스팟 성수,노웨이팅최고,44,FALSE,만족,TRUE,튀김이라 무거울 줄 알았는데 따뜻할 때 먹으니 생각보다 잘 들어갔다. 커피랑 먹으면 딱 ☕,TRUE,4,TRUE,평일,점심,60,존댓말 정보형+표현강함,웨이팅
+bangkok_review_0047,bangkok_roti_01,로띠스팟 성수,입맛까다로움,51,FALSE,만족,FALSE,,TRUE,3,FALSE,평일,저녁,60,텍스트 없음,
+bangkok_review_0048,bangkok_roti_01,로띠스팟 성수,커스터드아님로띠,55,FALSE,불만족,TRUE,사진은 진짜 잘 나오는데 맛은 예상 가능한 달달한 튀김. 웨이팅 포함하면 아쉬움.,TRUE,2,TRUE,주말,아침,55,기대 대비 아쉬움형,웨이팅; 단맛; 비주얼
+bangkok_review_0049,bangkok_roti_01,로띠스팟 성수,달지않게요,39,FALSE,만족,TRUE,친구랑 나눠 먹기 좋음. 혼자 하나 다 먹으면 달고 기름져서 조금 힘들 수도 있어요.,TRUE,2,TRUE,주말,오전,60,장문 후기형,단맛; 기름짐
+bangkok_review_0050,bangkok_roti_02,데일리빈 성수역점,아아필수,38,FALSE,만족,TRUE,시즌 메뉴로는 괜찮다. 다음에 지나가다 보이면 또 살 듯.,FALSE,0,TRUE,주말,점심,0,밈 섞인 리뷰형,
+bangkok_review_0051,bangkok_roti_02,데일리빈 성수역점,친구따라옴,37,FALSE,만족,FALSE,,FALSE,0,TRUE,평일,저녁,0,텍스트 없음,
+bangkok_review_0052,bangkok_roti_02,데일리빈 성수역점,바나나향감별러,36,FALSE,불만족,FALSE,,TRUE,1,TRUE,평일,저녁,0,텍스트 없음,
+bangkok_review_0053,bangkok_roti_02,데일리빈 성수역점,먹고울뻔,82,TRUE,불만족,TRUE,달지도 바삭하지도 진하지도 않아서 애매했다. 만족 누르기 힘든 맛.,TRUE,3,TRUE,평일,저녁,0,불만 토로형,바삭함; 단맛
+bangkok_review_0054,bangkok_roti_02,데일리빈 성수역점,바삭한게좋아,79,TRUE,만족,TRUE,맛이 튀진 않지만 편안함. 강한 단맛 싫어하는 사람한테는 괜찮을 듯.,FALSE,0,TRUE,주말,오전,0,존댓말 정보형,단맛
+bangkok_review_0055,bangkok_roti_02,데일리빈 성수역점,유행템체험단,67,FALSE,만족,TRUE,단맛이 중간 정도라 한 개 다 먹기 편했다. 튀김이 아주 바삭하진 않지만 나쁘지 않음.,FALSE,0,TRUE,평일,오후,0,존댓말 정보형,바삭함; 단맛
+bangkok_review_0056,bangkok_roti_02,데일리빈 성수역점,웨이팅싫어,62,FALSE,불만족,TRUE,튀김옷이 식어서 그런지 눅눅했음. 바로 튀긴 느낌이 전혀 없었다.,TRUE,2,TRUE,주말,오후,0,짧은 현실형,눅눅함
+bangkok_review_0057,bangkok_roti_02,데일리빈 성수역점,맛없으면안참음,78,TRUE,만족,TRUE,바나나향이 세지 않아서 부담 없었다. 아이스 아메리카노랑 먹으니 무난하게 좋음.,FALSE,0,TRUE,주말,오후,0,반말 후기형,바나나; 무난함
+bangkok_review_0058,bangkok_roti_02,데일리빈 성수역점,로띠먹고싶다,58,FALSE,불만족,TRUE,이건 그냥 바나나 들어간 튀김 간식 느낌. 방콕 로띠튀김이라는 이름 치고는 임팩트가 약함.,FALSE,0,FALSE,주말,오후,0,음슴체,바나나; 원조 느낌
+bangkok_review_0059,bangkok_roti_02,데일리빈 성수역점,연무장걷는중,46,FALSE,만족,FALSE,,FALSE,0,TRUE,평일,오전,0,텍스트 없음,
+bangkok_review_0060,bangkok_roti_02,데일리빈 성수역점,소스많이파,53,FALSE,만족,TRUE,로띠튀김이 궁금한데 멀리 가긴 귀찮으면 여기 나쁘지 않다.,FALSE,0,FALSE,주말,저녁,0,장문 후기형,
+bangkok_review_0061,bangkok_roti_02,데일리빈 성수역점,튀김옷감별사,40,FALSE,만족,TRUE,가볍게 먹기 좋음. 튀김 느낌보다는 따뜻한 바나나 간식에 가까움.,TRUE,1,TRUE,평일,아침,0,장문 후기형,바나나
+bangkok_review_0062,bangkok_roti_02,데일리빈 성수역점,태국가고싶다,92,TRUE,만족,TRUE,나는 기름진 디저트 잘 못 먹는데 여긴 상대적으로 가벼워서 괜찮았음.,FALSE,0,FALSE,주말,저녁,0,짧은 현실형,기름짐
+bangkok_review_0063,bangkok_roti_02,데일리빈 성수역점,성수또감,50,FALSE,불만족,FALSE,,FALSE,0,TRUE,주말,점심,0,텍스트 없음,
+bangkok_review_0064,bangkok_roti_02,데일리빈 성수역점,먹방친구,56,FALSE,만족,FALSE,,TRUE,1,TRUE,평일,저녁,0,텍스트 없음,
+bangkok_review_0065,bangkok_roti_02,데일리빈 성수역점,한입만요,41,FALSE,불만족,TRUE,사진용도 아니고 맛용도 아닌 애매한 메뉴. 그냥 다른 디저트 먹을래.,TRUE,1,TRUE,주말,오후,0,불만 토로형,비주얼
+bangkok_review_0066,bangkok_roti_02,데일리빈 성수역점,혼카페러,63,FALSE,만족,TRUE,대중적으로 무난하게 만든 맛. 가족이랑 먹어도 호불호 덜할 듯.,TRUE,1,TRUE,평일,점심,0,흥분 극찬형,무난함
+bangkok_review_0067,bangkok_roti_02,데일리빈 성수역점,바나나필링중독,96,TRUE,만족,TRUE,가격 생각하면 괜찮다. 갓 나온 건 아니어도 커피랑 먹으니 그럭저럭 맛있었음 ☕,FALSE,0,FALSE,주말,오전,0,밈 섞인 리뷰형+표현강함,가격
+bangkok_review_0068,bangkok_roti_02,데일리빈 성수역점,인스타보고감,95,TRUE,만족,TRUE,프차 시즌 메뉴라 기대 안 했는데 나쁘지 않았음. 튀김옷은 약하지만 바나나맛이 은은해서 무난.,TRUE,2,TRUE,평일,아침,0,음슴체,바나나; 무난함
+bangkok_review_0069,bangkok_roti_02,데일리빈 성수역점,리뷰쓰는햄스터,44,FALSE,만족,TRUE,유행 디저트 입문용으로 딱. 맛집 찾아갈 시간 없으면 데일리빈도 괜찮음.,FALSE,0,TRUE,주말,오전,0,장문 후기형,
+bangkok_review_0070,bangkok_roti_02,데일리빈 성수역점,두입컷,43,FALSE,불만족,TRUE,가격은 낮지만 그만큼 완성도도 낮은 느낌. 다른 곳에서 제대로 먹어보고 싶어짐.,TRUE,1,TRUE,평일,저녁,0,담담 평가형,가격
+bangkok_review_0071,bangkok_roti_02,데일리빈 성수역점,시나몬싫어,58,FALSE,만족,FALSE,,FALSE,0,TRUE,평일,오후,0,텍스트 없음,
+bangkok_review_0072,bangkok_roti_02,데일리빈 성수역점,솔티좋아,38,FALSE,만족,TRUE,성수역에서 바로 살 수 있어서 편함. 대기 없고 가격도 낮아서 유행템 맛만 보기엔 괜찮다.,FALSE,0,TRUE,주말,아침,0,반말 후기형,웨이팅; 가격
+bangkok_review_0073,bangkok_roti_02,데일리빈 성수역점,버터문저장,67,FALSE,만족,FALSE,,FALSE,0,FALSE,평일,점심,0,텍스트 없음,
+bangkok_review_0074,bangkok_roti_02,데일리빈 성수역점,로띠스팟줄섬,73,TRUE,불만족,TRUE,대기 없는 건 좋은데 맛이 기억에 안 남음. 굳이 다시 사진 않을 듯.,TRUE,1,TRUE,주말,오후,0,불만 장문형,웨이팅; 비주얼
+bangkok_review_0075,bangkok_roti_02,데일리빈 성수역점,타이테이블궁금,82,TRUE,불만족,TRUE,겉이 바삭하지 않고 속도 밍밍함. 기대 낮췄는데도 아쉬움.,FALSE,0,FALSE,평일,오전,0,반말 후기형,바삭함
+bangkok_review_0076,bangkok_roti_02,데일리빈 성수역점,포스터키친저장,43,FALSE,만족,TRUE,가격이 착해서 만족. 성수에서 디저트 하나 3천원대면 일단 점수 줘야 함.,FALSE,0,TRUE,주말,아침,0,짧은 현실형,가격
+bangkok_review_0077,bangkok_roti_02,데일리빈 성수역점,데일리빈들름,52,FALSE,불만족,TRUE,필링 양이 너무 적음. 반 갈랐는데 사진 찍을 게 별로 없었어요.,TRUE,1,TRUE,주말,오후,0,불만 장문형,비주얼
+bangkok_review_0078,bangkok_roti_02,데일리빈 성수역점,카페지도저장러,43,FALSE,만족,TRUE,대기 없어서 최고 ㅎㅎ 맛은 평범한데 바로 먹을 수 있다는 게 생각보다 큰 장점.,TRUE,1,TRUE,주말,오후,0,불만 토로형+표현강함,웨이팅; 무난함
+bangkok_review_0079,bangkok_roti_02,데일리빈 성수역점,당도체크러,37,FALSE,만족,TRUE,줄 서기 싫어서 여기로 왔는데 나름 만족. 엄청 특별한 맛은 아니지만 실패 부담이 낮음.,TRUE,1,TRUE,주말,오후,0,존댓말 정보형,웨이팅
+bangkok_review_0080,bangkok_roti_02,데일리빈 성수역점,바나나무름싫어,88,TRUE,만족,TRUE,부담 없는 단맛이라 좋았음. 요즘 유행 디저트 너무 세서 피곤한데 이건 편하다.,FALSE,0,TRUE,평일,아침,0,흥분 극찬형,단맛
+bangkok_review_0081,bangkok_roti_02,데일리빈 성수역점,겉튀김중요,38,FALSE,만족,TRUE,출근길에 사 먹었는데 괜찮았음. 유행템을 편하게 먹는 느낌.,FALSE,0,FALSE,평일,오후,0,조건부 추천형,
+bangkok_review_0082,bangkok_roti_02,데일리빈 성수역점,연유조절필수,65,FALSE,만족,TRUE,친구 기다리면서 먹기 좋았다. 줄 안 서고 빨리 먹을 수 있음.,FALSE,0,FALSE,평일,점심,0,음슴체,웨이팅
+bangkok_review_0083,bangkok_roti_02,데일리빈 성수역점,소스범벅주의,50,FALSE,만족,TRUE,프랜차이즈라 그런지 맛이 안정적임. 감동은 없지만 실망도 크지 않았다.,FALSE,0,TRUE,주말,저녁,0,조건부 추천형,
+bangkok_review_0084,bangkok_roti_02,데일리빈 성수역점,로띠마니아,79,TRUE,불만족,TRUE,바나나맛도 연유맛도 약해서 왜 로띠인지 잘 모르겠음. 그냥 프차 시즌 메뉴.,TRUE,3,TRUE,평일,점심,0,불만 토로형,바나나; 연유
+bangkok_review_0085,bangkok_roti_02,데일리빈 성수역점,길거리간식러,49,FALSE,만족,TRUE,성수역 근처에서 바로 사 먹을 수 있다는 게 최대 장점. 바쁜 날엔 이런 게 좋지.,FALSE,0,FALSE,주말,저녁,0,담담 평가형,
+bangkok_review_0086,bangkok_roti_02,데일리빈 성수역점,맛잘알되고싶다,92,TRUE,만족,FALSE,,TRUE,2,TRUE,주말,저녁,0,텍스트 없음,
+bangkok_review_0087,bangkok_roti_02,데일리빈 성수역점,성수근처사는사람,39,FALSE,불만족,FALSE,,TRUE,1,TRUE,평일,오후,0,텍스트 없음,
+bangkok_review_0088,bangkok_roti_02,데일리빈 성수역점,오후당충전,66,FALSE,불만족,FALSE,,FALSE,0,TRUE,평일,오전,0,텍스트 없음,
+bangkok_review_0089,bangkok_roti_02,데일리빈 성수역점,바삭하면합격,74,TRUE,불만족,TRUE,무난한데 너무 무난하다. 유행템 먹는 재미를 기대하면 실망할 수 있음.,FALSE,0,TRUE,주말,점심,0,기대 대비 아쉬움형,무난함
+bangkok_review_0090,bangkok_roti_02,데일리빈 성수역점,나름만족,39,FALSE,만족,TRUE,갓 튀김 느낌은 약하지만 가격 대비는 만족. 다시 먹을 수도 있음.,TRUE,1,TRUE,주말,오전,0,장문 후기형,가격
+bangkok_review_0091,bangkok_roti_03,버터문 연무장,생각보다괜찮,87,TRUE,만족,TRUE,유명한 곳보다 여기가 더 좋았음. 화려하진 않은데 먹고 나서 ‘아 잘 만들었다’ 싶다.,TRUE,1,FALSE,평일,저녁,20,마니아 극찬형,
+bangkok_review_0092,bangkok_roti_03,버터문 연무장,아쉬운점있음,46,FALSE,불만족,FALSE,,TRUE,1,TRUE,평일,오후,15,텍스트 없음,
+bangkok_review_0093,bangkok_roti_03,버터문 연무장,맛은있네,63,FALSE,불만족,TRUE,바삭함은 좋은데 필링 양이 조금 더 많았으면 했다. 전체적으로 얌전한 맛.,TRUE,1,FALSE,주말,점심,5,흥분 극찬형,바삭함
+bangkok_review_0094,bangkok_roti_03,버터문 연무장,먹어볼만함,86,TRUE,만족,TRUE,"오바 조금 보태서 성수 로띠튀김 중 제일 취향. 바삭함, 버터리함, 적당한 단맛 다 있음ㅠㅠ",TRUE,2,TRUE,평일,오후,10,마니아 극찬형+표현강함,바삭함; 단맛; 버터
+bangkok_review_0095,bangkok_roti_03,버터문 연무장,반신반의,60,FALSE,만족,TRUE,연유가 과하지 않고 바나나가 진해서 좋음. 솔티 포인트가 살짝 있어서 단맛이 살아난다.,TRUE,1,TRUE,주말,오전,0,마니아 극찬형,바나나; 연유; 단맛
+bangkok_review_0096,bangkok_roti_03,버터문 연무장,일단저장,96,TRUE,만족,TRUE,갓 튀긴 식감이 미쳤다. 튀김옷이 얇아서 바나나 필링 맛이 더 잘 느껴지고 느끼하지 않음.,FALSE,0,TRUE,평일,아침,20,마니아 극찬형,바나나; 기름짐
+bangkok_review_0097,bangkok_roti_03,버터문 연무장,디저트로기분전환,85,TRUE,만족,TRUE,"버터문 진짜 내 취향 저격… 튀김옷이 얇고 바삭한데 기름지지 않고, 바나나 필링도 너무 달지 않음. 바삭한 거 좋아하고 버터향 좋아하는 사람은 여기 꼭 가야 됨 🥹",TRUE,1,FALSE,주말,오전,15,마니아 극찬형+표현강함,바삭함; 바나나; 단맛; 기름짐; 버터
+bangkok_review_0098,bangkok_roti_03,버터문 연무장,커피랑먹자,92,TRUE,만족,TRUE,나랑 비슷한 취향이면 버터문 가세요. 달기만 한 디저트 싫고 바삭함 중요한 사람한테 맞음.,TRUE,2,TRUE,평일,아침,20,취향 저격 장문형,바삭함; 단맛; 버터
+bangkok_review_0099,bangkok_roti_03,버터문 연무장,디저트과몰입,88,TRUE,만족,TRUE,리뷰 수 적어서 고민했는데 완전 성공. 겉은 파삭하고 속은 촉촉한데 끝에 살짝 짭짤해서 계속 손이 감.,TRUE,1,FALSE,평일,오후,5,마니아 극찬형,바삭함
+bangkok_review_0100,bangkok_roti_03,버터문 연무장,로띠는따뜻하게,86,TRUE,만족,TRUE,"반갈샷은 로띠스팟이 더 화려할 수 있는데, 맛 밸런스는 버터문이 더 내 스타일.",FALSE,0,FALSE,평일,점심,15,취향 저격 장문형,비주얼; 버터
+bangkok_review_0101,bangkok_roti_03,버터문 연무장,바삭한소리좋아,85,TRUE,만족,TRUE,작은 카페라 기대 안 했는데 진짜 맛있었다. 이런 데가 트렌딧에서 뜨는 게 맞는 듯.,TRUE,3,TRUE,주말,아침,5,흥분 극찬형,
+bangkok_review_0102,bangkok_roti_03,버터문 연무장,달달함한도초과,90,TRUE,불만족,TRUE,나는 로띠튀김이면 더 달고 기름진 맛을 기대했는데 여긴 너무 정돈된 느낌이었다.,TRUE,1,TRUE,주말,점심,5,불만 토로형,단맛; 기름짐
+bangkok_review_0103,bangkok_roti_03,버터문 연무장,눅눅하면실패,85,TRUE,만족,TRUE,버터향이 고급스럽게 올라오고 바나나가 너무 물컹하지 않음. 재방문 의사 있음!!,TRUE,2,TRUE,평일,점심,15,과몰입 추천형,바나나; 버터
+bangkok_review_0104,bangkok_roti_03,버터문 연무장,기름기주의,88,TRUE,만족,TRUE,튀김류인데 입에 기름이 남지 않아서 좋았다. 커피 없이도 끝까지 먹을 수 있었음.,FALSE,0,FALSE,주말,점심,15,과몰입 추천형,기름짐
+bangkok_review_0105,bangkok_roti_03,버터문 연무장,원조맛찾음,95,TRUE,만족,TRUE,여긴 로띠튀김을 너무 과하게 달게 안 만든 게 좋다. 버터 풍미랑 바나나 단맛이 균형 잡혀 있음.,FALSE,0,TRUE,주말,오후,10,과몰입 추천형,바나나; 단맛; 버터
+bangkok_review_0106,bangkok_roti_03,버터문 연무장,사진보다맛,63,FALSE,만족,TRUE,바삭하게 부서지는 겉이랑 촉촉한 속 조합 좋음. 식어도 꽤 괜찮았다.,FALSE,0,FALSE,평일,아침,20,취향 저격 장문형,바삭함
+bangkok_review_0107,bangkok_roti_03,버터문 연무장,패키지수집가,73,TRUE,만족,TRUE,웨이팅 짧고 맛은 진짜 알참. 조용히 입소문 날 것 같은 메뉴.,TRUE,3,TRUE,평일,저녁,20,마니아 극찬형,웨이팅
+bangkok_review_0108,bangkok_roti_03,버터문 연무장,매운거말고단거,36,FALSE,불만족,FALSE,,TRUE,1,TRUE,평일,저녁,0,텍스트 없음,
+bangkok_review_0109,bangkok_roti_04,타이테이블 성수,크림보다필링,48,FALSE,만족,TRUE,단맛이 강하지만 방향성이 명확해서 좋다. 그냥 단 튀김이 아니라 로띠맛.,TRUE,2,TRUE,평일,아침,20,밈 섞인 리뷰형,단맛
+bangkok_review_0110,bangkok_roti_04,타이테이블 성수,바나나로세계정복,45,FALSE,만족,TRUE,원조 로띠 맛을 기대했는데 꽤 만족. 연유가 달고 버터향이 고소해서 여행 간 느낌 남 ✨,TRUE,1,TRUE,평일,점심,10,흥분 극찬형+표현강함,연유; 단맛; 버터; 원조 느낌
+bangkok_review_0111,bangkok_roti_04,타이테이블 성수,먹는게남는거,51,FALSE,만족,FALSE,,TRUE,1,TRUE,평일,점심,20,텍스트 없음,
+bangkok_review_0112,bangkok_roti_04,타이테이블 성수,맛집킬러,88,TRUE,만족,TRUE,연유 향이 진해서 좋았고 튀김옷도 눅눅하지 않았음. 만족.,FALSE,0,TRUE,주말,오후,25,흥분 극찬형,연유; 눅눅함
+bangkok_review_0113,bangkok_roti_04,타이테이블 성수,후기남김,65,FALSE,불만족,TRUE,튀김옷이 바삭하긴 한데 먹고 나서 속이 살짝 부담스러웠다.,FALSE,0,TRUE,주말,아침,15,기대 대비 아쉬움형,바삭함
+bangkok_review_0114,bangkok_roti_04,타이테이블 성수,튀김러버,86,TRUE,만족,TRUE,먹자마자 향이 확 올라옴. 호불호는 있겠지만 나는 이런 진한 맛 좋아함.,TRUE,1,TRUE,평일,오전,10,조건부 추천형,
+bangkok_review_0115,bangkok_roti_04,타이테이블 성수,간식은따뜻할때,82,TRUE,만족,TRUE,시나몬 괜찮으면 여기 꽤 안전한 선택. 전체적으로 완성도가 높다.,FALSE,0,TRUE,평일,오전,25,짧은 현실형,시나몬
+bangkok_review_0116,bangkok_roti_04,타이테이블 성수,방콕감성좋아,94,TRUE,만족,TRUE,전문점이라 그런지 소스랑 필링 조합이 안정적이었다. 재방문 가능.,FALSE,0,TRUE,주말,오후,15,흥분 극찬형,소스
+bangkok_review_0117,bangkok_roti_04,타이테이블 성수,연유콸콸,74,TRUE,만족,TRUE,겉은 바삭하고 속은 촉촉함. 전문점답게 필링 밸런스가 안정적이다.,TRUE,1,TRUE,주말,아침,30,흥분 극찬형,바삭함
+bangkok_review_0118,bangkok_roti_04,타이테이블 성수,소스는적당히,66,FALSE,만족,FALSE,,TRUE,1,TRUE,주말,오전,15,텍스트 없음,
+bangkok_review_0119,bangkok_roti_04,타이테이블 성수,쿠키말고튀김,90,TRUE,불만족,TRUE,시나몬 향이 나한텐 너무 강했음. 바나나 로띠를 기대했는데 향신료가 먼저 느껴졌다.,FALSE,0,FALSE,평일,점심,10,반말 후기형,바나나; 시나몬
+bangkok_review_0120,bangkok_roti_04,타이테이블 성수,바삭후기,57,FALSE,만족,TRUE,따뜻하게 먹으니 훨씬 맛있다. 포장보다 매장에서 바로 먹는 거 추천!,FALSE,0,FALSE,주말,저녁,15,조건부 추천형,
+bangkok_review_0121,bangkok_roti_04,타이테이블 성수,오픈런못함,67,FALSE,만족,FALSE,,FALSE,0,TRUE,주말,오후,25,텍스트 없음,
+bangkok_review_0122,bangkok_roti_04,타이테이블 성수,노란필링좋아,82,TRUE,만족,TRUE,시나몬 향 좋아하는 사람은 여기 추천. 향이 은은한 수준은 아니고 꽤 존재감 있음.,FALSE,0,TRUE,주말,아침,30,불만 토로형,시나몬
+bangkok_review_0123,bangkok_roti_04,타이테이블 성수,방콕그리움,49,FALSE,만족,TRUE,가격은 좀 있지만 재료맛이 진해서 납득. 달고 기름진데 그게 로띠 매력.,FALSE,0,TRUE,주말,아침,30,반말 후기형,단맛; 기름짐; 가격
+bangkok_review_0124,bangkok_roti_04,타이테이블 성수,성수디저트메이트,72,TRUE,불만족,TRUE,원조 느낌은 알겠는데 내 입엔 너무 묵직했다. 달고 기름지고 향도 강함.,TRUE,2,TRUE,평일,오전,25,담담 평가형,단맛; 기름짐; 원조 느낌
+bangkok_review_0125,bangkok_roti_04,타이테이블 성수,따끈하면합격,56,FALSE,만족,TRUE,기본기가 좋은 느낌. 유행템처럼 생겼는데 맛은 꽤 전통 간식 쪽에 가까움.,TRUE,1,TRUE,주말,아침,15,반말 후기형,
+bangkok_review_0126,bangkok_roti_04,타이테이블 성수,기름냄새민감,48,FALSE,불만족,TRUE,맛은 진한데 기름짐도 진함. 반 개 먹을 땐 좋은데 하나 다 먹기엔 무겁다.,TRUE,1,TRUE,평일,아침,20,불만 장문형,기름짐
+bangkok_review_0127,bangkok_roti_04,타이테이블 성수,단맛조절필요,50,FALSE,만족,TRUE,기름진 편이긴 한데 맛있게 기름짐ㅋㅋ 이 메뉴는 어느 정도 그래야 한다고 봄.,TRUE,1,TRUE,평일,저녁,15,반말 후기형+표현강함,기름짐
+bangkok_review_0128,bangkok_roti_04,타이테이블 성수,반갈했음,79,TRUE,만족,TRUE,한입 먹자마자 방콕 야시장 생각났다. 이런 재현력은 좋음.,TRUE,1,TRUE,평일,아침,10,존댓말 정보형,원조 느낌
+bangkok_review_0129,bangkok_roti_04,타이테이블 성수,오늘의디저트,76,TRUE,만족,TRUE,태국 디저트 전문점이라 그런지 풍미가 진하다. 튀김옷도 바삭하고 안쪽 바나나가 제대로 익어 있음.,FALSE,0,FALSE,주말,저녁,10,흥분 극찬형,바삭함; 바나나; 원조 느낌
+bangkok_review_0130,bangkok_roti_04,타이테이블 성수,바나나한입,85,TRUE,만족,TRUE,바나나가 많이 들어있어서 좋았음. 소스만 많은 메뉴가 아니라서 만족.,FALSE,0,FALSE,주말,오전,25,밈 섞인 리뷰형,바나나; 소스
+bangkok_review_0131,bangkok_roti_04,타이테이블 성수,로띠탐험가,92,TRUE,만족,TRUE,튀김옷이 바삭한데 안쪽은 촉촉해서 좋다. 원조 로띠를 잘 변형한 느낌.,FALSE,0,TRUE,평일,점심,25,반말 후기형,바삭함; 원조 느낌
+bangkok_review_0132,bangkok_roti_04,타이테이블 성수,맛의기록,69,FALSE,만족,TRUE,"타이테이블은 원조 로띠 느낌이 제일 강함. 바나나랑 연유, 시나몬 향이 확실해서 방콕 길거리 간식 생각났다.",TRUE,1,TRUE,주말,아침,30,반말 후기형,바나나; 연유; 시나몬; 원조 느낌
+bangkok_review_0133,bangkok_roti_04,타이테이블 성수,카페디저트러,76,TRUE,만족,FALSE,,TRUE,2,TRUE,평일,오후,20,텍스트 없음,
+bangkok_review_0134,bangkok_roti_04,타이테이블 성수,내돈내산러,80,TRUE,만족,TRUE,시나몬이 호불호 있을 수 있지만 나는 좋았음. 바나나랑 잘 어울림.,TRUE,3,TRUE,평일,오후,10,음슴체,바나나; 시나몬
+bangkok_review_0135,bangkok_roti_04,타이테이블 성수,먹고나서말함,43,FALSE,만족,TRUE,로띠튀김 중에서 제일 태국 느낌이 나는 곳. 여행 감성 원하면 추천.,TRUE,1,TRUE,주말,아침,20,존댓말 정보형,원조 느낌
+bangkok_review_0136,bangkok_roti_04,타이테이블 성수,바삭한날,89,TRUE,불만족,TRUE,가격이 조금 부담스럽다. 맛은 있는데 가볍게 사 먹기엔 비싼 느낌.,FALSE,0,FALSE,주말,저녁,15,존댓말 정보형,가격
+bangkok_review_0137,bangkok_roti_04,타이테이블 성수,커피없이못먹음,69,FALSE,만족,TRUE,"타이테이블은 맛이 선명함. 바나나, 연유, 버터가 다 따로 느껴진다.",FALSE,0,TRUE,평일,아침,15,음슴체,바나나; 연유; 버터
+bangkok_review_0138,bangkok_roti_04,타이테이블 성수,필링많이파,75,TRUE,만족,TRUE,맛이 묵직하고 달콤해서 하나 먹으면 꽤 든든함. 가벼운 디저트보다는 제대로 된 간식 느낌.,FALSE,0,TRUE,주말,오전,10,밈 섞인 리뷰형,단맛
+bangkok_review_0139,bangkok_roti_04,타이테이블 성수,연유먹보,61,FALSE,만족,FALSE,,TRUE,1,TRUE,평일,오전,25,텍스트 없음,
+bangkok_review_0140,bangkok_roti_04,타이테이블 성수,성수기록자,40,FALSE,만족,TRUE,식감도 맛도 묵직해서 디저트 하나로 꽤 배부름. 커피랑 먹으면 좋음 ☕,TRUE,1,TRUE,평일,아침,15,담담 평가형+표현강함,
+bangkok_review_0141,bangkok_roti_05,포스터키친,바삭러버,51,FALSE,불만족,TRUE,사진은 진짜 예쁜데 기본 로띠튀김 맛은 약함. 소스랑 토핑이 너무 앞서는 느낌.,TRUE,4,TRUE,주말,오전,0,음슴체,비주얼; 소스; 토핑
+bangkok_review_0142,bangkok_roti_05,포스터키친,방콕탐험가,41,FALSE,만족,FALSE,,TRUE,1,TRUE,주말,점심,0,텍스트 없음,
+bangkok_review_0143,bangkok_roti_05,포스터키친,성수러버,41,FALSE,만족,TRUE,비주얼 점수 포함하면 꽤 괜찮은 선택지. 맛만 보면 평범할 수도.,TRUE,4,TRUE,평일,점심,0,조건부 추천형,비주얼; 무난함
+bangkok_review_0144,bangkok_roti_05,포스터키친,로띠기록자,67,FALSE,만족,TRUE,포스터키친은 기본기보다 연출이 강한 곳. 그래도 가끔 이런 디저트 먹고 싶음.,TRUE,4,TRUE,평일,점심,0,반말 후기형,
+bangkok_review_0145,bangkok_roti_05,포스터키친,바삭먹보,56,FALSE,만족,TRUE,바삭함은 엄청 강하진 않은데 토핑이 다양해서 먹는 재미가 있음.,TRUE,2,TRUE,평일,저녁,0,음슴체,바삭함; 토핑
+bangkok_review_0146,bangkok_roti_05,포스터키친,바삭먹보,93,TRUE,만족,TRUE,인스타 감성만 있는 줄 알았는데 생각보다 괜찮음. 대기 없는 것도 플러스.,FALSE,0,TRUE,주말,아침,0,담담 평가형,웨이팅
+bangkok_review_0147,bangkok_roti_05,포스터키친,방콕기록자,83,TRUE,만족,TRUE,포스터키친은 비주얼이 강함. 초코 드리즐 올라간 거 먹었는데 사진이 진짜 잘 나옴 📸,TRUE,2,TRUE,평일,오후,0,담담 평가형+표현강함,비주얼; 소스; 토핑
+bangkok_review_0148,bangkok_roti_05,포스터키친,방콕먹보,90,TRUE,만족,FALSE,,TRUE,2,TRUE,주말,아침,0,텍스트 없음,
+bangkok_review_0149,bangkok_roti_05,포스터키친,로띠탐험가,80,TRUE,만족,TRUE,웨이팅 없어서 바로 샀고 패키지도 예쁨. 선물용으로는 여기 괜찮아 보인다.,FALSE,0,TRUE,주말,오후,0,반말 후기형,웨이팅; 비주얼
+bangkok_review_0150,bangkok_roti_05,포스터키친,바삭감별러,92,TRUE,만족,TRUE,예쁘고 달고 부드럽다. 딱 그런 메뉴를 기대하면 실패 안 함.,TRUE,2,TRUE,평일,점심,0,불만 토로형,단맛
+bangkok_review_0151,bangkok_roti_05,포스터키친,연유감별러,42,FALSE,만족,TRUE,비주얼 보고 갔는데 맛도 평균 이상. 특히 코코넛 토핑이 바삭해서 좋았다.,TRUE,1,TRUE,주말,점심,0,짧은 현실형,바삭함; 비주얼; 토핑
+bangkok_review_0152,bangkok_roti_05,포스터키친,사진부터찍음,81,TRUE,만족,TRUE,토핑 많은 거 좋아해서 만족. 기본 방콕 로띠튀김과는 다른 매력.,FALSE,0,FALSE,주말,아침,0,흥분 극찬형,토핑; 원조 느낌
+bangkok_review_0153,bangkok_roti_05,포스터키친,바삭러버,41,FALSE,만족,TRUE,튀김옷이 조금 부드러운 편인데 소스랑 같이 먹으니 괜찮았다.,TRUE,2,TRUE,주말,오전,0,존댓말 정보형,소스
+bangkok_review_0154,bangkok_roti_05,포스터키친,방콕감별러,93,TRUE,만족,FALSE,,TRUE,4,TRUE,평일,아침,0,텍스트 없음,
+bangkok_review_0155,bangkok_roti_05,포스터키친,성수러버,60,FALSE,만족,TRUE,패키지 때문에 저장했다가 갔는데 실제로도 귀여움. 사진 찍는 재미 인정.,TRUE,2,TRUE,주말,점심,0,조건부 추천형,비주얼
+bangkok_review_0156,bangkok_roti_05,포스터키친,로띠탐험가,37,FALSE,만족,FALSE,,TRUE,1,TRUE,주말,오후,0,텍스트 없음,
+bangkok_review_0157,bangkok_roti_05,포스터키친,연유감별러,78,TRUE,만족,TRUE,기본 로띠튀김이라기보다 디저트샵식 변형 메뉴 느낌. 그걸 알고 가면 만족.,FALSE,0,FALSE,평일,오후,0,불만 토로형,
+bangkok_review_0158,bangkok_roti_05,포스터키친,연유먹보,63,FALSE,불만족,FALSE,,TRUE,3,TRUE,주말,점심,0,텍스트 없음,
+bangkok_review_0159,bangkok_roti_05,포스터키친,바삭감별러,47,FALSE,만족,TRUE,코코넛 토핑 있는 거 먹었는데 오독한 식감이 추가돼서 좋았음.,TRUE,2,FALSE,평일,오후,0,음슴체,토핑
+bangkok_review_0160,bangkok_roti_05,포스터키친,방콕감별러,65,FALSE,불만족,TRUE,비주얼은 인정. 근데 맛은 예상 가능한 달달한 디저트라 재방문은 모르겠다.,FALSE,0,TRUE,주말,오후,0,반말 후기형,단맛; 비주얼
+bangkok_review_0161,bangkok_roti_05,포스터키친,바삭탐험가,82,TRUE,불만족,TRUE,패키지값이 큰 느낌. 사진 찍고 나면 맛은 좀 평범하다.,TRUE,4,FALSE,평일,오전,0,불만 장문형,비주얼; 무난함
+bangkok_review_0162,bangkok_roti_05,포스터키친,바삭감별러,76,TRUE,불만족,TRUE,튀김이 눅눅해서 아쉬웠음. 소스가 많다 보니 바삭함이 금방 사라진다.,TRUE,1,TRUE,주말,오전,0,불만 토로형,바삭함; 소스; 눅눅함
+bangkok_review_0163,bangkok_roti_05,포스터키친,바삭기록자,88,TRUE,만족,TRUE,웨이팅 없는 유행템이라 좋음. 성수에서 시간 없을 때 들르기 좋다.,TRUE,1,TRUE,주말,아침,0,담담 평가형,웨이팅
+bangkok_review_0164,bangkok_roti_05,포스터키친,연유먹보,59,FALSE,만족,TRUE,사진용인 줄 알았는데 생각보다 맛있었다. 단맛 강한 거 괜찮으면 만족할 듯.,TRUE,3,FALSE,평일,아침,0,존댓말 정보형,웨이팅; 단맛; 비주얼
+bangkok_review_0165,bangkok_roti_05,포스터키친,로띠러버,39,FALSE,만족,TRUE,포장 디자인이 귀엽고 단면도 예쁨. 성수 감성 디저트로는 충분히 성공.,TRUE,2,TRUE,평일,오전,0,불만 토로형,비주얼
+bangkok_review_0166,bangkok_roti_05,포스터키친,바삭탐험가,50,FALSE,만족,TRUE,코코넛이 들어간 버전은 식감이 더 살아서 좋았다. 기본보다 이쪽 추천.,TRUE,1,TRUE,주말,오후,0,조건부 추천형,토핑
+bangkok_review_0167,bangkok_roti_05,포스터키친,성수감별러,91,TRUE,만족,TRUE,전체적으로 달달한 파티 느낌. 친구 생일 간식으로 사가기 좋을 듯.,FALSE,0,TRUE,주말,오후,0,조건부 추천형,단맛
+bangkok_review_0168,bangkok_roti_05,포스터키친,로띠탐험가,93,TRUE,만족,TRUE,바나나랑 카라멜 좋아하면 무난하게 좋아할 맛. 난 만족!,FALSE,0,TRUE,평일,오전,0,불만 토로형,바나나; 카라멜; 무난함
+bangkok_review_0169,bangkok_roti_05,포스터키친,성수먹보,68,FALSE,만족,FALSE,,TRUE,4,FALSE,평일,점심,0,텍스트 없음,
+bangkok_review_0170,bangkok_roti_05,포스터키친,방콕감별러,77,TRUE,불만족,TRUE,기본맛이 약해서 아쉬웠다. 바나나나 연유보다 초코맛이 더 세게 남음.,TRUE,3,TRUE,주말,점심,0,존댓말 정보형,바나나; 연유; 토핑
+bangkok_review_0171,bangkok_roti_05,포스터키친,방콕감별러,40,FALSE,만족,TRUE,바나나 필링이랑 초코가 잘 어울렸다. 아이들이 좋아할 것 같은 맛.,FALSE,0,FALSE,주말,오후,0,밈 섞인 리뷰형,바나나; 토핑
+bangkok_review_0172,bangkok_roti_05,포스터키친,성수감별러,89,TRUE,만족,TRUE,초코 드리즐이 생각보다 바나나랑 잘 맞았다. 달지만 맛있게 단맛.,FALSE,0,TRUE,주말,오전,0,장문 후기형,바나나; 단맛; 소스; 토핑
+bangkok_review_0173,bangkok_roti_05,포스터키친,연유탐험가,39,FALSE,만족,TRUE,사진 찍고 바로 먹으면 괜찮음. 오래 두면 눅눅해질 것 같긴 하다.,TRUE,3,TRUE,평일,오후,0,짧은 현실형,비주얼; 눅눅함
+bangkok_review_0174,bangkok_roti_05,포스터키친,방콕먹보,80,TRUE,불만족,TRUE,소스 때문에 손이 너무 끈적거림. 먹기 편한 디저트는 아니었음.,TRUE,1,TRUE,주말,오후,0,기대 대비 아쉬움형,소스
+bangkok_review_0175,bangkok_roti_05,포스터키친,로띠러버,75,TRUE,불만족,TRUE,너무 달아요… 초코에 카라멜까지 있으니 한입은 좋은데 금방 물림ㅠ,TRUE,2,FALSE,평일,아침,0,조건부 추천형+표현강함,카라멜; 단맛; 토핑
+bangkok_review_0176,bangkok_roti_05,포스터키친,로띠감별러,39,FALSE,만족,TRUE,맛이 다양해서 고르는 재미가 큼. 난 솔티카라멜 계열이 제일 나았음.,FALSE,0,TRUE,주말,오전,0,장문 후기형,카라멜

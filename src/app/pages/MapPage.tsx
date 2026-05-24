@@ -113,7 +113,7 @@ export default function MapPage() {
         ) : null}
       </div>
 
-      <BottomNavigation activeTab="map" />
+      {/* <BottomNavigation activeTab="map" /> */}
     </div>
   );
 }

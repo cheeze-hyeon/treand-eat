@@ -1,0 +1,189 @@
+﻿review_id,store_item_id,store_name,user_id,taste_match_rate,is_similar_user,satisfaction,has_text,review_text,has_photo,photo_count,receipt_verified,visit_day_type,visit_time,reported_wait_min,tone_type,mentioned_keywords
+crotaco_review_0001,la_crotaco_01,타코무드 성수,크로타코입문,75,TRUE,불만족,TRUE,너무 짜고 소스가 많았음. 먹고 나서 입이 좀 피곤했다ㅠ,FALSE,0,TRUE,주말,오후,45,기대 대비 아쉬움형+표현강함,소스; 짭짤함
+crotaco_review_0002,la_crotaco_01,타코무드 성수,타코좋아,35,FALSE,만족,TRUE,타코 시즈닝이 강해서 좋았음. 순한 맛 기대하면 자극적일 수 있어요.,TRUE,1,TRUE,주말,아침,50,반말 후기형,타코미트; 원조 느낌
+crotaco_review_0003,la_crotaco_01,타코무드 성수,성수런치러,55,FALSE,만족,TRUE,먹고 나서 손은 조금 지저분해지지만 그만큼 재밌는 메뉴.,TRUE,4,TRUE,평일,오전,45,담담 평가형,
+crotaco_review_0004,la_crotaco_01,타코무드 성수,치즈늘어남중독,85,TRUE,만족,TRUE,크로와상 버터향이 타코 필링이랑 생각보다 잘 붙는다. 신박한데 맛도 있음.,TRUE,2,FALSE,주말,오전,55,반말 후기형,크로와상; 원조 느낌
+crotaco_review_0005,la_crotaco_01,타코무드 성수,크루아상결파,44,FALSE,만족,TRUE,타코무드 인기 많은 이유 이해됨. 메뉴 자체가 신기하고 맛도 대중적으로 먹히는 맛.,TRUE,1,TRUE,주말,점심,55,음슴체,원조 느낌
+crotaco_review_0006,la_crotaco_01,타코무드 성수,짭짤한거좋아,58,FALSE,만족,TRUE,맛이 세서 호불호는 있겠지만 나는 극호. 짭짤한 거 좋아하면 가세요.,TRUE,2,TRUE,주말,오전,60,장문 후기형,짭짤함
+crotaco_review_0007,la_crotaco_01,타코무드 성수,살사없인못살아,53,FALSE,만족,TRUE,맛이 완전 직관적임. 바삭한 크로와상에 타코 고기랑 치즈 넣었는데 맛없기 어렵지ㅋㅋ 다만 꽤 자극적이긴 함.,TRUE,2,FALSE,주말,아침,50,조건부 추천형+표현강함,바삭함; 치즈; 타코미트; 크로와상; 원조 느낌
+crotaco_review_0008,la_crotaco_01,타코무드 성수,고수가능,66,FALSE,만족,TRUE,"고기, 치즈, 살사 다 들어가서 맛이 풍성함. 한입마다 재료가 느껴짐.",TRUE,1,TRUE,평일,오후,60,존댓말 정보형,치즈; 타코미트; 살사
+crotaco_review_0009,la_crotaco_01,타코무드 성수,고수못먹음,61,FALSE,만족,TRUE,타코 좋아하는 친구가 꽤 만족함. 정통은 아니지만 퓨전으로 잘 풀었다.,TRUE,4,TRUE,평일,오전,60,반말 후기형,원조 느낌
+crotaco_review_0010,la_crotaco_01,타코무드 성수,맛있으면우는개구리,47,FALSE,만족,TRUE,"첫입 임팩트가 강함. 바삭, 짭짤, 매콤, 치즈 다 한 번에 옴 😋",TRUE,1,TRUE,주말,오후,45,흥분 극찬형+표현강함,바삭함; 치즈; 매콤함; 짭짤함
+crotaco_review_0011,la_crotaco_01,타코무드 성수,소스많이파,50,FALSE,만족,TRUE,바삭한 거 좋아하면 만족할 듯. 크로와상 겉이 파삭하고 안쪽은 촉촉함.,TRUE,4,TRUE,평일,오전,60,조건부 추천형,바삭함; 크로와상
+crotaco_review_0012,la_crotaco_01,타코무드 성수,타코무드줄섬,36,FALSE,만족,TRUE,주말이라 사람 많았지만 회전은 생각보다 괜찮았다. 맛은 확실히 유행할 만함.,TRUE,1,TRUE,주말,점심,60,존댓말 정보형,
+crotaco_review_0013,la_crotaco_01,타코무드 성수,연무장걷는중,82,TRUE,만족,FALSE,,TRUE,2,TRUE,평일,아침,60,텍스트 없음,
+crotaco_review_0014,la_crotaco_01,타코무드 성수,칠리브라운저장,78,TRUE,만족,TRUE,나는 단 음식보다 이런 짭짤한 유행템이 더 좋음. 완전 만족.,FALSE,0,TRUE,평일,점심,55,조건부 추천형,짭짤함
+crotaco_review_0015,la_crotaco_01,타코무드 성수,엘파소궁금,68,FALSE,만족,TRUE,치즈가 많아서 행복했다. 느끼할 뻔하면 살사가 잡아줌.,TRUE,1,TRUE,평일,저녁,50,밈 섞인 리뷰형,치즈; 살사
+crotaco_review_0016,la_crotaco_01,타코무드 성수,네온그릴저장,38,FALSE,만족,TRUE,크로와상 결이 소스에 젖기 전에 바로 먹어야 함. 갓 나왔을 때는 진짜 맛있다.,TRUE,2,TRUE,주말,점심,45,밈 섞인 리뷰형,바삭함; 소스; 눅눅함; 짭짤함; 크로와상
+crotaco_review_0017,la_crotaco_01,타코무드 성수,데일리빈들름,35,FALSE,만족,FALSE,,TRUE,2,TRUE,주말,아침,55,텍스트 없음,
+crotaco_review_0018,la_crotaco_01,타코무드 성수,먹짱고라니,73,TRUE,만족,TRUE,성수에서 가볍게 먹기엔 가격대가 있지만 메뉴가 특이해서 한번쯤 추천.,TRUE,2,TRUE,평일,오전,55,반말 후기형,가격
+crotaco_review_0019,la_crotaco_01,타코무드 성수,맛있으면우는개구리,61,FALSE,만족,TRUE,처음엔 그냥 장난스러운 퓨전음식인 줄 알았는데 꽤 잘 만들었다.,TRUE,2,TRUE,주말,저녁,45,불만 토로형,웨이팅
+crotaco_review_0020,la_crotaco_01,타코무드 성수,아아말고콜라,39,FALSE,만족,TRUE,웨이팅만 줄면 재방문 의사 있음. 맛은 진짜 괜찮음.,TRUE,4,TRUE,평일,오전,60,장문 후기형,웨이팅; 짭짤함
+crotaco_review_0021,la_crotaco_01,타코무드 성수,디저트말고밥,85,TRUE,불만족,TRUE,맛은 있는데 45분 기다릴 맛인지는 모르겠음. 치즈샷은 예쁜데 전체적으로 너무 자극적이었다.,FALSE,0,TRUE,평일,점심,35,음슴체,치즈
+crotaco_review_0022,la_crotaco_01,타코무드 성수,브런치유목민,37,FALSE,만족,TRUE,사워크림이 있어서 맛이 너무 한쪽으로 안 감. 전체적으로 균형 괜찮다.,TRUE,2,TRUE,주말,오후,45,음슴체,소스
+crotaco_review_0023,la_crotaco_01,타코무드 성수,성수점심추천,64,FALSE,만족,TRUE,짭짤하고 매콤하고 치즈가 진해서 점심으로도 가능. 디저트 앱에 음식 메뉴 뜬 느낌인데 오히려 좋음.,FALSE,0,TRUE,주말,오후,50,짧은 현실형,치즈; 매콤함; 짭짤함
+crotaco_review_0024,la_crotaco_01,타코무드 성수,매콤한입,62,FALSE,만족,FALSE,,TRUE,4,TRUE,주말,저녁,55,텍스트 없음,
+crotaco_review_0025,la_crotaco_01,타코무드 성수,치즈는정의,59,FALSE,만족,TRUE,살사 산미가 있어서 느끼함을 잡아줌. 크로와상만 있었으면 물렸을 텐데 밸런스 괜찮다.,TRUE,1,TRUE,평일,오후,40,장문 후기형,살사; 크로와상
+crotaco_review_0026,la_crotaco_01,타코무드 성수,반갈샷중독,88,TRUE,만족,TRUE,먹자마자 ‘이거 성수에서 뜨겠다’ 싶었음. 설명하기 쉬운 신기한 맛.,TRUE,4,TRUE,평일,오전,40,조건부 추천형,
+crotaco_review_0027,la_crotaco_01,타코무드 성수,릴스보고옴,56,FALSE,만족,TRUE,반갈샷 찍고 먹으면 기분 좋음. 치즈가 쭉 늘어나서 괜히 영상 찍게 됨.,TRUE,4,TRUE,평일,아침,50,불만 토로형,치즈; 비주얼
+crotaco_review_0028,la_crotaco_01,타코무드 성수,사진부터찍음,90,TRUE,만족,FALSE,,TRUE,2,TRUE,평일,오전,60,텍스트 없음,
+crotaco_review_0029,la_crotaco_01,타코무드 성수,맛보다식감,86,TRUE,만족,FALSE,,TRUE,1,TRUE,주말,오후,40,텍스트 없음,
+crotaco_review_0030,la_crotaco_01,타코무드 성수,먹어보고말함,64,FALSE,만족,TRUE,이런 메뉴는 보통 비주얼만 강한데 여긴 고기맛도 살아있어서 좋았다.,TRUE,4,FALSE,주말,저녁,55,반말 후기형,타코미트; 비주얼
+crotaco_review_0031,la_crotaco_01,타코무드 성수,내돈내산러,37,FALSE,만족,TRUE,크로와상 속 타코라니 이상한데 맛있음. 이 말밖에 안 나옴.,TRUE,1,TRUE,평일,오후,45,존댓말 정보형,크로와상; 원조 느낌
+crotaco_review_0032,la_crotaco_01,타코무드 성수,기대컨실패,67,FALSE,불만족,TRUE,타코맛이 강해서 크로와상 버터향이 묻힘. 조합이 신기하긴 한데 내 취향은 아님.,TRUE,3,TRUE,평일,아침,45,불만 토로형,크로와상; 원조 느낌
+crotaco_review_0033,la_crotaco_01,타코무드 성수,웨이팅싫어,36,FALSE,만족,TRUE,매콤한 정도가 적당해서 좋았다. 엄청 맵진 않고 풍미 있는 매콤함.,FALSE,0,TRUE,주말,저녁,40,조건부 추천형,매콤함
+crotaco_review_0034,la_crotaco_01,타코무드 성수,맛없으면안참음,63,FALSE,만족,TRUE,매콤짭짤해서 콜라랑 잘 맞음. 커피보단 탄산 추천 ㅎㅎ,TRUE,2,TRUE,평일,오후,55,밈 섞인 리뷰형+표현강함,매콤함; 짭짤함
+crotaco_review_0035,la_crotaco_01,타코무드 성수,크로와상러버,93,TRUE,만족,TRUE,웨이팅 50분은 좀 힘들었는데 한입 먹고 왜 줄 서는지는 알겠더라. 크로와상 결이 바삭하고 속은 짭짤해서 확실히 맛있음.,TRUE,1,FALSE,평일,점심,40,불만 토로형,바삭함; 웨이팅; 짭짤함; 크로와상
+crotaco_review_0036,la_crotaco_01,타코무드 성수,타코필링중요,78,TRUE,만족,TRUE,성수에서 유행하는 음식들 중에 이건 먹어볼 가치 있음. 맛이 확실하다.,TRUE,2,TRUE,평일,오후,40,밈 섞인 리뷰형,
+crotaco_review_0037,la_crotaco_01,타코무드 성수,소스조절필수,68,FALSE,만족,TRUE,살사랑 사워크림 조합이 좋아서 생각보다 무겁지 않았음. 그래도 한 개 다 먹으면 배부름.,TRUE,4,TRUE,평일,저녁,35,불만 토로형,살사; 소스
+crotaco_review_0038,la_crotaco_01,타코무드 성수,살사산미파,76,TRUE,불만족,TRUE,가격이 좀 세다. 필링 많고 사진 잘 나오긴 하는데 재방문은 고민.,TRUE,2,TRUE,주말,오후,45,불만 장문형,가격; 비주얼
+crotaco_review_0039,la_crotaco_01,타코무드 성수,고기풍미파,86,TRUE,만족,TRUE,치즈 늘어나는 거 보고 갔는데 성공. 맛도 사진값은 하는 편.,TRUE,2,TRUE,주말,오후,35,조건부 추천형,치즈; 비주얼
+crotaco_review_0040,la_crotaco_01,타코무드 성수,치폴레좋아,67,FALSE,만족,TRUE,"릴스에서 본 치즈 늘어나는 그 장면 진짜 나옴. 반 갈랐을 때 치즈랑 살사가 보여서 사진 찍기 좋고, 타코 시즈닝도 꽤 진함 📸",TRUE,1,FALSE,주말,점심,35,장문 후기형+표현강함,치즈; 타코미트; 살사; 비주얼; 짭짤함; 원조 느낌
+crotaco_review_0041,la_crotaco_01,타코무드 성수,과카몰리러버,37,FALSE,만족,TRUE,사람 많은 거 싫지만 맛은 인정. 다음엔 평일에 가고 싶음.,TRUE,2,TRUE,주말,아침,50,흥분 극찬형,
+crotaco_review_0042,la_crotaco_01,타코무드 성수,할라피뇨가능,55,FALSE,만족,FALSE,,TRUE,1,TRUE,주말,저녁,40,텍스트 없음,
+crotaco_review_0043,la_crotaco_01,타코무드 성수,느끼하면탈락,75,TRUE,만족,TRUE,고기 풍미가 생각보다 진해서 좋았음. 그냥 예쁜 메뉴가 아니라 타코맛도 꽤 살아있다.,TRUE,3,TRUE,평일,아침,35,음슴체,타코미트; 원조 느낌
+crotaco_review_0044,la_crotaco_01,타코무드 성수,짠맛중요,37,FALSE,불만족,TRUE,웨이팅 때문에 기대가 너무 올라갔나 봄. 맛은 예상 가능한 퓨전 브런치.,TRUE,2,TRUE,평일,저녁,45,흥분 극찬형,웨이팅
+crotaco_review_0045,la_crotaco_01,타코무드 성수,바삭한게좋아,44,FALSE,만족,TRUE,크로타코라는 이름만 들었을 땐 웃겼는데 먹어보니 납득됨ㅋㅋ,TRUE,2,TRUE,주말,점심,50,조건부 추천형+표현강함,원조 느낌
+crotaco_review_0046,la_crotaco_01,타코무드 성수,눅눅하면실패,92,TRUE,만족,FALSE,,FALSE,0,FALSE,평일,오전,45,텍스트 없음,
+crotaco_review_0047,la_crotaco_01,타코무드 성수,커피보다콜라,91,TRUE,만족,TRUE,"맛이 강해서 기억에 남음. 치즈, 살사, 고기 다 확실해서 바이럴될 만하다.",TRUE,2,FALSE,평일,저녁,50,음슴체,치즈; 타코미트; 살사
+crotaco_review_0048,la_crotaco_01,타코무드 성수,간식아님식사,39,FALSE,만족,TRUE,겉은 바삭하고 속은 치즈랑 고기가 촉촉해서 식감 대비 좋다.,TRUE,1,FALSE,평일,오전,60,존댓말 정보형,바삭함; 치즈; 타코미트
+crotaco_review_0049,la_crotaco_01,타코무드 성수,성수맛지도,53,FALSE,만족,TRUE,포장해가면 눅눅해질까 봐 바로 먹었는데 탁월한 선택이었다.,TRUE,2,FALSE,주말,점심,45,장문 후기형,눅눅함
+crotaco_review_0050,la_crotaco_01,타코무드 성수,카페거리방문,81,TRUE,불만족,TRUE,크로와상이 소스에 젖어서 중간부터 눅눅해짐. 첫입은 좋은데 뒤로 갈수록 아쉬웠다.,TRUE,2,TRUE,주말,오후,55,기대 대비 아쉬움형,소스; 눅눅함; 크로와상
+crotaco_review_0051,la_crotaco_01,타코무드 성수,주말성수러,49,FALSE,만족,TRUE,크로와상 샌드류 좋아하는데 타코 필링 들어가니까 훨씬 재밌다.,TRUE,2,TRUE,주말,오전,40,짧은 현실형,크로와상; 원조 느낌
+crotaco_review_0052,la_crotaco_01,타코무드 성수,평일방문러,52,FALSE,만족,TRUE,"성수 유행템 느낌 제대로. 치즈샷, 살사 색감, 고기 필링 다 있어서 보는 맛이 있다 ✨",TRUE,2,TRUE,평일,오전,60,짧은 현실형+표현강함,치즈; 타코미트; 살사
+crotaco_review_0053,la_crotaco_01,타코무드 성수,점심시간탈출,75,TRUE,불만족,TRUE,고기랑 치즈가 많아서 좋은데 너무 무거움. 점심으로 먹기에도 조금 부담.,TRUE,1,TRUE,주말,오전,40,기대 대비 아쉬움형,치즈; 타코미트
+crotaco_review_0054,la_crotaco_01,타코무드 성수,퇴근후한입,42,FALSE,만족,TRUE,사진 찍으려고 샀는데 맛있어서 순삭. 이건 비주얼만 있는 메뉴는 아님.,FALSE,0,TRUE,평일,오전,55,반말 후기형,비주얼
+crotaco_review_0055,la_crotaco_02,데일리빈 성수역점,먹킷리스트,93,TRUE,불만족,TRUE,맛이 나쁘진 않은데 너무 평범. 재방문은 안 할 듯.,FALSE,0,FALSE,평일,오후,0,불만 장문형,무난함
+crotaco_review_0056,la_crotaco_02,데일리빈 성수역점,반신반의,64,FALSE,불만족,TRUE,반 갈라도 비주얼이 별로라 사진 찍을 맛이 안 남.,TRUE,2,TRUE,주말,점심,0,불만 토로형,비주얼
+crotaco_review_0057,la_crotaco_02,데일리빈 성수역점,생각보다괜찮,90,TRUE,만족,TRUE,크로타코 입문용. 엄청난 감동은 없지만 괜찮다.,FALSE,0,TRUE,평일,저녁,0,존댓말 정보형,원조 느낌
+crotaco_review_0058,la_crotaco_02,데일리빈 성수역점,아쉬운점있음,39,FALSE,만족,TRUE,대기 없어서 좋고 먹기 편함. 본격 멕시칸 느낌보다는 순한 크로와상 샌드에 가까움.,FALSE,0,TRUE,주말,저녁,0,밈 섞인 리뷰형,웨이팅; 크로와상; 원조 느낌
+crotaco_review_0059,la_crotaco_02,데일리빈 성수역점,맛은있네,41,FALSE,만족,TRUE,가볍고 순해서 오히려 먹기 편했다. 매운맛 약한 사람에게 추천.,TRUE,1,TRUE,주말,저녁,0,장문 후기형,매콤함
+crotaco_review_0060,la_crotaco_02,데일리빈 성수역점,먹어볼만함,55,FALSE,불만족,FALSE,,TRUE,1,TRUE,평일,저녁,0,텍스트 없음,
+crotaco_review_0061,la_crotaco_02,데일리빈 성수역점,타코러버,40,FALSE,만족,FALSE,,TRUE,1,TRUE,평일,오후,0,텍스트 없음,
+crotaco_review_0062,la_crotaco_02,데일리빈 성수역점,멕시칸좋아,63,FALSE,만족,TRUE,신메뉴 궁금해서 먹어봤는데 후회는 없음.,FALSE,0,FALSE,주말,오전,0,담담 평가형,
+crotaco_review_0063,la_crotaco_02,데일리빈 성수역점,웨이팅싫어,36,FALSE,불만족,TRUE,고기 양이 너무 적어서 식사 느낌은 아님. 간식으로도 애매.,TRUE,1,TRUE,평일,점심,0,장문 후기형,타코미트
+crotaco_review_0064,la_crotaco_02,데일리빈 성수역점,치즈샷찍음,69,FALSE,만족,TRUE,점심 대용보다는 간식 느낌. 그래도 대기 없는 게 너무 좋았다.,TRUE,1,TRUE,평일,저녁,0,조건부 추천형,웨이팅
+crotaco_review_0065,la_crotaco_02,데일리빈 성수역점,매운맛조절필요,45,FALSE,만족,TRUE,성수역점이라 접근성이 압도적. 유행 메뉴 입문용으로 괜찮다.,FALSE,0,TRUE,평일,저녁,0,존댓말 정보형,
+crotaco_review_0066,la_crotaco_02,데일리빈 성수역점,고수향감별러,48,FALSE,만족,TRUE,"치즈 풍미가 조금 더 있으면 좋겠지만, 가격 생각하면 무난.",FALSE,0,TRUE,평일,점심,0,음슴체,치즈; 가격; 무난함
+crotaco_review_0067,la_crotaco_02,데일리빈 성수역점,바삭후기,39,FALSE,만족,FALSE,,FALSE,0,TRUE,평일,저녁,0,텍스트 없음,
+crotaco_review_0068,la_crotaco_02,데일리빈 성수역점,한입만요,86,TRUE,불만족,TRUE,맛이 너무 안전함. 유행템이라기엔 재미가 없다.,FALSE,0,TRUE,주말,저녁,0,불만 장문형,
+crotaco_review_0069,la_crotaco_02,데일리빈 성수역점,친구따라옴,39,FALSE,불만족,FALSE,,FALSE,0,FALSE,주말,오전,0,텍스트 없음,
+crotaco_review_0070,la_crotaco_02,데일리빈 성수역점,포장해감,67,FALSE,만족,TRUE,친구 기다리면서 먹었는데 적당했다. 손에 많이 묻지 않아서 좋음.,TRUE,1,TRUE,주말,오후,0,존댓말 정보형,
+crotaco_review_0071,la_crotaco_02,데일리빈 성수역점,성수근처사는사람,96,TRUE,만족,TRUE,프차 시즌 메뉴라 기대 안 했는데 생각보다 괜찮았음. 타코맛은 약하지만 가격 생각하면 만족.,FALSE,0,TRUE,주말,저녁,0,불만 토로형,가격; 원조 느낌
+crotaco_review_0072,la_crotaco_02,데일리빈 성수역점,배고픈리뷰어,35,FALSE,불만족,TRUE,데일리빈이라 편하긴 한데 굳이 이걸 먹어야 하나 싶었음.,FALSE,0,TRUE,주말,점심,0,불만 토로형,
+crotaco_review_0073,la_crotaco_02,데일리빈 성수역점,맛잘알되고싶다,50,FALSE,만족,TRUE,크로와상 샌드로 생각하면 괜찮음. 타코라고 생각하면 약할 수도.,TRUE,1,FALSE,주말,아침,0,흥분 극찬형,크로와상; 원조 느낌
+crotaco_review_0074,la_crotaco_02,데일리빈 성수역점,매콤짭짤파,49,FALSE,만족,TRUE,타코 시즈닝이 은은해서 부담 없었다. 자극적인 거 싫으면 괜찮음.,FALSE,0,TRUE,평일,점심,0,밈 섞인 리뷰형,타코미트; 원조 느낌
+crotaco_review_0075,la_crotaco_02,데일리빈 성수역점,토핑수집가,89,TRUE,만족,TRUE,맛이 엄청 특별하진 않아도 편하게 먹히는 메뉴. 소스가 과하지 않아 좋았다.,FALSE,0,TRUE,주말,아침,0,밈 섞인 리뷰형,소스
+crotaco_review_0076,la_crotaco_02,데일리빈 성수역점,패키지수집가,45,FALSE,만족,TRUE,치즈 양은 많지 않은데 그래서 덜 느끼함. 가볍게 먹기엔 괜찮았어.,TRUE,2,TRUE,주말,오전,0,밈 섞인 리뷰형,치즈
+crotaco_review_0077,la_crotaco_02,데일리빈 성수역점,사진보다맛,92,TRUE,불만족,FALSE,,TRUE,2,TRUE,주말,점심,0,텍스트 없음,
+crotaco_review_0078,la_crotaco_02,데일리빈 성수역점,맛보다비주얼,87,TRUE,만족,TRUE,생각보다 덜 자극적이라 좋았음. 아이스티랑 잘 어울림.,TRUE,2,TRUE,평일,점심,0,장문 후기형,
+crotaco_review_0079,la_crotaco_02,데일리빈 성수역점,먹고나서말함,69,FALSE,만족,TRUE,소스가 적당해서 안 눅눅했다. 대신 강한 맛은 기대하면 안 됨.,TRUE,1,TRUE,주말,저녁,0,조건부 추천형,소스; 눅눅함
+crotaco_review_0080,la_crotaco_02,데일리빈 성수역점,두입컷,79,TRUE,만족,TRUE,타코무드 줄 보고 포기하고 여기 왔는데 나름 만족. 큰 기대 없으면 괜찮다.,TRUE,3,FALSE,평일,점심,0,존댓말 정보형,웨이팅; 원조 느낌
+crotaco_review_0081,la_crotaco_02,데일리빈 성수역점,크로타코헌터,48,FALSE,만족,FALSE,,FALSE,0,TRUE,주말,저녁,0,텍스트 없음,
+crotaco_review_0082,la_crotaco_02,데일리빈 성수역점,브런치간식러,92,TRUE,불만족,TRUE,치즈랑 소스가 부족해서 퍽퍽했다. 커피랑 먹어도 아쉬움.,TRUE,2,TRUE,평일,아침,0,기대 대비 아쉬움형,치즈; 소스
+crotaco_review_0083,la_crotaco_02,데일리빈 성수역점,필링많이파,59,FALSE,만족,FALSE,,FALSE,0,TRUE,주말,점심,0,텍스트 없음,
+crotaco_review_0084,la_crotaco_02,데일리빈 성수역점,살사듬뿍,56,FALSE,만족,TRUE,바쁜 점심에 사 먹기 좋다. 자극적인 맛 싫어하면 오히려 이쪽이 편할 수도.,FALSE,0,TRUE,평일,오후,0,반말 후기형,
+crotaco_review_0085,la_crotaco_02,데일리빈 성수역점,치즈많이요,66,FALSE,만족,TRUE,맛집 찾아가기 귀찮으면 여기서 충분히 체험 가능.,TRUE,3,TRUE,평일,점심,0,조건부 추천형,
+crotaco_review_0086,la_crotaco_02,데일리빈 성수역점,과카추가요,92,TRUE,불만족,TRUE,치즈가 거의 안 늘어나서 아쉬웠음. 반갈샷 기대하면 실망할 듯.,FALSE,0,FALSE,평일,오전,0,기대 대비 아쉬움형,치즈; 비주얼
+crotaco_review_0087,la_crotaco_02,데일리빈 성수역점,타코시즈닝좋아,46,FALSE,불만족,FALSE,,FALSE,0,FALSE,평일,오전,0,텍스트 없음,
+crotaco_review_0088,la_crotaco_02,데일리빈 성수역점,소스범벅주의,60,FALSE,불만족,FALSE,,TRUE,2,TRUE,평일,저녁,0,텍스트 없음,
+crotaco_review_0089,la_crotaco_02,데일리빈 성수역점,결살아야함,39,FALSE,만족,TRUE,대기 없는 게 최고 ㅎㅎ 성수에서 시간 없을 때 들르기 좋음.,FALSE,0,TRUE,평일,오후,0,담담 평가형+표현강함,웨이팅
+crotaco_review_0090,la_crotaco_02,데일리빈 성수역점,버터향찾는중,37,FALSE,만족,FALSE,,FALSE,0,TRUE,평일,점심,0,텍스트 없음,
+crotaco_review_0091,la_crotaco_02,데일리빈 성수역점,또먹을지도,59,FALSE,만족,TRUE,프차 메뉴라 그런지 안정적인 맛. 재구매할 수도 있음.,FALSE,0,TRUE,평일,저녁,0,음슴체,
+crotaco_review_0092,la_crotaco_02,데일리빈 성수역점,재방문고민중,38,FALSE,불만족,TRUE,크로와상이 살짝 눅눅했고 필링도 적었다. 가격은 싸지만 만족도도 그만큼.,FALSE,0,TRUE,평일,오후,0,기대 대비 아쉬움형,가격; 눅눅함; 크로와상
+crotaco_review_0093,la_crotaco_02,데일리빈 성수역점,바삭하면합격,77,TRUE,불만족,FALSE,,FALSE,0,TRUE,평일,저녁,0,텍스트 없음,
+crotaco_review_0094,la_crotaco_02,데일리빈 성수역점,리뷰쓰는햄스터,54,FALSE,불만족,TRUE,순한 건 좋은데 그만큼 재미가 없음. 유행 메뉴 느낌은 약했다.,FALSE,0,TRUE,주말,오전,0,불만 토로형,
+crotaco_review_0095,la_crotaco_02,데일리빈 성수역점,성수또감,96,TRUE,만족,TRUE,가격이 낮아서 부담 없음. 맛은 무난하지만 실패했다는 느낌은 아니었음.,FALSE,0,FALSE,평일,오후,0,불만 토로형,가격; 무난함
+crotaco_review_0096,la_crotaco_02,데일리빈 성수역점,오늘의한끼,73,TRUE,만족,TRUE,순한 살사맛이라 매운 거 못 먹는 사람도 먹을 수 있을 듯.,FALSE,0,TRUE,주말,아침,0,밈 섞인 리뷰형,살사; 매콤함
+crotaco_review_0097,la_crotaco_02,데일리빈 성수역점,짭짤함최고,68,FALSE,만족,TRUE,가격 대비 괜찮음. 퓨전 메뉴를 편하게 먹어볼 수 있다는 점이 장점.,TRUE,1,TRUE,주말,아침,0,짧은 현실형,가격
+crotaco_review_0098,la_crotaco_03,칠리브라운 연무장,매운거좋아,75,TRUE,만족,TRUE,칠리브라운은 반갈샷보다 먹었을 때 더 좋은 타입. 한입마다 필링이 균형 있게 들어옴.,TRUE,3,TRUE,주말,오전,15,취향 저격 장문형,비주얼
+crotaco_review_0099,la_crotaco_03,칠리브라운 연무장,매운거못먹음,53,FALSE,불만족,FALSE,,FALSE,0,TRUE,주말,오후,15,텍스트 없음,
+crotaco_review_0100,la_crotaco_03,칠리브라운 연무장,고기파,73,TRUE,만족,TRUE,이런 퓨전 메뉴는 보통 과한데 여긴 균형감이 좋다. 고기맛도 제대로 나고 치즈도 느끼하지 않음.,FALSE,0,TRUE,주말,오후,20,취향 저격 장문형,치즈; 타코미트
+crotaco_review_0101,la_crotaco_03,칠리브라운 연무장,채소도중요,93,TRUE,만족,TRUE,여긴 크로타코를 진짜 음식처럼 잘 만든 느낌. 그냥 치즈샷용 메뉴가 아니라 한 끼로 먹어도 괜찮음.,TRUE,1,TRUE,주말,오후,15,과몰입 추천형,치즈; 짭짤함; 원조 느낌
+crotaco_review_0102,la_crotaco_03,칠리브라운 연무장,점심으로가능,94,TRUE,만족,TRUE,연무장길 안쪽이라 덜 알려진 것 같은데 맛은 진짜 알참. 취향 비슷한 사람들 여기 저장해줘…,FALSE,0,FALSE,평일,아침,5,취향 저격 장문형,짭짤함
+crotaco_review_0103,la_crotaco_03,칠리브라운 연무장,유행템체험단,67,FALSE,만족,TRUE,"바삭한 결, 짭짤한 치즈, 산뜻한 살사 조합이 좋음. 과하지 않게 맛있는 퓨전.",TRUE,3,TRUE,평일,저녁,15,취향 저격 장문형,바삭함; 치즈; 살사; 짭짤함
+crotaco_review_0104,la_crotaco_03,칠리브라운 연무장,일단저장,81,TRUE,만족,TRUE,바삭한 크로와상 좋아하고 짭짤한 필링 좋아하면 만족할 확률 높음. 나랑 취향 같으면 무조건 추천!,TRUE,1,TRUE,주말,저녁,15,취향 저격 장문형,바삭함; 짭짤함; 크로와상
+crotaco_review_0105,la_crotaco_03,칠리브라운 연무장,맛의기록,89,TRUE,만족,TRUE,"칠리브라운 진짜 내 취향. 크로와상 결이 살아있고 타코 필링이 짭짤한데 과하게 자극적이지 않음. 바삭한 식감이랑 치즈, 살사 밸런스 보는 사람은 여기 가야 됨 🥹",TRUE,1,FALSE,평일,오후,20,마니아 극찬형+표현강함,바삭함; 치즈; 살사; 짭짤함; 크로와상; 원조 느낌
+crotaco_review_0106,la_crotaco_03,칠리브라운 연무장,카페디저트러아님,90,TRUE,만족,TRUE,살사가 신선해서 좋았음. 소스 많은데도 눅눅하지 않아서 신기했다.,TRUE,1,TRUE,평일,오후,20,흥분 극찬형,살사; 소스; 눅눅함
+crotaco_review_0107,la_crotaco_03,칠리브라운 연무장,텍스멕스좋아,90,TRUE,만족,TRUE,"매콤함, 치즈, 살사 산미가 다 적당함. 자극적인 메뉴인데도 깔끔하게 먹힘.",TRUE,1,FALSE,주말,아침,15,마니아 극찬형,치즈; 살사; 매콤함
+crotaco_review_0108,la_crotaco_03,칠리브라운 연무장,살사러버,76,TRUE,만족,TRUE,작은 식당이라 기대 안 했는데 진짜 잘함. 유행 메뉴를 자기 스타일로 제대로 만든 느낌.,TRUE,1,FALSE,평일,저녁,15,마니아 극찬형,짭짤함
+crotaco_review_0109,la_crotaco_03,칠리브라운 연무장,핫소스필수,84,TRUE,만족,TRUE,타코무드보다 덜 화려한데 맛 밸런스는 칠리브라운이 더 좋았음. 내 취향 기준으론 여기가 1위.,TRUE,1,TRUE,주말,점심,10,과몰입 추천형,원조 느낌
+crotaco_review_0110,la_crotaco_03,칠리브라운 연무장,마요많으면탈락,92,TRUE,만족,TRUE,크로와상이 소스에 젖지 않고 끝까지 바삭한 게 좋았다. 필링도 짜기만 한 게 아니라 풍미 있음.,FALSE,0,FALSE,주말,아침,5,취향 저격 장문형,바삭함; 소스; 눅눅함; 짭짤함; 크로와상
+crotaco_review_0111,la_crotaco_03,칠리브라운 연무장,토마토살사좋아,66,FALSE,불만족,FALSE,,FALSE,0,TRUE,평일,점심,20,텍스트 없음,
+crotaco_review_0112,la_crotaco_03,칠리브라운 연무장,치즈늘어야함,79,TRUE,만족,TRUE,리뷰 수 적어서 고민했는데 완전 성공. 스모키한 고기 풍미가 좋고 살사가 산뜻해서 느끼하지 않았다.,FALSE,0,FALSE,평일,점심,5,마니아 극찬형,타코미트; 살사
+crotaco_review_0113,la_crotaco_03,칠리브라운 연무장,겉바속촉파,43,FALSE,만족,TRUE,재방문 의사 있음!! 성수에서 점심으로 먹어도 괜찮은 크로타코.,TRUE,3,TRUE,주말,아침,10,흥분 극찬형,원조 느낌
+crotaco_review_0114,la_crotaco_03,칠리브라운 연무장,크로와상바삭,81,TRUE,불만족,TRUE,맛은 괜찮은데 기대만큼 강렬하진 않았음. 화려한 치즈샷 원하면 다른 곳이 더 맞을 듯.,TRUE,1,TRUE,주말,저녁,15,반말 후기형,치즈
+crotaco_review_0115,la_crotaco_03,칠리브라운 연무장,소스는적당히,66,FALSE,불만족,TRUE,위치가 살짝 애매해서 찾아가는 데 귀찮았다. 맛은 좋지만 접근성이 아쉬움.,FALSE,0,TRUE,주말,저녁,5,존댓말 정보형,
+crotaco_review_0116,la_crotaco_03,칠리브라운 연무장,신메뉴탐험가,72,TRUE,만족,TRUE,치즈가 적당히 늘어나고 고기가 스모키해서 맛있다. 너무 달거나 느끼한 메뉴 싫어하면 여기.,FALSE,0,TRUE,주말,오후,15,마니아 극찬형,치즈; 타코미트
+crotaco_review_0117,la_crotaco_04,엘파소 성수,사진찍고먹기,54,FALSE,만족,FALSE,,TRUE,1,FALSE,평일,점심,15,텍스트 없음,
+crotaco_review_0118,la_crotaco_04,엘파소 성수,성수데이트러,68,FALSE,만족,TRUE,전문점이라 그런지 소스 밸런스가 안정적임. 크로와상이 눅눅해지기 전에 바로 먹으면 최고.,TRUE,2,TRUE,주말,아침,35,반말 후기형,소스; 눅눅함; 크로와상
+crotaco_review_0119,la_crotaco_04,엘파소 성수,혼밥가능,35,FALSE,만족,TRUE,매콤짭짤한 음식 좋아하면 엘파소 괜찮음. 담백한 브런치 생각하면 안 됨.,TRUE,2,TRUE,평일,오전,30,흥분 극찬형,매콤함; 짭짤함
+crotaco_review_0120,la_crotaco_04,엘파소 성수,매장분위기도봄,82,TRUE,만족,TRUE,메뉴 자체는 퓨전인데 맛은 꽤 진지함. 나는 이쪽이 좋았다.,TRUE,1,TRUE,주말,아침,20,반말 후기형,
+crotaco_review_0121,la_crotaco_04,엘파소 성수,재고있나요,78,TRUE,만족,TRUE,성수에서 멕시칸 먹고 싶을 때 한 번쯤 추천. 크로타코도 잘 어울림.,TRUE,1,TRUE,평일,아침,25,흥분 극찬형,원조 느낌
+crotaco_review_0122,la_crotaco_04,엘파소 성수,먹방친구,79,TRUE,만족,TRUE,크로와상은 바삭하고 안쪽은 치즈랑 고기가 묵직함. 점심으로 먹어도 충분히 배부르다.,TRUE,1,TRUE,평일,저녁,20,반말 후기형,바삭함; 치즈; 타코미트; 크로와상
+crotaco_review_0123,la_crotaco_04,엘파소 성수,맛집킬러,49,FALSE,만족,TRUE,엘파소 성수는 원조 느낌 찾는 사람한테 맞을 듯. 맛이 깊다.,TRUE,1,TRUE,평일,아침,15,존댓말 정보형,원조 느낌
+crotaco_review_0124,la_crotaco_04,엘파소 성수,배고프면예민,44,FALSE,만족,TRUE,겉은 바삭하고 안은 소스감 있어서 식감 대비가 좋다.,FALSE,0,FALSE,주말,저녁,15,흥분 극찬형,바삭함; 소스
+crotaco_review_0125,la_crotaco_04,엘파소 성수,고수빼주세요,85,TRUE,만족,FALSE,,FALSE,0,TRUE,평일,점심,20,텍스트 없음,
+crotaco_review_0126,la_crotaco_04,엘파소 성수,칠리러버,64,FALSE,불만족,FALSE,,TRUE,1,TRUE,주말,오전,25,텍스트 없음,
+crotaco_review_0127,la_crotaco_04,엘파소 성수,타코한입,85,TRUE,만족,TRUE,치즈가 늘어나는 것도 좋지만 고기맛이 더 기억남. 여긴 맛으로 만족.,TRUE,1,TRUE,주말,오후,15,조건부 추천형,치즈; 타코미트
+crotaco_review_0128,la_crotaco_04,엘파소 성수,식사대용가능,43,FALSE,만족,TRUE,고수 향이 있어서 호불호는 있겠지만 나는 완전 좋았음. 진짜 멕시칸 느낌.,TRUE,2,TRUE,평일,오후,25,반말 후기형,고수; 짭짤함; 원조 느낌
+crotaco_review_0129,la_crotaco_04,엘파소 성수,출근전간식,80,TRUE,불만족,TRUE,크로와상이 소스 때문에 뒤쪽은 눅눅했다. 바로 먹었는데도 조금 아쉬움.,TRUE,3,FALSE,주말,아침,15,불만 장문형,소스; 눅눅함; 크로와상
+crotaco_review_0130,la_crotaco_04,엘파소 성수,퇴근길픽업,84,TRUE,만족,TRUE,가격은 높은데 재료맛이 진해서 납득 가능. 타코 좋아하면 만족할 듯.,TRUE,1,TRUE,주말,아침,25,존댓말 정보형,가격; 원조 느낌
+crotaco_review_0131,la_crotaco_04,엘파소 성수,고수가능,89,TRUE,만족,FALSE,,FALSE,0,FALSE,평일,오후,35,텍스트 없음,
+crotaco_review_0132,la_crotaco_04,엘파소 성수,성수산책후,48,FALSE,만족,TRUE,전체적으로 진하고 묵직하다. 탄산이랑 먹으면 잘 맞음.,TRUE,3,TRUE,평일,아침,20,음슴체,
+crotaco_review_0133,la_crotaco_04,엘파소 성수,성수기록자,75,TRUE,만족,TRUE,엘파소는 확실히 멕시칸 전문점 느낌이 남. 타코미트가 진하고 살사가 매콤해서 원조 음식 느낌이 제일 강함.,TRUE,2,FALSE,주말,오전,15,불만 토로형,타코미트; 살사; 매콤함; 원조 느낌
+crotaco_review_0134,la_crotaco_04,엘파소 성수,크로기록자,55,FALSE,만족,TRUE,사진도 잘 나오지만 먹었을 때 만족감이 더 큼.,FALSE,0,TRUE,평일,오전,30,밈 섞인 리뷰형,비주얼
+crotaco_review_0135,la_crotaco_04,엘파소 성수,성수먹보,74,TRUE,만족,FALSE,,TRUE,1,TRUE,주말,아침,15,텍스트 없음,
+crotaco_review_0136,la_crotaco_04,엘파소 성수,타코감별러,96,TRUE,만족,TRUE,친구는 조금 맵다 했는데 나는 딱 좋았음. 매콤한 거 좋아하면 추천.,FALSE,0,FALSE,주말,점심,30,장문 후기형,매콤함
+crotaco_review_0137,la_crotaco_04,엘파소 성수,치즈탐험가,95,TRUE,불만족,TRUE,가격이 꽤 높게 느껴졌다. 맛은 있지만 가볍게 먹을 메뉴는 아님.,FALSE,0,TRUE,주말,저녁,20,불만 토로형,가격
+crotaco_review_0138,la_crotaco_04,엘파소 성수,치즈탐험가,41,FALSE,만족,TRUE,고수 가능자라면 만족할 확률 높음. 향이 메뉴를 살려준다.,FALSE,0,TRUE,주말,오전,20,반말 후기형,고수
+crotaco_review_0139,la_crotaco_04,엘파소 성수,살사러버,54,FALSE,만족,TRUE,고수 향 괜찮으면 여기 추천. 풍미가 진해서 다른 크로타코보다 훨씬 음식다운 맛.,TRUE,3,TRUE,주말,오전,20,장문 후기형,고수; 원조 느낌
+crotaco_review_0140,la_crotaco_04,엘파소 성수,크로탐험가,50,FALSE,만족,TRUE,소고기 풍미가 좋아서 크로와상 버터향이랑 잘 어울림.,FALSE,0,TRUE,주말,오후,25,조건부 추천형,타코미트; 크로와상
+crotaco_review_0141,la_crotaco_04,엘파소 성수,치즈기록자,62,FALSE,만족,TRUE,고수 빼달라고 할 수 있어서 좋았다. 고수 빼도 맛 괜찮았음.,FALSE,0,TRUE,평일,점심,35,밈 섞인 리뷰형,고수
+crotaco_review_0142,la_crotaco_04,엘파소 성수,크로탐험가,96,TRUE,만족,TRUE,치즈랑 살사가 과하지 않고 고기맛 중심이라 좋았음.,FALSE,0,TRUE,주말,아침,35,담담 평가형,치즈; 타코미트; 살사
+crotaco_review_0143,la_crotaco_04,엘파소 성수,크로먹보,53,FALSE,만족,TRUE,타코 시즈닝이 약하지 않아서 좋았다. 프차랑은 확실히 다름.,TRUE,2,TRUE,주말,아침,15,불만 토로형,타코미트; 원조 느낌
+crotaco_review_0144,la_crotaco_04,엘파소 성수,살사기록자,65,FALSE,불만족,TRUE,고수 향이 생각보다 강해서 힘들었음. 고수 못 먹으면 미리 빼달라고 해야 할 듯.,FALSE,0,TRUE,주말,저녁,35,음슴체,고수
+crotaco_review_0145,la_crotaco_04,엘파소 성수,크로러버,38,FALSE,만족,TRUE,크로타코 중에서 제일 한 끼 식사 느낌. 포만감 있음.,TRUE,1,FALSE,주말,저녁,15,조건부 추천형,원조 느낌
+crotaco_review_0146,la_crotaco_04,엘파소 성수,살사기록자,84,TRUE,불만족,TRUE,맛은 진한데 조금 무겁다. 크로와상에 타코미트까지 있으니 한 개 다 먹기 부담.,FALSE,0,FALSE,평일,오전,15,불만 토로형,타코미트; 크로와상; 원조 느낌
+crotaco_review_0147,la_crotaco_04,엘파소 성수,크로러버,73,TRUE,만족,TRUE,"엘파소는 비주얼보다 맛의 밀도가 좋음. 고기, 치즈, 살사가 다 선명하다.",TRUE,1,TRUE,평일,저녁,20,음슴체,치즈; 타코미트; 살사; 비주얼
+crotaco_review_0148,la_crotaco_04,엘파소 성수,성수러버,94,TRUE,만족,TRUE,바삭한 결과 촉촉한 필링 조합 좋음. 전문점다운 완성도.,TRUE,2,TRUE,주말,점심,15,담담 평가형,바삭함
+crotaco_review_0149,la_crotaco_04,엘파소 성수,성수먹보,40,FALSE,만족,TRUE,가격만 빼면 꽤 완성도 높은 메뉴. 재방문 가능.,FALSE,0,TRUE,주말,아침,20,흥분 극찬형,가격
+crotaco_review_0150,la_crotaco_04,엘파소 성수,크로감별러,82,TRUE,만족,TRUE,살사 산미랑 매콤함이 있어서 계속 먹게 됨. 기름짐도 덜 느껴졌다.,TRUE,1,TRUE,평일,오후,20,조건부 추천형,살사; 매콤함
+crotaco_review_0151,la_crotaco_05,네온그릴,타코기록자,87,TRUE,불만족,TRUE,소스가 많아서 먹기 불편했다. 손에 다 묻고 크로와상도 무너짐ㅠ,TRUE,2,FALSE,주말,저녁,0,밈 섞인 리뷰형+표현강함,소스; 크로와상
+crotaco_review_0152,la_crotaco_05,네온그릴,살사감별러,86,TRUE,만족,TRUE,웨이팅 없어서 바로 먹을 수 있는 게 장점. 성수에서 시간 없을 때 괜찮음.,TRUE,2,FALSE,주말,오전,0,밈 섞인 리뷰형,웨이팅
+crotaco_review_0153,la_crotaco_05,네온그릴,치즈러버,56,FALSE,불만족,TRUE,토핑이 화려한데 기본 재료 맛은 약함. 재방문은 모르겠다.,TRUE,1,TRUE,주말,저녁,0,불만 장문형,
+crotaco_review_0154,la_crotaco_05,네온그릴,크로먹보,66,FALSE,만족,TRUE,네온그릴은 비주얼이 강함. 과카몰리랑 할라피뇨 올라간 거 먹었는데 색감이 예뻐서 사진 잘 나옴 📸,TRUE,3,FALSE,평일,저녁,0,장문 후기형+표현강함,매콤함; 비주얼; 소스
+crotaco_review_0155,la_crotaco_05,네온그릴,성수러버,67,FALSE,만족,FALSE,,TRUE,2,TRUE,평일,저녁,0,텍스트 없음,
+crotaco_review_0156,la_crotaco_05,네온그릴,살사감별러,47,FALSE,만족,FALSE,,TRUE,3,TRUE,주말,오전,0,텍스트 없음,
+crotaco_review_0157,la_crotaco_05,네온그릴,타코감별러,81,TRUE,만족,TRUE,"과카몰리, 치즈, 살사 조합은 실패하기 어렵다. 맛있음.",TRUE,1,TRUE,주말,오전,0,음슴체,치즈; 살사; 소스
+crotaco_review_0158,la_crotaco_05,네온그릴,타코먹보,68,FALSE,만족,TRUE,성수에서 사진 찍고 가볍게 먹기 좋은 음식형 유행템.,TRUE,1,TRUE,주말,아침,0,담담 평가형,비주얼
+crotaco_review_0159,la_crotaco_05,네온그릴,크로탐험가,83,TRUE,만족,TRUE,한입 먹으면 소스가 확 느껴짐. 강한 맛 좋아하면 괜찮아.,TRUE,3,FALSE,평일,아침,0,존댓말 정보형,소스
+crotaco_review_0160,la_crotaco_05,네온그릴,치즈러버,93,TRUE,만족,TRUE,짭짤하고 매콤해서 콜라랑 잘 맞음. 간단한 식사로 가능.,TRUE,2,TRUE,평일,오전,0,불만 토로형,매콤함; 짭짤함
+crotaco_review_0161,la_crotaco_05,네온그릴,사진부터찍음,49,FALSE,만족,TRUE,웨이팅 없는 게 진짜 큼. 유명한 곳 줄 보고 여기 왔는데 만족.,TRUE,1,TRUE,주말,오후,0,조건부 추천형,웨이팅; 짭짤함
+crotaco_review_0162,la_crotaco_05,네온그릴,타코탐험가,58,FALSE,만족,TRUE,크로와상 결은 조금 약하지만 소스 조합이 재밌어서 만족.,TRUE,3,TRUE,평일,오전,0,짧은 현실형,바삭함; 소스; 크로와상
+crotaco_review_0163,la_crotaco_05,네온그릴,살사먹보,37,FALSE,만족,TRUE,패키지가 예쁘고 손에 들고 먹기 편함. 친구랑 하나씩 사서 먹기 좋았다.,TRUE,1,TRUE,주말,오후,0,짧은 현실형,비주얼
+crotaco_review_0164,la_crotaco_05,네온그릴,타코감별러,38,FALSE,만족,TRUE,기본 크로타코라기보단 토핑 많은 퓨전 샌드 느낌. 그걸 알고 가면 꽤 만족.,TRUE,1,TRUE,평일,저녁,0,음슴체,원조 느낌
+crotaco_review_0165,la_crotaco_05,네온그릴,치즈탐험가,56,FALSE,만족,TRUE,치폴레 마요가 진해서 맛이 확 남음. 소스 강한 메뉴 좋아하면 추천.,TRUE,1,TRUE,주말,오후,0,존댓말 정보형,소스
+crotaco_review_0166,la_crotaco_05,네온그릴,성수감별러,89,TRUE,만족,TRUE,맛이 아주 깊진 않지만 먹는 재미가 있다. 토핑 많은 거 좋아하면 만족.,FALSE,0,TRUE,주말,오전,0,장문 후기형,
+crotaco_review_0167,la_crotaco_05,네온그릴,크로기록자,38,FALSE,만족,TRUE,소스가 많아도 바로 먹으니 눅눅함은 크게 못 느꼈다.,TRUE,3,TRUE,평일,오후,0,짧은 현실형,소스; 눅눅함
+crotaco_review_0168,la_crotaco_05,네온그릴,살사탐험가,51,FALSE,불만족,TRUE,크로와상이 소스 때문에 빨리 눅눅해짐. 바삭한 식감 기대하면 아쉬울 듯.,TRUE,1,TRUE,주말,오후,0,기대 대비 아쉬움형,바삭함; 소스; 눅눅함; 크로와상
+crotaco_review_0169,la_crotaco_05,네온그릴,성수기록자,75,TRUE,만족,TRUE,치즈랑 소스가 풍부해서 한입이 꽉 찬다. 배도 꽤 부름.,TRUE,2,FALSE,평일,아침,0,불만 토로형,치즈; 소스
+crotaco_review_0170,la_crotaco_05,네온그릴,살사기록자,38,FALSE,만족,TRUE,기본 타코맛보다는 네온그릴식 소스맛이 강함. 나는 이게 좋았다.,TRUE,3,TRUE,평일,점심,0,흥분 극찬형,소스; 원조 느낌
+crotaco_review_0171,la_crotaco_05,네온그릴,크로감별러,66,FALSE,만족,FALSE,,FALSE,0,TRUE,주말,아침,0,텍스트 없음,
+crotaco_review_0172,la_crotaco_05,네온그릴,치즈기록자,69,FALSE,만족,TRUE,토핑 고르는 재미가 있음. 기본보다 치폴레 마요 들어간 버전이 더 맛있었다.,TRUE,3,TRUE,주말,아침,0,음슴체,소스
+crotaco_review_0173,la_crotaco_05,네온그릴,크로먹보,75,TRUE,만족,TRUE,패키지가 귀엽고 메뉴가 신기해서 친구한테 추천하기 좋음.,TRUE,2,TRUE,평일,오후,0,존댓말 정보형,비주얼
+crotaco_review_0174,la_crotaco_05,네온그릴,성수러버,51,FALSE,만족,FALSE,,TRUE,4,FALSE,평일,오전,0,텍스트 없음,
+crotaco_review_0175,la_crotaco_05,네온그릴,치즈기록자,79,TRUE,만족,TRUE,매운 소스 좋아하는 나한텐 괜찮았음. 고수 없는 버전도 있어서 편했다.,FALSE,0,FALSE,주말,오전,0,불만 토로형,매콤함; 고수; 소스
+crotaco_review_0176,la_crotaco_05,네온그릴,타코러버,95,TRUE,만족,TRUE,토핑이 화려해서 저장 욕구 생김. 맛도 그럭저럭 괜찮음.,TRUE,3,TRUE,평일,아침,0,존댓말 정보형,
+crotaco_review_0177,la_crotaco_05,네온그릴,크로먹보,75,TRUE,불만족,FALSE,,TRUE,1,FALSE,주말,아침,0,텍스트 없음,
+crotaco_review_0178,la_crotaco_05,네온그릴,타코탐험가,73,TRUE,불만족,TRUE,사진은 진짜 잘 나오는데 기본 크로타코 맛은 약함. 소스랑 토핑이 너무 앞선다.,TRUE,2,TRUE,주말,저녁,0,담담 평가형,비주얼; 소스; 짭짤함; 원조 느낌
+crotaco_review_0179,la_crotaco_05,네온그릴,성수기록자,56,FALSE,만족,TRUE,할라피뇨 소스가 느끼함을 잡아줘서 좋았음. 매운 거 좋아하면 괜찮다.,TRUE,2,TRUE,주말,아침,0,장문 후기형,매콤함; 소스
+crotaco_review_0180,la_crotaco_05,네온그릴,타코먹보,93,TRUE,만족,TRUE,비주얼형 매장이라 기대 낮췄는데 생각보다 먹을 만했다.,TRUE,1,FALSE,주말,오후,0,밈 섞인 리뷰형,비주얼
+crotaco_review_0181,la_crotaco_05,네온그릴,치즈기록자,86,TRUE,만족,TRUE,네온그릴은 분위기랑 메뉴가 잘 맞음. 성수 캐주얼 다이닝 느낌 제대로.,TRUE,1,TRUE,주말,저녁,0,밈 섞인 리뷰형,
+crotaco_review_0182,la_crotaco_05,네온그릴,크로먹보,95,TRUE,만족,TRUE,과카몰리 추가한 게 신의 한 수. 크리미하고 고소해서 치즈랑 잘 맞았다.,TRUE,2,TRUE,평일,아침,0,존댓말 정보형,치즈; 소스
+crotaco_review_0183,la_crotaco_05,네온그릴,크로탐험가,60,FALSE,만족,TRUE,사진용일 줄 알았는데 생각보다 맛도 괜찮았다. 달달한 유행템보다 이런 게 좋음.,TRUE,1,FALSE,주말,점심,0,반말 후기형,웨이팅; 비주얼
+crotaco_review_0184,la_crotaco_05,네온그릴,치즈감별러,47,FALSE,만족,TRUE,포장도 깔끔해서 들고 다니기 편했다. 단면도 예쁨.,TRUE,1,TRUE,평일,저녁,0,짧은 현실형,비주얼
+crotaco_review_0185,la_crotaco_05,네온그릴,타코탐험가,63,FALSE,불만족,TRUE,할라피뇨 소스가 생각보다 매웠다. 매운 거 약하면 조심.,TRUE,1,TRUE,주말,오전,0,음슴체,매콤함; 소스
+crotaco_review_0186,la_crotaco_05,네온그릴,성수러버,85,TRUE,불만족,TRUE,맛이 산만함. 토핑 많은 건 좋은데 메뉴 정체성이 흐려지는 느낌.,TRUE,2,FALSE,평일,저녁,0,기대 대비 아쉬움형,
+crotaco_review_0187,la_crotaco_05,네온그릴,타코기록자,72,TRUE,불만족,FALSE,,TRUE,2,FALSE,주말,오전,0,텍스트 없음,
+crotaco_review_0188,la_crotaco_05,네온그릴,타코기록자,85,TRUE,만족,TRUE,대기 없고 비주얼 좋고 맛도 평균 이상. 유행템 가볍게 먹기엔 괜찮다.,TRUE,1,TRUE,평일,아침,0,담담 평가형,웨이팅; 비주얼

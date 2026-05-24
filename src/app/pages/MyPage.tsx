@@ -3,6 +3,16 @@ import { useNavigate } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
 import svgPaths from '../../imports/마이페이지본인이보는/svg-efmvaixmp8';
 
+const MY_PERSONA = {
+  textures: ['바삭한', '쫀득한'] as const,
+  flavors: ['버터리한', '진한'] as const,
+  type: '바삭하고 쫀득한 식감, 버터리하고 진한 맛을 좋아하는 CRUNCH형',
+  description: [
+    '겉은 바삭하고 속은 쫀득한 식감 대비를 좋아해요.',
+    '버터 풍미가 진하고 밀도 있는 맛에 끌리는 타입이에요.',
+  ],
+};
+
 export default function MyPage() {
  const navigate = useNavigate();
 
@@ -142,29 +152,34 @@ export default function MyPage() {
  {/* Preference Analysis Section */}
  <div className="px-[30px] pb-[24px]">
  <div className="mb-[12px]">
- <p className="font-bold leading-[28px] text-[#171717] text-[18px] inline">취향 분석</p>
+ <p className="font-bold leading-[28px] text-[#171717] text-[18px] inline">나의 취향</p>
  <button className="ml-[8px] inline">
  <p className=" text-[#797979] text-[12px] underline">변경하기</p>
  </button>
  </div>
 
- <div className="flex gap-[10px] mb-[12px]">
- <div className="bg-[#335352] rounded-[15px] px-[12px] py-[4px]">
- <p className="font-extrabold text-white text-[12px]"># 꾸덕한</p>
+ <div className="mb-[8px]">
+ <p className="text-[#797979] text-[12px] mb-[6px]">식감</p>
+ <div className="flex gap-[10px] flex-wrap mb-[12px]">
+ {MY_PERSONA.textures.map((texture) => (
+ <div key={texture} className="bg-[#335352] rounded-[15px] px-[12px] py-[4px]">
+ <p className="font-extrabold text-white text-[12px]"># {texture}</p>
  </div>
- <div className="bg-[#335352] rounded-[15px] px-[12px] py-[4px]">
- <p className="font-extrabold text-white text-[12px]"># 쫀득한</p>
- </div>
- <div className="bg-[#335352] rounded-[15px] px-[12px] py-[4px]">
- <p className="font-extrabold text-white text-[12px]"># 느끼한</p>
+ ))}
  </div>
  </div>
 
- <div className=" text-[#404040]">
- <p className="font-bold text-[14px] leading-[22.75px]">꾸덕하고 진한 맛을 좋아하는 DEEP형</p>
- <p className="text-[12px] leading-[18px]">한 입 먹었을 때 묵직하게 남는 맛을 좋아해요. 가볍게 사라지는 음식보다</p>
- <p className="text-[12px] leading-[18px]">밀도 있고 존재감 강한 음식에 끌리는 타입이에요.</p>
+ <div className="mb-[12px]">
+ <p className="text-[#797979] text-[12px] mb-[6px]">맛</p>
+ <div className="flex gap-[10px] flex-wrap mb-[12px]">
+ {MY_PERSONA.flavors.map((flavor) => (
+ <div key={flavor} className="bg-[#335352] rounded-[15px] px-[12px] py-[4px]">
+ <p className="font-extrabold text-white text-[12px]"># {flavor}</p>
  </div>
+ ))}
+ </div>
+ </div>
+
  </div>
 
  {/* Menu Section */}
