@@ -5,7 +5,7 @@ import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { FOODS, TRENDING_FOOD_IDS } from '../data/foods';
 import { getFoodPromoImage } from '../utils/images';
 
-type ChartSortMode = 'match' | 'trend' | 'reviews' | 'unsatisfied';
+type ChartSortMode = 'match' | 'trend' | 'reviews' | 'satisfied' | 'unsatisfied';
 
 type RankingChange =
   | { type: 'up'; value: number }
@@ -26,6 +26,7 @@ const SORT_OPTIONS: { value: ChartSortMode; label: string }[] = [
   { value: 'match', label: '나와 비슷한 유저 트렌딧 지수순' },
   { value: 'trend', label: '전체 유저 트렌딧 지수순' },
   { value: 'reviews', label: '리뷰 많은 순' },
+  { value: 'satisfied', label: '만족도 높은 순' },
   { value: 'unsatisfied', label: '만족도 낮은 순' },
 ];
 
@@ -55,6 +56,9 @@ function sortTrendingFoodIds(mode: ChartSortMode) {
     }
     if (mode === 'trend') {
       return foodB.trendScore - foodA.trendScore;
+    }
+    if (mode === 'satisfied') {
+      return parseFloat(foodB.matchRate) - parseFloat(foodA.matchRate);
     }
     if (mode === 'unsatisfied') {
       return parseFloat(foodA.matchRate) - parseFloat(foodB.matchRate);

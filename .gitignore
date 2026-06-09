@@ -1,3 +1,4 @@
 node_modules/
 dist/
 guidelines/
+.DS_Store
