@@ -1,11 +1,12 @@
 import { useNavigate, useLocation } from 'react-router';
 import svgPaths from '../../imports/마이페이지본인이보는/svg-efmvaixmp8';
 
-export type BottomNavTab = 'home' | 'explore' | 'write' | 'my';
+export type BottomNavTab = 'home' | 'explore' | 'map' | 'write' | 'my';
 
 const TAB_ROUTES: Record<BottomNavTab, string> = {
  home: '/home',
  explore: '/foods',
+ map: '/map',
  write: '/write-review',
  my: '/mypage',
 };
@@ -13,7 +14,7 @@ const TAB_ROUTES: Record<BottomNavTab, string> = {
 const TABS: { id: BottomNavTab; label: string; iconPath: string }[] = [
  { id: 'home', label: '홈', iconPath: svgPaths.p10fa0400 },
  { id: 'explore', label: '탐색', iconPath: svgPaths.p3a6410f0 },
- // { id: 'map', label: '지도', iconPath: svgPaths.p16a40d00 },
+ { id: 'map', label: '지도', iconPath: svgPaths.p16a40d00 },
  { id: 'write', label: '리뷰 작성', iconPath: svgPaths.p33810a00 },
  { id: 'my', label: '마이', iconPath: svgPaths.p1c9c7e00 },
 ];
@@ -24,7 +25,7 @@ export function getActiveTabFromPath(pathname: string): BottomNavTab | null {
  if (pathname === '/foods' || pathname.startsWith('/foods/') || pathname.startsWith('/store/')) {
  return 'explore';
  }
- // if (pathname === '/map') return 'map';
+ if (pathname === '/map') return 'map';
  if (pathname === '/write-review') return 'write';
  if (
  pathname === '/mypage' ||
