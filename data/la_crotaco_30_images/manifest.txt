@@ -1,0 +1,35 @@
+LA 크로타코 다양화 버전 개별 이미지 30장
+promo_*.jpg: 가게 홍보용처럼 보이는 이미지 6장
+review_*.jpg: 사람들이 리뷰로 올린 것 같은 이미지 24장
+이전 버전보다 매장 전경, 간판, 테이블샷, 포장샷, 야외샷, 단면샷을 더 다양하게 포함했습니다.
+
+promo_01_la_crotaco_diverse_panel_01.jpg
+review_01_la_crotaco_diverse_panel_02.jpg
+promo_02_la_crotaco_diverse_panel_03.jpg
+review_02_la_crotaco_diverse_panel_04.jpg
+review_03_la_crotaco_diverse_panel_05.jpg
+promo_03_la_crotaco_diverse_panel_06.jpg
+promo_04_la_crotaco_diverse_panel_07.jpg
+review_04_la_crotaco_diverse_panel_08.jpg
+review_05_la_crotaco_diverse_panel_09.jpg
+review_06_la_crotaco_diverse_panel_10.jpg
+review_07_la_crotaco_diverse_panel_11.jpg
+review_08_la_crotaco_diverse_panel_12.jpg
+review_09_la_crotaco_diverse_panel_13.jpg
+review_10_la_crotaco_diverse_panel_14.jpg
+promo_05_la_crotaco_diverse_panel_15.jpg
+review_11_la_crotaco_diverse_panel_16.jpg
+review_12_la_crotaco_diverse_panel_17.jpg
+review_13_la_crotaco_diverse_panel_18.jpg
+review_14_la_crotaco_diverse_panel_19.jpg
+review_15_la_crotaco_diverse_panel_20.jpg
+review_16_la_crotaco_diverse_panel_21.jpg
+review_17_la_crotaco_diverse_panel_22.jpg
+review_18_la_crotaco_diverse_panel_23.jpg
+review_19_la_crotaco_diverse_panel_24.jpg
+review_20_la_crotaco_diverse_panel_25.jpg
+review_21_la_crotaco_diverse_panel_26.jpg
+review_22_la_crotaco_diverse_panel_27.jpg
+review_23_la_crotaco_diverse_panel_28.jpg
+review_24_la_crotaco_diverse_panel_29.jpg
+promo_06_la_crotaco_diverse_panel_30.jpg

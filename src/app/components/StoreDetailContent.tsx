@@ -5,6 +5,7 @@ import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { getFoodIdByMenuName } from '../data/foods';
 import StoreReviewCard from './StoreReviewCard';
 import { getStoreById } from '../data/stores';
+import { getStorePromoImages } from '../utils/images';
 
 type StoreDetailContentProps = {
   storeId: string;
@@ -101,31 +102,12 @@ export default function StoreDetailContent({ storeId }: StoreDetailContentProps)
 
       <div className="px-[24px] py-[16px]">
         <div className="flex gap-[8px] overflow-x-auto">
-          {[1, 2, 3, 4].map((i) => (
+          {getStorePromoImages(store.menuName, 4).map((src, i) => (
             <div
               key={i}
-              className="flex h-[130px] w-[104px] flex-shrink-0 items-center justify-center rounded-[10px] border-2 border-[#2e211c] bg-[#f7f4f0]"
+              className="h-[130px] w-[104px] flex-shrink-0 overflow-hidden rounded-[10px] border-2 border-[#2e211c] bg-[#f7f4f0]"
             >
-              <svg className="h-[24px] w-[24px]" fill="none" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#A1A1A1" strokeWidth="2" fill="none" />
-                <circle cx="8.5" cy="8.5" r="2.5" stroke="#A1A1A1" strokeWidth="2" fill="none" />
-                <path
-                  d="M3 16L8 11L13 16"
-                  stroke="#A1A1A1"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-                <path
-                  d="M13 13L16 10L21 15"
-                  stroke="#A1A1A1"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
+              <img src={src} alt="" className="h-full w-full object-cover" />
             </div>
           ))}
         </div>
@@ -219,6 +201,7 @@ export default function StoreDetailContent({ storeId }: StoreDetailContentProps)
             <p className="text-center text-[28px] font-extrabold leading-[1] text-[#4a90a4]">
               {store.avgScore}%
             </p>
+            <p className="mt-[6px] text-center text-[10px] text-[#9e9794]">{store.reviewCount}명 기준</p>
           </div>
           <div className="flex flex-1 flex-col items-center justify-center rounded-[16px] border-2 border-[#2e211c] bg-white p-[16px]">
             <p className="mb-[12px] text-center text-[12px] leading-[16px] text-[#665a55]">
@@ -229,6 +212,7 @@ export default function StoreDetailContent({ storeId }: StoreDetailContentProps)
             <p className="text-center text-[28px] font-extrabold leading-[1] text-[#4a90a4]">
               {store.similarScore}%
             </p>
+            <p className="mt-[6px] text-center text-[10px] text-[#9e9794]">{Math.round(store.reviewCount * 0.4)}명 기준</p>
           </div>
         </div>
       </div>
@@ -256,12 +240,23 @@ export default function StoreDetailContent({ storeId }: StoreDetailContentProps)
             <StoreReviewCard
               key={idx}
               review={review}
+              reviewIndex={idx}
+              menuName={store.menuName}
               liked={likedReviews.has(idx)}
+              likeCount={(idx * 3 + 5) % 18 + 1}
               onToggleLike={() => toggleLike(idx)}
               showMatchRate={showPersonalizedMetrics}
+              verified={idx === 0}
             />
           ))}
         </div>
+        <button
+          type="button"
+          onClick={() => navigate(`/store/${storeId}/reviews`)}
+          className="mt-4 w-full rounded-[10px] border-2 border-[#e5e2de] py-3 text-[14px] font-medium text-[#665a55] transition-colors hover:bg-[#f7f4f0]"
+        >
+          리뷰 더보기 ({store.reviewCount}개)
+        </button>
       </div>
     </>
   );

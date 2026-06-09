@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
 import ExploreReviewCard from '../components/ExploreReviewCard';
 import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
+import { getPromoImageByIndex } from '../utils/images';
 import {
   BANGKOK_ROTI_FRY_FOOD_STORES,
   BANGKOK_ROTI_FRY_STORES,
@@ -213,11 +214,14 @@ function BookmarkIcon({ filled }: { filled?: boolean }) {
 
 function NewOpenCard({
   store,
+  storeIndex,
   onNavigate,
 }: {
   store: NewOpenStore;
+  storeIndex: number;
   onNavigate: () => void;
 }) {
+  const imgSrc = getPromoImageByIndex(store.tag, storeIndex);
   return (
     <div className="relative shrink-0 w-[146px]">
       <button
@@ -233,10 +237,8 @@ function NewOpenCard({
             {store.tag}
           </span>
         </div>
-        <div className="flex h-[100px] items-start bg-[#f7f4f0] p-2">
-          <span className="rounded-[20px] bg-[#c06226] px-[7px] py-0.5 text-[10px] font-bold text-white">
-            NEW
-          </span>
+        <div className="relative h-[100px] overflow-hidden bg-[#f7f4f0]">
+          <img src={imgSrc} alt="" className="h-full w-full object-cover" />
         </div>
       </button>
       {store.bookmarked && (
@@ -255,7 +257,15 @@ export default function FoodsPage() {
   const [activeTag, setActiveTag] = useState<TrendTagId>('macao');
   const [likedReviews, setLikedReviews] = useState<Set<string>>(() => new Set());
 
-  const { newOpenStores, reviews } = useMemo(
+  const allNewOpenStores = useMemo(
+    () => [
+      ...TREND_CONTENT.macao.newOpenStores,
+      ...TREND_CONTENT.bangkok.newOpenStores,
+      ...TREND_CONTENT.crotaco.newOpenStores,
+    ],
+    [],
+  );
+  const { reviews } = useMemo(
     () => TREND_CONTENT[activeTag],
     [activeTag],
   );
@@ -308,7 +318,7 @@ export default function FoodsPage() {
 
         <section className="flex flex-col gap-3.5 px-[18px] pt-2">
           <div className="flex items-center justify-between">
-            <p className="text-[15px] text-[#1c1c1e]">신규 오픈</p>
+            <p className="text-[15px] text-[#1c1c1e]">전체 추천</p>
             <button
               type="button"
               onClick={() => navigate(`/foods/new-open/${activeTag}`)}
@@ -319,10 +329,11 @@ export default function FoodsPage() {
           </div>
           <div className="-mx-[18px] overflow-x-auto px-[18px] pb-1">
             <div className="flex gap-[11px]">
-              {newOpenStores.map((store) => (
+              {allNewOpenStores.map((store, idx) => (
                 <NewOpenCard
-                  key={`${activeTag}-${store.storeId}`}
+                  key={store.storeId}
                   store={store}
+                  storeIndex={idx}
                   onNavigate={() => navigate(`/store/${store.storeId}`)}
                 />
               ))}
@@ -357,8 +368,10 @@ export default function FoodsPage() {
                   visitInfo={review.visitInfo}
                   text={review.text}
                   imageCount={review.imageCount}
+                  reviewIndex={reviews.indexOf(review)}
                   verified={review.verified}
                   liked={likedReviews.has(key)}
+                  likeCount={(reviews.indexOf(review) * 4 + 7) % 20 + 2}
                   onToggleLike={() => toggleLike(key)}
                   onNavigate={() => navigate(`/store/${review.storeId}`)}
                   showMatchRate={showPersonalizedMetrics}

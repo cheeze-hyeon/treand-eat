@@ -13,6 +13,8 @@ export type Food = {
   reviewCount: number;
   storeCount: number;
   description: string;
+  sampleCount: number;
+  dailyReviews: number[];
 };
 
 export const FOODS: Food[] = [
@@ -26,6 +28,8 @@ export const FOODS: Food[] = [
     similarUserTrendScore: 96,
     reviewCount: 180,
     storeCount: 5,
+    sampleCount: 87,
+    dailyReviews: [54, 51, 47, 38, 29, 19, 11],
     description:
       '마카오 에그타르트를 쿠키로 재해석한 바이럴 디저트. 겉은 바삭한 크랙 코팅, 속은 진한 커스터드가 들어 있어 반갈샷·크랙 소리가 SNS에서 화제가 된 메뉴입니다.',
   },
@@ -39,6 +43,8 @@ export const FOODS: Food[] = [
     similarUserTrendScore: 92,
     reviewCount: 176,
     storeCount: 5,
+    sampleCount: 73,
+    dailyReviews: [9, 15, 22, 31, 41, 52, 61],
     description:
       '태국 전통 길거리 음식인 로띠를 튀김 형태로 재해석한 바이럴 디저트. 겉은 얇고 바삭한 튀김 반죽, 속은 달콤한 과일, 연유, 누텔라 등의 다양한 필링으로 채워져 있어 SNS에서 화제가 된 메뉴입니다.',
   },
@@ -52,6 +58,8 @@ export const FOODS: Food[] = [
     similarUserTrendScore: 93,
     reviewCount: 188,
     storeCount: 5,
+    sampleCount: 94,
+    dailyReviews: [18, 31, 47, 55, 48, 36, 22],
     description:
       'LA 멕시칸 음식점에서 시작된 타코+크로와상 조합의 바이럴 메뉴. 바삭한 크로와상 안에 매콤한 타코 필링과 치즈, 살사, 사워크림이 들어 있어 단면 비주얼과 짭짤한 풍미로 SNS에서 화제가 된 메뉴입니다.',
   },

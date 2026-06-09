@@ -1,11 +1,10 @@
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import {
   getAllNewOpenStores,
-  getTrendTagLabel,
   TREND_TAGS,
   type NewOpenStore,
-  type TrendTagId,
 } from './FoodsPage';
+import { getPromoImageByIndex } from '../utils/images';
 
 function BookmarkIcon({ filled }: { filled?: boolean }) {
   return (
@@ -22,7 +21,8 @@ function BookmarkIcon({ filled }: { filled?: boolean }) {
   );
 }
 
-function NewOpenListItem({ store, onNavigate }: { store: NewOpenStore; onNavigate: () => void }) {
+function NewOpenListItem({ store, storeIndex, onNavigate }: { store: NewOpenStore; storeIndex: number; onNavigate: () => void }) {
+  const imgSrc = getPromoImageByIndex(store.tag, storeIndex);
   return (
     <div className="relative w-full">
       <button
@@ -30,8 +30,8 @@ function NewOpenListItem({ store, onNavigate }: { store: NewOpenStore; onNavigat
         onClick={onNavigate}
         className="flex w-full overflow-hidden rounded-[14px] border-2 border-[#2e211c] bg-white text-left shadow-[0px_2px_10px_0_rgba(0,0,0,0.06)]"
       >
-        <div className="flex h-[100px] w-[100px] shrink-0 items-start bg-[#f7f4f0] p-2">
-          <span className="rounded-[20px] bg-[#c06226] px-[7px] py-0.5 text-[10px] font-bold text-white">NEW</span>
+        <div className="h-[100px] w-[100px] shrink-0 overflow-hidden bg-[#f7f4f0]">
+          <img src={imgSrc} alt="" className="h-full w-full object-cover" />
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-[3px] px-3 py-3">
           <p className="text-[15px] text-[#2e211c]">{store.name}</p>
@@ -49,16 +49,9 @@ function NewOpenListItem({ store, onNavigate }: { store: NewOpenStore; onNavigat
   );
 }
 
-function isTrendTagId(value: string | undefined): value is TrendTagId {
-  return TREND_TAGS.some((tag) => tag.id === value);
-}
-
 export default function FoodNewOpenPage() {
-  const { tagId } = useParams();
   const navigate = useNavigate();
-  const activeTagId = isTrendTagId(tagId) ? tagId : 'macao';
-  const stores = getAllNewOpenStores(activeTagId);
-  const tagLabel = getTrendTagLabel(activeTagId);
+  const stores = TREND_TAGS.flatMap((tag) => getAllNewOpenStores(tag.id));
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
@@ -70,15 +63,15 @@ export default function FoodNewOpenPage() {
           </svg>
         </button>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-base font-semibold text-[#1c1c1e]">신규 오픈</p>
-          <p className="truncate text-xs text-[#9e9794]">{tagLabel}</p>
+          <p className="truncate text-base font-semibold text-[#1c1c1e]">전체 추천</p>
+          <p className="truncate text-xs text-[#9e9794]">전체 카테고리</p>
         </div>
         <p className="shrink-0 text-xs text-[#9e9794]">{stores.length}곳</p>
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto px-[18px] py-4">
         <div className="flex flex-col gap-3">
-          {stores.map((store) => (
-            <NewOpenListItem key={store.storeId} store={store} onNavigate={() => navigate(`/store/${store.storeId}`)} />
+          {stores.map((store, idx) => (
+            <NewOpenListItem key={store.storeId} store={store} storeIndex={idx} onNavigate={() => navigate(`/store/${store.storeId}`)} />
           ))}
         </div>
       </div>

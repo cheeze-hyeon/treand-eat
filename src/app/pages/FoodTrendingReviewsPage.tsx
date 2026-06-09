@@ -74,8 +74,10 @@ export default function FoodTrendingReviewsPage() {
               visitInfo={review.visitInfo}
               text={review.text}
               imageCount={review.imageCount}
+              reviewIndex={idx}
               verified={review.verified}
               liked={likedReviews.has(idx)}
+              likeCount={(idx * 4 + 6) % 20 + 3}
               onToggleLike={() => toggleLike(idx)}
               onNavigate={() => navigate(`/store/${review.storeId}`)}
               showMatchRate={showPersonalizedMetrics}

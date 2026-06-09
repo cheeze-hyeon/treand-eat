@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router';
 import BottomNavigation from '../components/BottomNavigation';
 import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { FOODS, TRENDING_FOOD_IDS } from '../data/foods';
+import { getFoodPromoImage } from '../utils/images';
 
-type ChartSortMode = 'match' | 'trend' | 'reviews';
+type ChartSortMode = 'match' | 'trend' | 'reviews' | 'unsatisfied';
 
 type RankingChange =
   | { type: 'up'; value: number }
@@ -25,6 +26,7 @@ const SORT_OPTIONS: { value: ChartSortMode; label: string }[] = [
   { value: 'match', label: '나와 비슷한 유저 트렌딧 지수순' },
   { value: 'trend', label: '전체 유저 트렌딧 지수순' },
   { value: 'reviews', label: '리뷰 많은 순' },
+  { value: 'unsatisfied', label: '만족도 낮은 순' },
 ];
 
 const REVIEW_RANKING: ReviewRankingItem[] = [
@@ -41,6 +43,8 @@ const FIRST_INTRODUCED: Record<string, string> = {
   '3': '2026.05.15',
 };
 
+const DAY_LABELS = ['월', '화', '수', '목', '금', '토', '일'];
+
 function sortTrendingFoodIds(mode: ChartSortMode) {
   return [...TRENDING_FOOD_IDS].sort((a, b) => {
     const foodA = FOODS.find((item) => item.id === a)!;
@@ -51,6 +55,9 @@ function sortTrendingFoodIds(mode: ChartSortMode) {
     }
     if (mode === 'trend') {
       return foodB.trendScore - foodA.trendScore;
+    }
+    if (mode === 'unsatisfied') {
+      return parseFloat(foodA.matchRate) - parseFloat(foodB.matchRate);
     }
     return foodB.reviewCount - foodA.reviewCount;
   });
@@ -116,48 +123,33 @@ function BellIcon() {
   );
 }
 
-function ImagePlaceholderIcon() {
-  return (
-    <svg width={40} height={40} viewBox="0 0 40 40" fill="none" aria-hidden>
-      <path
-        d="M31.6667 5H8.33333C6.49238 5 5 6.49238 5 8.33333V31.6667C5 33.5076 6.49238 35 8.33333 35H31.6667C33.5076 35 35 33.5076 35 31.6667V8.33333C35 6.49238 33.5076 5 31.6667 5Z"
-        stroke="#9E9794"
-        strokeWidth={2.5}
-      />
-      <path
-        d="M14.1667 16.666C15.5475 16.666 16.6667 15.5467 16.6667 14.166C16.6667 12.7853 15.5475 11.666 14.1667 11.666C12.786 11.666 11.6667 12.7853 11.6667 14.166C11.6667 15.5467 12.786 16.666 14.1667 16.666Z"
-        stroke="#9E9794"
-        strokeWidth={2.5}
-      />
-      <path
-        d="M34.9999 24.9993L26.6666 16.666L8.33325 34.9993"
-        stroke="#9E9794"
-        strokeWidth={2.5}
-      />
-    </svg>
-  );
-}
+function DailyReviewChart({ data }: { data: number[] }) {
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const w = 100;
+  const h = 60;
+  const isRising = data[data.length - 1] > data[0];
+  const color = isRising ? '#4a90a4' : '#c06226';
+  const pts: [number, number][] = data.map((v, i) => [
+    (i / (data.length - 1)) * (w - 6) + 3,
+    h - 4 - ((v - min) / (max - min || 1)) * (h - 10),
+  ]);
+  const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
 
-function ReviewTrendChart() {
   return (
-    <svg width={100} height={68} viewBox="0 0 100 68" fill="none" aria-hidden>
-      <path
-        d="M0 60L24 50L48 35L72 20L96 8"
-        stroke="#9CB8B7"
-        strokeWidth={2.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {[
-        [0, 60],
-        [24, 50],
-        [48, 35],
-        [72, 20],
-        [96, 8],
-      ].map(([cx, cy]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={3.5} fill="#9CB8B7" />
-      ))}
-    </svg>
+    <div className="flex w-full flex-col gap-1">
+      <svg width={100} height={60} viewBox={`0 0 ${w} ${h}`} fill="none" aria-hidden>
+        <path d={d} stroke={color} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+        {pts.map(([cx, cy], i) => (
+          <circle key={i} cx={cx} cy={cy} r={3} fill={color} />
+        ))}
+      </svg>
+      <div className="flex justify-between px-0.5">
+        {DAY_LABELS.map((label) => (
+          <span key={label} className="text-[8px] text-[#c8b8b0]">{label}</span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -212,9 +204,10 @@ type TrendChartCardProps = {
   name: string;
   price: string;
   matchRate: string;
+  sampleCount: number;
   firstIntroduced: string;
   description: string;
-  showTrendChart?: boolean;
+  dailyReviews: number[];
   showMatchRate?: boolean;
 };
 
@@ -224,12 +217,14 @@ function TrendChartCard({
   name,
   price,
   matchRate,
+  sampleCount,
   firstIntroduced,
   description,
-  showTrendChart = false,
+  dailyReviews,
   showMatchRate = true,
 }: TrendChartCardProps) {
   const navigate = useNavigate();
+  const imgSrc = getFoodPromoImage(foodId);
 
   return (
     <button
@@ -247,24 +242,22 @@ function TrendChartCard({
           <p className="text-[10px] text-[#9e9794]">{price}</p>
         </div>
         {showMatchRate && (
-          <div className="flex shrink-0 items-center gap-1">
-            {/* <div className="flex h-[31px] items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5">
+          <div className="flex shrink-0 flex-col items-end gap-0.5">
+            <div className="flex h-[31px] items-center justify-center rounded-lg bg-[#9cb8b7] px-[7px] py-0.5">
               <p className="whitespace-nowrap text-[13px] text-[#2e211c]">만족할 확률 {matchRate}</p>
-            </div> */}
-            <span className="text-[28px] leading-none">
-              {Number.parseInt(matchRate, 10) >= 70 ? '🙂' : '🙁'}
-            </span>
+            </div>
+            <p className="text-[10px] text-[#9e9794]">{sampleCount}명 기준</p>
           </div>
         )}
       </div>
 
       <div className="flex gap-3 bg-[#f7f4f0] px-[13px] py-3">
-        <div className="flex h-[110px] flex-1 items-center justify-center rounded-lg border border-[#2e211c]/20 bg-white/60">
-          <ImagePlaceholderIcon />
+        <div className="h-[110px] flex-1 overflow-hidden rounded-lg border border-[#2e211c]/20 bg-white/60">
+          <img src={imgSrc} alt={name} className="h-full w-full object-cover" />
         </div>
         <div className="flex h-[110px] flex-1 flex-col items-center justify-center gap-1.5 rounded-lg border border-[#2e211c]/20 bg-white/60 px-1.5 py-[9.5px]">
           <p className="text-[10px] text-[#9e9794]">최근 리뷰량 추이</p>
-          {showTrendChart ? <ReviewTrendChart /> : <div className="h-[68px] w-[100px]" />}
+          <DailyReviewChart data={dailyReviews} />
         </div>
       </div>
 
@@ -309,8 +302,10 @@ export default function HomePage() {
         name: food.name,
         price: food.price,
         matchRate: food.matchRate,
+        sampleCount: food.sampleCount,
         firstIntroduced: FIRST_INTRODUCED[foodId] ?? '2026.05.01',
         description: food.description,
+        dailyReviews: food.dailyReviews,
       };
     });
   }, [sortMode]);
@@ -354,20 +349,20 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => setIsSortOpen((open) => !open)}
-                className="flex items-center gap-1"
+                className="flex items-center gap-1.5 rounded-lg border-2 border-[#e5e2de] bg-white px-3 py-1.5 shadow-sm"
                 aria-expanded={isSortOpen}
                 aria-haspopup="listbox"
               >
-                <span className="text-xs text-[#8a8a8e]">{currentSortLabel}</span>
+                <span className="text-sm font-medium text-[#2e211c]">{currentSortLabel}</span>
                 <svg
-                  className={`h-3 w-3 transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
+                  className={`h-3.5 w-3.5 transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
                   viewBox="0 0 12 12"
                   fill="none"
                   aria-hidden
                 >
                   <path
                     d="M3 4.5L6 7.5L9 4.5"
-                    stroke="#8A8A8E"
+                    stroke="#2e211c"
                     strokeWidth={1.5}
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -377,7 +372,7 @@ export default function HomePage() {
               {isSortOpen && (
                 <ul
                   role="listbox"
-                  className="absolute right-0 top-full z-10 mt-1 min-w-[180px] overflow-hidden rounded-lg border border-[#e5e2de] bg-white py-1 shadow-[0px_4px_12px_#00000014]"
+                  className="absolute right-0 top-full z-10 mt-1 min-w-[200px] overflow-hidden rounded-lg border border-[#e5e2de] bg-white py-1 shadow-[0px_4px_12px_#00000014]"
                 >
                   {sortOptions.map((option) => (
                     <li key={option.value} role="option" aria-selected={sortMode === option.value}>
@@ -387,8 +382,8 @@ export default function HomePage() {
                           setSortMode(option.value);
                           setIsSortOpen(false);
                         }}
-                        className={`w-full px-3 py-2 text-left text-xs transition-colors hover:bg-[#f7f4f0] ${
-                          sortMode === option.value ? 'text-[#2e211c]' : 'text-[#8a8a8e]'
+                        className={`w-full px-3 py-2 text-left text-sm transition-colors hover:bg-[#f7f4f0] ${
+                          sortMode === option.value ? 'font-medium text-[#2e211c]' : 'text-[#8a8a8e]'
                         }`}
                       >
                         {option.label}
@@ -401,7 +396,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-3">
-            {chartItems.map((item, index) => (
+            {chartItems.map((item) => (
               <TrendChartCard
                 key={item.foodId}
                 rank={item.rank}
@@ -409,9 +404,10 @@ export default function HomePage() {
                 name={item.name}
                 price={item.price}
                 matchRate={item.matchRate}
+                sampleCount={item.sampleCount}
                 firstIntroduced={item.firstIntroduced}
                 description={item.description}
-                showTrendChart={true}
+                dailyReviews={item.dailyReviews}
                 showMatchRate={showPersonalizedMetrics}
               />
             ))}

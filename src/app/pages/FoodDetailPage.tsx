@@ -6,41 +6,37 @@ import FoodStoreCard, { getStoreListing } from '../components/FoodStoreCard';
 import { usePersonalizedMetrics } from '../contexts/UserPreferencesContext';
 import { FOOD_STORES, getFoodById, parseFoodPrice } from '../data/foods';
 import { getExploreReviewsForFood } from '../data/trendingReviews';
+import { getFoodPromoImage } from '../utils/images';
 
-function ReviewTrendChart() {
+const DAY_LABELS = ['월', '화', '수', '목', '금', '토', '일'];
+
+function ReviewTrendChart({ data }: { data: number[] }) {
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const w = 100;
+  const h = 60;
+  const isRising = data[data.length - 1] > data[0];
+  const color = isRising ? '#4a90a4' : '#c06226';
+  const pts: [number, number][] = data.map((v, i) => [
+    (i / (data.length - 1)) * (w - 6) + 3,
+    h - 4 - ((v - min) / (max - min || 1)) * (h - 10),
+  ]);
+  const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+
   return (
-    <svg
-      width={100}
-      height={68}
-      viewBox="0 0 100 68"
-      fill="none"
-      className="h-[68px] w-[100px]"
-      aria-hidden
-    >
-      <g clipPath="url(#foodDetailTrendClip)">
-        <path
-          d="M0 48L24 42L48 32L72 24L96 16"
-          stroke="#9CB8B7"
-          strokeWidth={2.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {[
-          [0, 48],
-          [24, 42],
-          [48, 32],
-          [72, 24],
-          [96, 16],
-        ].map(([cx, cy]) => (
-          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={3.5} fill="#9CB8B7" />
+    <div className="flex w-full flex-col gap-1">
+      <svg width={100} height={60} viewBox={`0 0 ${w} ${h}`} fill="none" aria-hidden>
+        <path d={d} stroke={color} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+        {pts.map(([cx, cy], i) => (
+          <circle key={i} cx={cx} cy={cy} r={3} fill={color} />
         ))}
-      </g>
-      <defs>
-        <clipPath id="foodDetailTrendClip">
-          <rect width={100} height={68} fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
+      </svg>
+      <div className="flex justify-between px-0.5">
+        {DAY_LABELS.map((label) => (
+          <span key={label} className="text-[8px] text-[#c8b8b0]">{label}</span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -124,23 +120,16 @@ export default function FoodDetailPage() {
  </div>
  </div>
  <div className="flex w-full flex-col">
- <div className="self-stretch flex-grow-0 flex-shrink-0 h-[280px] relative bg-[#c8b89a]">
- <div className="w-full h-[280px] absolute left-0 top-0 bg-[#f7f4f0]" />
- <div className="absolute right-5 top-[30px] flex h-[110px] w-[165.5px] flex-col items-center justify-center gap-1.5 rounded-lg border border-[#2e211c]/20 bg-white/60 px-1.5 py-[9.5px]">
- <p className="text-[10px] text-[#9e9794]">최근 리뷰량 추이</p>
- <ReviewTrendChart />
+ <div className="relative w-full min-h-[280px] flex flex-col justify-end bg-[#c8b89a]">
+ <img src={getFoodPromoImage(food.id)} alt={food.name} className="absolute inset-0 w-full h-full object-cover" />
+ <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/65 pointer-events-none" />
+ <div className="absolute right-5 top-[30px] flex h-[110px] w-[165.5px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/30 bg-black/40 px-1.5 py-[9.5px]">
+ <p className="text-[10px] text-white/80">최근 리뷰량 추이</p>
+ <ReviewTrendChart data={food.dailyReviews} />
  </div>
- <div className="flex flex-col justify-start items-start w-full absolute left-0 top-[180px] gap-[5px] px-5 pb-[18px]">
- <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative pt-[3px]">
- <p className="self-stretch flex-grow-0 flex-shrink-0 w-[362px] text-[26px] text-left text-[#2e211c]">
- {food.name}
- </p>
- </div>
- <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative">
- <p className="self-stretch flex-grow-0 flex-shrink-0 w-[362px] text-xs text-left text-[#2e211c]">
- {food.description}
- </p>
- </div>
+ <div className="relative z-10 flex flex-col gap-[5px] px-5 pt-[160px] pb-[18px]">
+ <p className="text-[26px] font-bold text-white drop-shadow-sm">{food.name}</p>
+ <p className="text-xs text-white/80">{food.description}</p>
  </div>
  </div>
  <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 px-5 py-3.5 bg-white border-t-0 border-r-0 border-b border-l-0 border-[#ebebeb]">
@@ -158,6 +147,7 @@ export default function FoodDetailPage() {
  <p className="flex-grow-0 flex-shrink-0 text-[22px] font-black text-left text-[#335352]">
  {food.matchRate}
  </p>
+ <p className="text-[10px] text-[#9e9794]">{food.sampleCount}명 기준</p>
  </div>
  </div>
  )}
@@ -185,15 +175,8 @@ export default function FoodDetailPage() {
  </div>
  </div>
  <div className="flex w-full flex-col gap-3 px-[18px] pt-5">
- <div className="flex items-center justify-between self-stretch">
+ <div className="flex items-center self-stretch">
  <p className="text-base text-[#1c1c1e]">판매하는 곳</p>
- <button
- type="button"
- onClick={() => navigate(`/food/${food.id}/stores`)}
- className="text-xs text-[#9e9794]"
- >
- 더보기 ›
- </button>
  </div>
  <div
  className={
@@ -226,17 +209,17 @@ export default function FoodDetailPage() {
  );
  })}
  </div>
- </div>
- <div className="flex w-full flex-col gap-3 px-[18px] pt-5 pb-6">
- <div className="flex justify-between items-center self-stretch">
- <p className="text-base text-[#1c1c1e]">지금 뜨는 리뷰</p>
  <button
  type="button"
- onClick={() => navigate(`/food/${food.id}/reviews`)}
- className="text-xs text-[#9e9794]"
+ onClick={() => navigate(`/food/${food.id}/stores`)}
+ className="mx-[18px] mt-1 mb-2 w-[calc(100%-36px)] rounded-[10px] border-2 border-[#e5e2de] py-3 text-[14px] font-medium text-[#665a55] transition-colors hover:bg-[#f7f4f0]"
  >
- 더보기 ›
+ 판매 매장 전체 보기
  </button>
+ </div>
+ <div className="flex w-full flex-col gap-3 px-[18px] pt-3 pb-6">
+ <div className="flex items-center self-stretch">
+ <p className="text-base text-[#1c1c1e]">지금 뜨는 리뷰</p>
  </div>
  <div className="flex flex-col gap-3">
  {previewReviews.map((review, idx) => (
@@ -252,14 +235,23 @@ export default function FoodDetailPage() {
  visitInfo={review.visitInfo}
  text={review.text}
  imageCount={review.imageCount}
+ reviewIndex={idx}
  verified={review.verified}
  liked={likedReviews.has(idx)}
+ likeCount={(idx * 4 + 6) % 20 + 3}
  onToggleLike={() => toggleLike(idx)}
  onNavigate={() => navigate(`/store/${review.storeId}`)}
  showMatchRate={showPersonalizedMetrics}
  />
  ))}
  </div>
+ <button
+ type="button"
+ onClick={() => navigate(`/food/${food.id}/reviews`)}
+ className="mt-1 w-full rounded-[10px] border-2 border-[#e5e2de] py-3 text-[14px] font-medium text-[#665a55] transition-colors hover:bg-[#f7f4f0]"
+ >
+ 리뷰 전체 보기
+ </button>
  </div>
  </div>
  </div>

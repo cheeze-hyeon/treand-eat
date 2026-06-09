@@ -1,23 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-
-function ReviewPhotoPlaceholder() {
-  return (
-    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" aria-hidden>
-      <rect x="3" y="3" width="18" height="18" rx="2" stroke="#A1A1A1" strokeWidth="2" />
-      <circle cx="8.5" cy="8.5" r="2.5" stroke="#A1A1A1" strokeWidth="2" />
-      <path d="M3 16L8 11L13 16" stroke="#A1A1A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M13 13L16 10L21 15" stroke="#A1A1A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function VerifiedBadge() {
-  return (
-    <svg className="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" aria-label="영수증 인증">
-      <path d="M23 11.9991L20.56 9.21906L20.9 5.53906L17.29 4.71906L15.4 1.53906L12 2.99906L8.6 1.53906L6.71 4.71906L3.1 5.52906L3.44 9.20906L1 11.9991L3.44 14.7791L3.1 18.4691L6.71 19.2891L8.6 22.4691L12 20.9991L15.4 22.4591L17.29 19.2791L20.9 18.4591L20.56 14.7791L23 11.9991ZM10 16.9991L6 12.9991L7.41 11.5891L10 14.1691L16.59 7.57906L18 8.99906L10 16.9991Z" fill="#335352" />
-    </svg>
-  );
-}
+import { getReviewImages } from '../utils/images';
 
 function LikeIcon({ liked }: { liked: boolean }) {
   const color = liked ? '#4A90A4' : '#9CB8B7';
@@ -39,8 +21,10 @@ export type ExploreReviewCardProps = {
   visitInfo: string;
   text: string;
   imageCount: number;
+  reviewIndex?: number;
   verified?: boolean;
   liked?: boolean;
+  likeCount?: number;
   showMatchRate?: boolean;
   onToggleLike?: () => void;
   onNavigate?: () => void;
@@ -72,8 +56,12 @@ function ReviewText({ text, satisfied, expanded, onExpand, onCollapse }: { text:
 }
 
 function ExploreReviewCardBody(props: Omit<ExploreReviewCardProps, 'onNavigate'>) {
-  const { storeName, menuName, authorInitial, author, time, matchRate, satisfied, visitInfo, text, imageCount, verified = false, liked = false, showMatchRate = true, onToggleLike } = props;
+  const { storeName, menuName, authorInitial, author, time, matchRate, satisfied, visitInfo, text, imageCount, reviewIndex = 0, verified = false, liked = false, likeCount, showMatchRate = true, onToggleLike } = props;
   const [expanded, setExpanded] = useState(false);
+
+  const reviewImages = imageCount > 0
+    ? getReviewImages(menuName, reviewIndex, imageCount)
+    : [];
 
   return (
     <>
@@ -81,35 +69,51 @@ function ExploreReviewCardBody(props: Omit<ExploreReviewCardProps, 'onNavigate'>
         <p className="text-base text-[#2e211c]">{storeName}</p>
         <span className="rounded-md bg-[#2e211c] px-1.5 pt-0.5 text-[11px] text-white">{menuName}</span>
       </div>
-      <div className="mb-3 flex items-end justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#2e211c]">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <div className="flex min-w-0 flex-1 items-center gap-2">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2e211c]">
             <span className="text-xs text-white">{authorInitial}</span>
           </div>
-          <div>
-            <p className="text-sm text-[#2e211c]">{author}</p>
+          <div className="min-w-0">
+            <div className="flex min-w-0 items-center gap-1.5">
+              <p className="truncate text-sm text-[#2e211c]">{author}</p>
+              {verified && (
+                <span className="shrink-0 rounded-md bg-[#335352] px-1.5 py-0.5 text-[10px] font-medium text-white">
+                  방문인증
+                </span>
+              )}
+            </div>
             <p className="text-xs text-[#9e9794]">{time}</p>
           </div>
         </div>
         <div className="flex shrink-0 items-center gap-1">
-          {showMatchRate && <span className="rounded-lg bg-[#9cb8b7] px-2 pt-[3px] text-[11px] text-[#2e211c]">취향 일치율 {matchRate}%</span>}
-          <span className="text-[28px] leading-none">{satisfied ? '🙂' : '🙁'}</span>
+          {showMatchRate && <span className="whitespace-nowrap rounded-lg bg-[#9cb8b7] px-2 pt-[3px] text-[11px] text-[#2e211c]">취향 일치율 {matchRate}%</span>}
+          <span className="text-[22px] leading-none">{satisfied ? '🙂' : '🙁'}</span>
         </div>
       </div>
-      <div className="mb-3 flex items-center justify-between gap-2">
-        <p className="text-xs text-[#717171]">{visitInfo}</p>
-        {verified && satisfied && <VerifiedBadge />}
-      </div>
+      <p className="mb-3 text-xs text-[#717171]">{visitInfo}</p>
       <ReviewText text={text} satisfied={satisfied} expanded={expanded} onExpand={() => setExpanded(true)} onCollapse={() => setExpanded(false)} />
-      <div className="mb-3 flex gap-2">
-        {Array.from({ length: imageCount }).map((_, i) => (
-          <div key={i} className="flex h-16 w-16 items-center justify-center rounded-[10px] bg-[#f7f4f0]"><ReviewPhotoPlaceholder /></div>
-        ))}
-      </div>
+      {reviewImages.length > 0 && (
+        <div className="mb-3 flex gap-2">
+          {reviewImages.map((src, i) => (
+            <div key={i} className="h-16 w-16 shrink-0 overflow-hidden rounded-[10px] bg-[#f7f4f0]">
+              <img src={src} alt="" className="h-full w-full object-cover" />
+            </div>
+          ))}
+        </div>
+      )}
       <div className="flex justify-end">
-        <span role="button" tabIndex={0} onClick={(e) => { e.stopPropagation(); onToggleLike?.(); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onToggleLike?.(); } }} className="flex items-center gap-1">
+        <span
+          role="button"
+          tabIndex={0}
+          onClick={(e) => { e.stopPropagation(); onToggleLike?.(); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onToggleLike?.(); } }}
+          className="flex items-center gap-1"
+        >
           <LikeIcon liked={liked} />
-          <span className={`text-xs ${liked ? 'text-[#4a90a4]' : 'text-[#9cb8b7]'}`}>공감</span>
+          <span className={`text-xs ${liked ? 'text-[#4a90a4]' : 'text-[#9cb8b7]'}`}>
+            도움이 됐어요{likeCount != null ? ` ${likeCount}` : ''}
+          </span>
         </span>
       </div>
     </>
