@@ -7,6 +7,8 @@ interface OnboardingContextType {
  setSelectedTextures: (textures: string[]) => void;
  selectedFlavors: string[];
  setSelectedFlavors: (flavors: string[]) => void;
+ selectedFoods: string[];
+ setSelectedFoods: (foods: string[]) => void;
 }
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
@@ -15,6 +17,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
  const [selectedDistricts, setSelectedDistricts] = useState<string[]>([]);
  const [selectedTextures, setSelectedTextures] = useState<string[]>([]);
  const [selectedFlavors, setSelectedFlavors] = useState<string[]>([]);
+ const [selectedFoods, setSelectedFoods] = useState<string[]>([]);
 
  return (
  <OnboardingContext.Provider
@@ -25,6 +28,8 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
  setSelectedTextures,
  selectedFlavors,
  setSelectedFlavors,
+ selectedFoods,
+ setSelectedFoods,
  }}
  >
  {children}

@@ -58,7 +58,7 @@ export default function OnboardingPage() {
  return (
  <OnboardingLayout
  step={1}
- totalSteps={4}
+ totalSteps={6}
  onNext={handleNext}
  onBack={handleBack}
  showBackButton={false}

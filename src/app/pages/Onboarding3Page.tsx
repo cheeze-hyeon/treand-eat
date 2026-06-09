@@ -22,7 +22,7 @@ export default function Onboarding3Page() {
  };
 
  const handleNext = () => {
- navigate('/write-review', { state: { fromOnboarding: true } });
+ navigate('/onboarding4');
  };
 
  const handleBack = () => {
@@ -32,7 +32,7 @@ export default function Onboarding3Page() {
  return (
  <OnboardingLayout
  step={3}
- totalSteps={4}
+ totalSteps={6}
  onNext={handleNext}
  onBack={handleBack}
  nextButtonDisabled={selectedFlavors.length === 0}

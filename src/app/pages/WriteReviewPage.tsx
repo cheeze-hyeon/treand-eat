@@ -397,6 +397,7 @@ export default function WriteReviewPage() {
 
   const [receiptVerified, setReceiptVerified] = useState(false);
   const [satisfied, setSatisfied] = useState<boolean | null>(null);
+  const [willRevisit, setWillRevisit] = useState<boolean | null>(null);
   const [waitTime, setWaitTime] = useState<string | null>(null);
   const [visitDay, setVisitDay] = useState<'weekday' | 'weekend' | null>(null);
   const [visitTime, setVisitTime] = useState<string | null>(null);
@@ -504,14 +505,14 @@ export default function WriteReviewPage() {
 
   const handlePickerBack = () => {
     if (fromOnboarding) {
-      navigate('/onboarding3');
+      navigate('/onboarding4');
       return;
     }
     navigate('/home');
   };
 
   const pickerHeader = fromOnboarding ? (
-    <OnboardingStepHeader step={4} totalSteps={4} onBack={handlePickerBack} />
+    <OnboardingStepHeader step={5} totalSteps={6} onBack={handlePickerBack} />
   ) : (
     <WriteReviewPickerHeader
       onBack={handlePickerBack}
@@ -611,8 +612,8 @@ export default function WriteReviewPage() {
 
   const formHeader = fromOnboarding ? (
     <OnboardingStepHeader
-      step={4}
-      totalSteps={4}
+      step={5}
+      totalSteps={6}
       onBack={handleFormBack}
     />
   ) : (
@@ -694,6 +695,26 @@ export default function WriteReviewPage() {
                       className={satisfactionBtnClass(satisfied === false)}
                     >
                       불만족 ☹️
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mb-5 flex items-center justify-between gap-2">
+                  <p className="text-base text-neutral-900">재방문 의사</p>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setWillRevisit(true)}
+                      className={satisfactionBtnClass(willRevisit === true)}
+                    >
+                      있어요
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setWillRevisit(false)}
+                      className={satisfactionBtnClass(willRevisit === false)}
+                    >
+                      없어요
                     </button>
                   </div>
                 </div>

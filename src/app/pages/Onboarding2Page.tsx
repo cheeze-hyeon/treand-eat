@@ -32,7 +32,7 @@ export default function Onboarding2Page() {
  return (
  <OnboardingLayout
  step={2}
- totalSteps={4}
+ totalSteps={6}
  onNext={handleNext}
  onBack={handleBack}
  nextButtonDisabled={selectedTextures.length === 0}
